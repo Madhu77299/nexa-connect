@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Briefcase, Network, Calendar, Cpu, TrendingUp, Sparkles, Code, UserCheck, BarChart } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Briefcase, Network, Calendar, Cpu, TrendingUp, Sparkles, Code, UserCheck, BarChart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThreeBackground from '../components/ThreeBackground';
 import SectionHeading from '../components/SectionHeading';
@@ -10,6 +10,37 @@ import { blogsData } from '../data/companyData';
 export default function Home() {
   const [hoveredService, setHoveredService] = useState(null);
   const [activeStep, setActiveStep] = useState(0);
+
+  const advantageItems = [
+    {
+      number: '01 / CONNECTED',
+      color: '#3167ff',
+      glow: 'rgba(49, 103, 255, 0.2)',
+      title: 'Ecosystem Hub',
+      desc: 'Single coordination layer syncing business strategy, event execution, code builds, and marketing channels.'
+    },
+    {
+      number: '02 / PRACTICAL',
+      color: '#20c9b5',
+      glow: 'rgba(32, 201, 181, 0.2)',
+      title: 'Result Focus',
+      desc: 'Direct deployment metrics, verified supplier networks, and straightforward contract milestones.'
+    },
+    {
+      number: '03 / FLEXIBLE',
+      color: '#ff715b',
+      glow: 'rgba(255, 113, 91, 0.2)',
+      title: 'Scale On-Demand',
+      desc: 'Adjust resource commitments fluidly. Our supply chains respond in real-time to your operations load.'
+    },
+    {
+      number: '04 / HUMAN',
+      color: '#3167ff',
+      glow: 'rgba(49, 103, 255, 0.2)',
+      title: 'Direct Access',
+      desc: 'Real partners. We prioritize reliable support, client consultations, and dedicated SPOC setups.'
+    }
+  ];
 
   const projectsData = [
     { name: "Global Tech Summit 2025", category: "Event Operations" },
@@ -245,46 +276,44 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Card 1: Connected style */}
-            <div className="p-8 border border-neutral-800/80 rounded-2xl bg-[#0e131d]/60 backdrop-blur-xl relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#3167ff]/50 transition-all duration-300">
-              <div className="absolute top-0 left-0 h-[3px] w-0 bg-[#3167ff] group-hover:w-full transition-all duration-500" />
-              <span className="text-xs font-black text-[#3167ff] tracking-wider block mb-4">01 / CONNECTED</span>
-              <h3 className="text-xl font-black text-white mb-3 font-display">Ecosystem Hub</h3>
-              <p className="text-xs text-neutral-300 leading-relaxed">
-                Single coordination layer syncing business strategy, event execution, code builds, and marketing channels.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {advantageItems.map((item, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="p-8 border border-white/10 dark:border-white/10 rounded-2xl bg-white/[0.04] dark:bg-[#101c2f]/40 backdrop-blur-xl relative overflow-hidden group hover:border-white/30 transition-all duration-300 shadow-xl cursor-pointer"
+                style={{
+                  boxShadow: `0 10px 30px -10px ${item.glow}`
+                }}
+              >
+                {/* Accent Line on top */}
+                <div 
+                  className="absolute top-0 left-0 h-[3px] w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+                  style={{ backgroundColor: item.color }}
+                />
+                
+                {/* Subtle radial glass glow */}
+                <div 
+                  className="absolute -right-12 -top-12 w-32 h-32 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
+                  style={{ backgroundColor: item.color }}
+                />
+                
+                <div className="flex justify-between items-center mb-6">
+                  <span className="text-xs font-bold block" style={{ color: item.color }}>
+                    {item.number}
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                </div>
 
-            {/* Card 2: Practical style (Deep Navy Blue Tinted Glass) */}
-            <div className="p-8 border border-[#3167ff]/40 rounded-2xl bg-[#0a274c]/60 backdrop-blur-xl relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#3167ff]/70 transition-all duration-300">
-              <div className="absolute top-0 left-0 h-[3px] w-full bg-[#20c9b5] transition-all duration-500" />
-              <span className="text-xs font-black text-[#20c9b5] tracking-wider block mb-4">02 / PRACTICAL</span>
-              <h3 className="text-xl font-black text-white mb-3 font-display">Result Focus</h3>
-              <p className="text-xs text-neutral-200 leading-relaxed">
-                Direct deployment metrics, verified supplier networks, and straightforward contract milestones.
-              </p>
-            </div>
-
-            {/* Card 3: Flexible style (Crimson Maroon Tinted Glass) */}
-            <div className="p-8 border border-[#ff715b]/40 rounded-2xl bg-[#4c0d0d]/60 backdrop-blur-xl relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#ff715b]/70 transition-all duration-300">
-              <div className="absolute top-0 left-0 h-[3px] w-full bg-[#ff715b] transition-all duration-500" />
-              <span className="text-xs font-black text-[#ff715b] tracking-wider block mb-4">03 / FLEXIBLE</span>
-              <h3 className="text-xl font-black text-white mb-3 font-display">Scale On-Demand</h3>
-              <p className="text-xs text-neutral-200 leading-relaxed">
-                Adjust resource commitments fluidly. Our supply chains respond in real-time to your operations load.
-              </p>
-            </div>
-
-            {/* Card 4: Human style */}
-            <div className="p-8 border border-neutral-800/80 rounded-2xl bg-[#0e131d]/60 backdrop-blur-xl relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#3167ff]/50 transition-all duration-300">
-              <div className="absolute top-0 left-0 h-[3px] w-0 bg-[#3167ff] group-hover:w-full transition-all duration-500" />
-              <span className="text-xs font-black text-[#3167ff] tracking-wider block mb-4">04 / HUMAN</span>
-              <h3 className="text-xl font-black text-white mb-3 font-display">Direct Access</h3>
-              <p className="text-xs text-neutral-300 leading-relaxed">
-                Real partners. We prioritize reliable support, client consultations, and dedicated SPOC setups.
-              </p>
-            </div>
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#20c9b5] transition-colors font-display">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-neutral-300 leading-relaxed font-normal">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
         </div>
