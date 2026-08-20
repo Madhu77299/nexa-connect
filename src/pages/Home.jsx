@@ -1,32 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Briefcase, Network, Calendar, Cpu, TrendingUp } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight, Briefcase, Network, Calendar, Cpu, TrendingUp, Sparkles, Code, UserCheck, BarChart } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ThreeBackground from '../components/ThreeBackground';
 import SectionHeading from '../components/SectionHeading';
 import PageTransition from '../components/PageTransition';
-import { servicesData, blogsData } from '../data/companyData';
-
-// Map icon string to component
-const iconMap = {
-  Briefcase: Briefcase,
-  Network: Network,
-  Calendar: Calendar,
-  Cpu: Cpu,
-  TrendingUp: TrendingUp,
-};
+import { blogsData } from '../data/companyData';
 
 export default function Home() {
   const [hoveredService, setHoveredService] = useState(null);
-
-  // High quality images for services
-  const serviceImages = {
-    "business-development": "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=600&q=80",
-    "vendor-network": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
-    "event-operations": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80",
-    "technical": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80",
-    "digital-marketing": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
-  };
+  const [activeStep, setActiveStep] = useState(0);
 
   const projectsData = [
     { name: "Global Tech Summit 2025", category: "Event Operations" },
@@ -37,79 +20,94 @@ export default function Home() {
     { name: "Agile Logistics Sourcing", category: "Vendor Network" }
   ];
 
+  const servicesList = [
+    { id: "bd", num: "01", title: "Business Development", desc: "Forging strategic partnerships and high-value alliances for long-term growth.", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" },
+    { id: "vendor", num: "02", title: "Vendor Network Support", desc: "Connecting procurement hubs with verified on-ground operational suppliers.", image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" },
+    { id: "event", num: "03", title: "Event Operations", desc: "End-to-end logistics coordination and sound production setup under live pressure.", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" },
+    { id: "tech", num: "04", title: "Technical Services", desc: "Deploying high-performance cloud apps and workflow automation frameworks.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" },
+    { id: "marketing", num: "05", title: "Digital Marketing", desc: "Constructing targeted marketing campaigns with high-impact brand identities.", image: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=600&q=80" },
+  ];
+
+  const statementWords = [
+    { label: "PEOPLE", desc: "Vetted talent pipelines mapped dynamically to meet your project standards.", icon: UserCheck },
+    { label: "BUSINESS", desc: "Strategic development routes designed to yield high-volume lead acquisitions.", icon: BarChart },
+    { label: "TECHNOLOGY", desc: "Responsive cloud application architectures constructed to scale smoothly.", icon: Code },
+    { label: "OPPORTUNITY", desc: "Connected networks matching growing resources with operational gaps.", icon: Sparkles }
+  ];
+
   return (
     <PageTransition>
       {/* 1. Redesigned Premium Split Hero Section */}
-      <section className="relative min-h-[92vh] flex items-center bg-[#faf9f6] dark:bg-[#0a0f1d] overflow-hidden border-b border-neutral-200/50 dark:border-neutral-900/60">
-        <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="relative min-h-[95vh] flex items-center bg-[#f5f7fb] dark:bg-[#08111f] overflow-hidden border-b border-neutral-200/50 dark:border-neutral-900/60 transition-colors duration-300">
+        
+        {/* Subtle background glow elements */}
+        <div className="absolute top-1/4 left-1/3 -z-10 h-96 w-96 rounded-full bg-[#3167ff]/10 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-[#20c9b5]/5 blur-3xl pointer-events-none" />
+
+        <div className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8 z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
-          {/* Left Side: Headline & Copy */}
-          <div className="lg:col-span-7 space-y-6">
-            <span className="text-[10px] font-bold tracking-widest text-[#1d4ed8] dark:text-[#f97316] uppercase">
+          {/* Left Side: Headline & Copy (45%) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3167ff]/20 bg-[#3167ff]/5 px-3 py-1 text-xs font-bold text-[#3167ff] dark:text-[#20c9b5]">
+              <span className="flex h-2 w-2 rounded-full bg-[#3167ff] dark:bg-[#20c9b5] animate-pulse" />
               PMK NEXA SOLUTIONS
-            </span>
+            </div>
             
-            <h1 className="text-5xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-7xl leading-none">
+            <h1 className="text-5xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-6xl leading-none">
+              Connecting<br />
               Business.<br />
-              People.<br />
-              <span className="text-[#1d4ed8] dark:text-[#f97316]">Possibilities.</span>
+              Creating<br />
+              <span className="text-[#3167ff] dark:text-[#20c9b5]">Growth.</span>
             </h1>
 
-            <p className="text-base text-neutral-600 dark:text-neutral-300 max-w-xl leading-relaxed">
-              Connecting business development, vendor networks, events, technology, and digital growth through one robust ecosystem. We coordinate execution so your team can focus on scale.
+            <p className="text-base text-neutral-600 dark:text-neutral-400 max-w-md leading-relaxed">
+              Business development, vendor networks, events, technology and digital growth — connected through one growing ecosystem.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-2">
               <Link
                 to="/services"
-                className="flex items-center gap-2 rounded-sm bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 px-6 py-3.5 text-xs font-bold uppercase tracking-wider shadow-md hover:bg-[#1d4ed8] dark:hover:bg-[#f97316] dark:hover:text-white transition-all duration-300"
+                className="flex items-center gap-2 rounded-full bg-[#3167ff] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider shadow-md hover:bg-[#ff715b] hover:shadow-lg transition-all duration-300"
               >
                 Explore Services
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/careers"
-                className="flex items-center gap-2 rounded-sm border border-neutral-300 dark:border-neutral-850 bg-transparent px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-all duration-300"
+                className="flex items-center gap-2 rounded-full border border-neutral-300 dark:border-neutral-800 bg-transparent px-6 py-3 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900/60 transition-all duration-300"
               >
                 Join Our Team
               </Link>
             </div>
           </div>
 
-          {/* Right Side: Premium Offset Layered Photograph */}
-          <div className="lg:col-span-5 relative w-full flex items-center justify-center min-h-[350px] lg:min-h-[450px]">
+          {/* Right Side: High-Quality Corporate Team Image (55%) */}
+          <div className="lg:col-span-7 relative w-full flex items-center justify-center min-h-[350px] lg:min-h-[450px]">
             {/* Background offset decorative frame */}
-            <div className="absolute top-4 left-4 right-0 bottom-0 border border-neutral-300 dark:border-neutral-800 rounded-sm pointer-events-none z-0" />
+            <div className="absolute top-4 left-4 right-0 bottom-0 border border-[#3167ff]/20 dark:border-neutral-800 rounded-2xl pointer-events-none z-0" />
             
             {/* Main Image Container */}
-            <div className="relative w-11/12 h-[320px] lg:h-[400px] overflow-hidden rounded-sm border border-neutral-200 dark:border-neutral-900 bg-neutral-100 z-10">
+            <div className="relative w-11/12 h-[340px] lg:h-[420px] overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-900 bg-white dark:bg-[#101c2f] shadow-lg z-10" data-cursor="explore">
               <img 
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
                 alt="PMK Nexa Solutions Collaboration"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
-            </div>
-
-            {/* Float Overlay Indicator */}
-            <div className="absolute -bottom-2 -left-2 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 p-4 rounded-sm shadow-md z-20">
-              <span className="text-[8px] font-bold uppercase tracking-widest block opacity-70">PMK NEXA</span>
-              <span className="text-xs font-bold font-display">CONNECTED GROWING GRID</span>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* 2. Hero Bottom Strip: Infinite Scrolling Projects Marquee */}
-      <section className="bg-neutral-900 dark:bg-neutral-950 py-6 text-white border-y border-neutral-800 overflow-hidden relative">
+      {/* 2. Hero Bottom Strip: Infinite Projects Marquee */}
+      <section className="bg-neutral-900 dark:bg-neutral-950 py-5 text-white border-y border-neutral-800 overflow-hidden relative">
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-neutral-900 to-transparent dark:from-neutral-950 z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-neutral-900 to-transparent dark:from-neutral-950 z-10 pointer-events-none" />
         
         <div className="animate-marquee flex items-center gap-12 select-none">
-          {/* Double list loop to scroll seamlessly */}
           {[...projectsData, ...projectsData].map((proj, index) => (
             <div key={index} className="flex items-center gap-4 shrink-0 px-4">
-              <span className="text-[9px] font-black tracking-widest text-[#f97316] bg-neutral-800 px-2 py-0.5 rounded-sm uppercase">
+              <span className="text-[8px] font-black tracking-widest text-[#20c9b5] bg-neutral-850 px-2 py-0.5 rounded-sm uppercase">
                 {proj.category}
               </span>
               <span className="text-xs font-bold uppercase tracking-widest text-neutral-300 hover:text-white transition-colors cursor-default">
@@ -121,109 +119,219 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Introduction Section (Two-Column Editorial) */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 bg-[#faf9f6] dark:bg-[#0a0f1d] transition-colors duration-300">
+      {/* 3. Introduction Section (Two-Column Startup Style) */}
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-[10px] font-bold tracking-widest text-[#1d4ed8] dark:text-[#f97316] uppercase block">
-              WHO WE ARE
+            <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase block">
+              01 / ABOUT PMK NEXA
             </span>
-            <h2 className="text-4xl font-extrabold text-neutral-900 dark:text-white leading-tight">
-              Driving operational connection and network execution.
+            <h2 className="text-4xl font-black text-neutral-900 dark:text-white sm:text-5xl leading-tight font-display">
+              One ecosystem.<br />Multiple possibilities.
             </h2>
-            
-            {/* Custom offset image crop */}
-            <div className="mt-8 relative pt-[60%] w-full overflow-hidden rounded-sm border border-neutral-200 dark:border-neutral-900">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
-                alt="PMK Nexa Team"
-                className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
-            </div>
           </div>
 
-          <div className="lg:col-span-7 space-y-8 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed pt-6 lg:pt-14">
-            <p className="font-medium text-neutral-900 dark:text-white text-xl">
-              PMK Nexa Solutions Pvt. Ltd. operates at the intersection of business architecture, vendor networks, logistics, and digital builds.
+          <div className="lg:col-span-7 space-y-6 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed pt-2">
+            <p className="font-semibold text-neutral-800 dark:text-white text-xl">
+              We streamline operations across business, creative, and technical channels.
             </p>
-            <p>
-              We solve the administrative and logistical overhead of modern expansion. Rather than restricting projects to internal capacity, we coordinate a verified network of strategic vendors, technical pipelines, and creative assets to build seamless growth.
-            </p>
-            <p>
-              From custom software deployments to corporate event management and digital brand design, we bridge the gap between quality providers and demanding operations.
+            <p className="text-base">
+              PMK Nexa Solutions Pvt. Ltd. acts as the central orchestrator for corporate growth. By integrating strategic business consulting, high-capacity vendor networks, physical event operations, custom software engineering, and search campaigns under one umbrella, we eliminate operational overhead for growing enterprises.
             </p>
           </div>
 
         </div>
       </section>
 
-      {/* 4. Services Section (Signature List-Hover Interaction) */}
-      <section className="bg-neutral-50 dark:bg-neutral-900/30 py-24 transition-colors duration-300 border-y border-neutral-200/50 dark:border-neutral-900/60">
+      {/* 4. Sequential Scroll Milestones Statement Section */}
+      <section className="bg-neutral-900 dark:bg-neutral-950 py-24 text-white border-y border-neutral-800 transition-colors duration-300">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
-            label="SERVICES" 
-            title="What We Do" 
-            subtitle="Explore our interactive corporate capabilities." 
-          />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {statementWords.map((word, index) => {
+              const WordIcon = word.icon;
+              return (
+                <div 
+                  key={word.label}
+                  className="p-6 border border-neutral-800 rounded-xl bg-[#101c2f]/40 hover:border-[#3167ff]/40 transition-all duration-300 space-y-4"
+                >
+                  <div className="h-10 w-10 rounded-lg bg-[#3167ff]/10 text-[#3167ff] flex items-center justify-center">
+                    <WordIcon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-xl font-black tracking-widest text-[#20c9b5] font-display">
+                    {word.label}
+                  </h3>
+                  <p className="text-xs text-neutral-450 leading-relaxed">
+                    {word.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-16 items-center">
+      {/* 5. Services Section (Left-Right List Interaction) */}
+      <section className="bg-[#f5f7fb] dark:bg-[#08111f] py-24 transition-colors duration-300">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             
-            {/* Left Side: Large Interactive List */}
-            <div className="lg:col-span-7 space-y-4">
-              {servicesData.map((svc, idx) => (
+            {/* Left Column Label & Heading */}
+            <div className="lg:col-span-4 space-y-4 lg:sticky lg:top-24">
+              <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase block">// SERVICES</span>
+              <h2 className="text-4xl font-black text-neutral-900 dark:text-white leading-tight font-display">
+                What we<br />bring together.
+              </h2>
+              <p className="text-sm text-neutral-500 max-w-xs">
+                Hover over the capabilities list to preview segment operations and details.
+              </p>
+            </div>
+
+            {/* Right Column Interactive List */}
+            <div className="lg:col-span-8 space-y-4">
+              {servicesList.map((svc) => (
                 <div
                   key={svc.id}
                   onMouseEnter={() => setHoveredService(svc.id)}
                   onMouseLeave={() => setHoveredService(null)}
-                  className="border-b border-neutral-200 dark:border-neutral-800 py-6 transition-all duration-300 group"
+                  className="group relative p-6 bg-white dark:bg-[#101c2f] border border-neutral-200/60 dark:border-neutral-800 rounded-2xl transition-all duration-350"
                   data-cursor="view"
                 >
-                  <Link to={`/services#${svc.id}`} className="flex justify-between items-center w-full text-left">
+                  <Link to="/services" className="flex justify-between items-center">
                     <div className="space-y-2">
-                      <span className="text-xs font-bold text-neutral-400 dark:text-neutral-600 block">
-                        0{idx + 1}
+                      <span className="text-xs font-black text-[#3167ff] dark:text-[#20c9b5] block">
+                        {svc.num}
                       </span>
-                      <h3 className="text-2xl font-black text-neutral-800 dark:text-neutral-200 group-hover:text-[#1d4ed8] dark:group-hover:text-[#f97316] transition-colors duration-200">
+                      <h3 className="text-xl font-bold text-neutral-800 dark:text-white group-hover:text-[#3167ff] dark:group-hover:text-[#20c9b5] transition-colors">
                         {svc.title}
                       </h3>
-                      {hoveredService === svc.id && (
-                        <motion.p 
-                          initial={{ opacity: 0, y: 5 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="text-sm text-neutral-500 dark:text-neutral-400 max-w-md pt-2"
-                        >
-                          {svc.shortDescription}
-                        </motion.p>
-                      )}
+                      <p className="text-xs text-neutral-500 dark:text-neutral-450 leading-relaxed max-w-xl">
+                        {svc.desc}
+                      </p>
                     </div>
-                    <ArrowRight className="h-5 w-5 text-neutral-400 group-hover:translate-x-2 group-hover:text-neutral-900 dark:group-hover:text-white transition-all" />
+                    <ArrowRight className="h-5 w-5 text-neutral-450 group-hover:translate-x-2 group-hover:text-[#3167ff] transition-all" />
                   </Link>
+
+                  {/* Absolute image overlay when hovered */}
+                  <AnimatePresence>
+                    {hoveredService === svc.id && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 0.15, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="absolute inset-0 bg-cover bg-center rounded-2xl pointer-events-none z-0"
+                        style={{ backgroundImage: `url(${svc.image})` }}
+                      />
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </div>
 
-            {/* Right Side: Interactive Image Preview Pane */}
-            <div className="lg:col-span-5 hidden lg:block">
-              <div className="relative pt-[110%] w-full rounded-sm overflow-hidden bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 shadow-lg">
-                {servicesData.map((svc) => (
-                  <motion.img
-                    key={svc.id}
-                    src={serviceImages[svc.id] || "https://images.unsplash.com/photo-1542744094-3a31f103e35f"}
-                    alt={svc.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: hoveredService === svc.id ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                ))}
-                {!hoveredService && (
-                  <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
-                    alt="PMK Nexa Corporate Building"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                )}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 6. Why PMK Nexa (Premium Dark Section) */}
+      <section className="bg-[#08111f] text-white py-24 border-t border-neutral-900 transition-colors duration-300">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          <div className="max-w-xl space-y-4">
+            <span className="text-[10px] font-bold text-[#20c9b5] tracking-widest uppercase block">// THE ADVANTAGE</span>
+            <h2 className="text-4xl font-black leading-none font-display">
+              Built around how business moves.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="p-8 border border-neutral-800/80 rounded-2xl bg-[#101c2f] relative overflow-hidden group">
+              <div className="absolute top-0 left-0 h-[3px] w-0 bg-[#3167ff] group-hover:w-full transition-all duration-500" />
+              <span className="text-xs font-bold text-[#3167ff] block mb-6">01 / CONNECTED</span>
+              <h3 className="text-lg font-bold text-white mb-2">Ecosystem Hub</h3>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                Single coordination layer syncing business strategy, event execution, code builds, and marketing channels.
+              </p>
+            </div>
+
+            <div className="p-8 border border-neutral-800/80 rounded-2xl bg-[#101c2f] relative overflow-hidden group">
+              <div className="absolute top-0 left-0 h-[3px] w-0 bg-[#20c9b5] group-hover:w-full transition-all duration-500" />
+              <span className="text-xs font-bold text-[#20c9b5] block mb-6">02 / PRACTICAL</span>
+              <h3 className="text-lg font-bold text-white mb-2">Result Focus</h3>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                Direct deployment metrics, verified supplier networks, and straightforward contract milestones.
+              </p>
+            </div>
+
+            <div className="p-8 border border-neutral-800/80 rounded-2xl bg-[#101c2f] relative overflow-hidden group">
+              <div className="absolute top-0 left-0 h-[3px] w-0 bg-[#ff715b] group-hover:w-full transition-all duration-500" />
+              <span className="text-xs font-bold text-[#ff715b] block mb-6">03 / FLEXIBLE</span>
+              <h3 className="text-lg font-bold text-white mb-2">Scale On-Demand</h3>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                Adjust resource commitments fluidly. Our supply chains respond in real-time to your operations load.
+              </p>
+            </div>
+
+            <div className="p-8 border border-neutral-800/80 rounded-2xl bg-[#101c2f] relative overflow-hidden group">
+              <div className="absolute top-0 left-0 h-[3px] w-0 bg-[#3167ff] group-hover:w-full transition-all duration-500" />
+              <span className="text-xs font-bold text-[#3167ff] block mb-6">04 / HUMAN</span>
+              <h3 className="text-lg font-bold text-white mb-2">Direct Access</h3>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                Real partners. We prioritize reliable support, client consultations, and dedicated SPOC setups.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 7. Unique Ecosystem Connections Infographic Section */}
+      <section className="bg-[#f5f7fb] dark:bg-[#08111f] py-24 border-t border-neutral-200/50 dark:border-neutral-900/60 transition-colors duration-300">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading 
+            label="NEXA CONNECTION MAP" 
+            title="Ecosystem Node Flow" 
+            subtitle="Visualizing the operations syncing under the PMK Nexa grid." 
+          />
+
+          <div className="mt-16 relative flex items-center justify-center p-8 border border-neutral-200 dark:border-neutral-900 bg-white dark:bg-[#101c2f] rounded-2xl min-h-[400px]">
+            {/* Dynamic node network rendering (6-8 structured nodes) */}
+            <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center pointer-events-none opacity-40">
+              <svg className="w-full h-full stroke-neutral-200 dark:stroke-neutral-800" strokeWidth="2">
+                {/* Node connector lines */}
+                <line x1="50%" y1="50%" x2="20%" y2="25%" className="animate-flow-line stroke-[#3167ff]" />
+                <line x1="50%" y1="50%" x2="80%" y2="25%" className="animate-flow-line stroke-[#20c9b5]" />
+                <line x1="50%" y1="50%" x2="85%" y2="75%" className="animate-flow-line stroke-[#ff715b]" />
+                <line x1="50%" y1="50%" x2="15%" y2="75%" className="animate-flow-line stroke-[#3167ff]" />
+                <line x1="50%" y1="50%" x2="50%" y2="15%" className="animate-flow-line stroke-[#20c9b5]" />
+                <line x1="50%" y1="50%" x2="50%" y2="85%" className="animate-flow-line stroke-[#ff715b]" />
+              </svg>
+            </div>
+
+            {/* Nodes positioning */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-16 relative z-10 w-full max-w-3xl items-center text-center">
+              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl">
+                <span className="text-xs font-bold">VENDORS</span>
+              </div>
+              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-3">
+                <span className="text-xs font-bold">BUSINESS</span>
+              </div>
+              {/* Central hub */}
+              <div className="p-6 bg-[#3167ff] text-white rounded-full font-black text-sm max-w-[100px] mx-auto md:col-start-2 md:row-start-2 flex items-center justify-center border-4 border-white dark:border-[#101c2f] shadow-lg">
+                NEXA
+              </div>
+              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-1 md:row-start-3">
+                <span className="text-xs font-bold">EVENTS</span>
+              </div>
+              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-3 md:row-start-3">
+                <span className="text-xs font-bold">CREATORS</span>
+              </div>
+              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-2 md:row-start-1">
+                <span className="text-xs font-bold">TECHNOLOGY</span>
+              </div>
+              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-2 md:row-start-3">
+                <span className="text-xs font-bold">TALENT</span>
               </div>
             </div>
 
@@ -231,147 +339,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Why PMK Nexa (Principles Grid) */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 bg-[#faf9f6] dark:bg-[#0a0f1d] transition-colors duration-300">
-        <SectionHeading 
-          label="THE ADVANTAGE" 
-          title="Designed for execution." 
-          subtitle="Why clients choose the Nexa network framework." 
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
-          
-          <div className="p-8 border border-neutral-200 dark:border-neutral-900 rounded-sm bg-white dark:bg-neutral-950/40">
-            <span className="text-[10px] font-bold text-[#1d4ed8] dark:text-[#f97316] uppercase tracking-widest block mb-4">// CONNECTED</span>
-            <h3 className="text-lg font-bold text-neutral-950 dark:text-white mb-2">Integrated Ecosystem</h3>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              Every node of marketing, event logistics, and technical infrastructure is integrated under one coordination grid.
-            </p>
-          </div>
-
-          <div className="p-8 border border-neutral-200 dark:border-neutral-900 rounded-sm bg-white dark:bg-neutral-950/40">
-            <span className="text-[10px] font-bold text-[#1d4ed8] dark:text-[#f97316] uppercase tracking-widest block mb-4">// PRACTICAL</span>
-            <h3 className="text-lg font-bold text-neutral-950 dark:text-white mb-2">Outcome Oriented</h3>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              We skip vague strategy slideshows and focus directly on physical setups, running deployments, and verified SLAs.
-            </p>
-          </div>
-
-          <div className="p-8 border border-neutral-200 dark:border-neutral-900 rounded-sm bg-white dark:bg-neutral-950/40">
-            <span className="text-[10px] font-bold text-[#1d4ed8] dark:text-[#f97316] uppercase tracking-widest block mb-4">// FLEXIBLE</span>
-            <h3 className="text-lg font-bold text-neutral-950 dark:text-white mb-2">Dynamic Capacity</h3>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              Scale operations up or down instantly. Our vendor channels respond fluidly to changing business needs.
-            </p>
-          </div>
-
-          <div className="p-8 border border-neutral-200 dark:border-neutral-900 rounded-sm bg-white dark:bg-neutral-950/40">
-            <span className="text-[10px] font-bold text-[#1d4ed8] dark:text-[#f97316] uppercase tracking-widest block mb-4">// HUMAN</span>
-            <h3 className="text-lg font-bold text-neutral-950 dark:text-white mb-2">Trust Architecture</h3>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              Despite the deep technical systems we deploy, client support and direct communication remain our central pillar.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 6. Visual Break Section (Full-Width Banner) */}
-      <section className="relative h-[400px] w-full overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-neutral-950/50 dark:bg-neutral-950/70 z-10" />
-        <img 
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=80" 
-          alt="Visual break background"
-          className="absolute inset-0 w-full h-full object-cover z-0 grayscale"
-        />
-        <div className="z-20 text-center space-y-4 px-4 max-w-4xl">
-          <h2 className="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight leading-none font-display">
-            ONE NETWORK.<br />MANY POSSIBILITIES.
-          </h2>
-          <p className="text-xs sm:text-sm tracking-widest text-[#f97316] font-bold uppercase">
-            // PMK NEXA SOLUTIONS PVT. LTD.
-          </p>
-        </div>
-      </section>
-
-      {/* 7. Careers Teaser Section */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 bg-[#faf9f6] dark:bg-[#0a0f1d] transition-colors duration-300">
+      {/* 8. Careers Section */}
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-5 space-y-6">
-            <span className="text-[10px] font-bold tracking-widest text-[#1d4ed8] dark:text-[#f97316] uppercase block">
-              TALENT NETWORK
+            <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase block">
+              02 / CAREERS
             </span>
-            <h2 className="text-4xl font-extrabold text-neutral-900 dark:text-white leading-tight">
-              Your next opportunity could start here.
+            <h2 className="text-4xl font-black text-neutral-900 dark:text-white sm:text-5xl leading-tight font-display">
+              Build what's<br />next with us.
             </h2>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              We look for creators, engineers, event coordinators, and builders. Join our distributed ecosystem of operational stars.
+            <p className="text-sm text-neutral-500 dark:text-neutral-450 leading-relaxed">
+              We're looking for stars across creative, business, operational, and technical domains. Join the Nexa Network.
             </p>
             <div className="pt-2">
               <Link 
                 to="/careers" 
-                className="inline-flex items-center gap-2 rounded-sm bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 px-5 py-3 text-xs font-bold uppercase tracking-wider shadow-md hover:bg-[#1d4ed8] dark:hover:bg-[#f97316] dark:hover:text-white transition-all"
+                className="inline-flex items-center gap-2 rounded-full bg-[#3167ff] text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider shadow-md hover:bg-[#ff715b] transition-all"
               >
-                Explore Careers
+                Explore Opportunities
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-7 space-y-4">
-            {/* Simple jobs list preview */}
-            <div className="border border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950/40 p-6 rounded-sm flex justify-between items-center" data-cursor="open">
-              <div>
-                <span className="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider block">TECHNICAL DOMAIN</span>
-                <h4 className="text-base font-bold text-neutral-900 dark:text-white">Technical Lead / Developer</h4>
-              </div>
-              <Link to="/careers" className="text-xs font-bold text-[#1d4ed8] dark:text-[#f97316] hover:underline">
-                View →
-              </Link>
-            </div>
-            
-            <div className="border border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950/40 p-6 rounded-sm flex justify-between items-center" data-cursor="open">
-              <div>
-                <span className="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider block">CREATIVE DOMAIN</span>
-                <h4 className="text-base font-bold text-neutral-900 dark:text-white">Senior Graphic Designer</h4>
-              </div>
-              <Link to="/careers" className="text-xs font-bold text-[#1d4ed8] dark:text-[#f97316] hover:underline">
-                View →
-              </Link>
-            </div>
+          <div className="lg:col-span-7 h-[300px] lg:h-[400px] overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-900 relative">
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
+              alt="Creative team collaboration" 
+              className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            />
           </div>
 
         </div>
       </section>
 
-      {/* 8. Featured Blogs Section */}
-      <section className="bg-neutral-50 dark:bg-neutral-900/30 py-24 border-t border-neutral-200/50 dark:border-neutral-900/60 transition-colors duration-300">
+      {/* 9. Blogs Insights Section */}
+      <section className="bg-white dark:bg-[#101c2f] py-24 border-t border-neutral-200/50 dark:border-neutral-900/60 transition-colors duration-300">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <SectionHeading 
               label="INSIGHTS" 
-              title="The Nexa Blog" 
-              subtitle="Business insights, creative trends, and event ops advice." 
+              title="From the Nexa Journal." 
+              subtitle="Business insights, technical systems, and logistics." 
             />
-            <Link to="/blogs" className="text-xs font-bold text-[#1d4ed8] dark:text-[#f97316] hover:underline uppercase tracking-wider whitespace-nowrap mb-6 lg:mb-0">
+            <Link to="/blogs" className="text-xs font-bold text-[#3167ff] dark:text-[#20c9b5] hover:underline uppercase tracking-wider whitespace-nowrap mb-6 lg:mb-0">
               View All Entries →
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {blogsData.slice(0, 3).map((post) => (
               <article 
                 key={post.id}
-                className="bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-900 p-6 rounded-sm flex flex-col justify-between"
+                className="bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200/60 dark:border-neutral-800/80 p-6 rounded-2xl flex flex-col justify-between"
                 data-cursor="explore"
               >
-                <div>
-                  <span className="text-[10px] font-bold text-[#1d4ed8] dark:text-[#f97316] uppercase tracking-widest block mb-3">
+                <div className="space-y-4">
+                  <span className="text-[10px] font-bold text-[#3167ff] dark:text-[#20c9b5] uppercase tracking-widest block">
                     {post.category}
                   </span>
                   <Link to={`/blogs/${post.id}`}>
-                    <h4 className="text-lg font-bold text-neutral-900 dark:text-white hover:text-[#1d4ed8] dark:hover:text-[#f97316] transition-colors leading-tight mb-2">
+                    <h4 className="text-lg font-bold text-neutral-900 dark:text-white hover:text-[#3167ff] dark:hover:text-[#20c9b5] transition-colors leading-tight line-clamp-2">
                       {post.title}
                     </h4>
                   </Link>
@@ -379,11 +409,11 @@ export default function Home() {
                     {post.summary}
                   </p>
                 </div>
-                <div className="pt-6 border-t border-neutral-100 dark:border-neutral-900 mt-6 flex justify-between items-center">
-                  <span className="text-[10px] text-neutral-400">
+                <div className="pt-6 border-t border-neutral-200/40 dark:border-neutral-800 mt-6 flex justify-between items-center">
+                  <span className="text-[10px] text-neutral-450">
                     {post.date} · {post.readTime}
                   </span>
-                  <Link to={`/blogs/${post.id}`} className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1 hover:text-[#1d4ed8]">
+                  <Link to={`/blogs/${post.id}`} className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1 hover:text-[#3167ff] dark:hover:text-[#20c9b5]">
                     Read <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
@@ -393,22 +423,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Elegant Let's Talk CTA */}
+      {/* 10. Let's Build Contact CTA */}
       <section className="bg-neutral-900 dark:bg-neutral-950 py-24 text-white text-center border-t border-neutral-800">
         <div className="mx-auto max-w-4xl px-4 space-y-6">
-          <span className="text-[10px] font-bold tracking-widest text-[#f97316] uppercase block">START A CONVERSATION</span>
+          <span className="text-[10px] font-bold tracking-widest text-[#20c9b5] uppercase block">GET STARTED</span>
           <h2 className="text-5xl font-black font-display uppercase tracking-tight leading-none">
-            LET'S TALK.
+            Let's build<br />something meaningful.
           </h2>
-          <p className="text-base text-neutral-400 max-w-xl mx-auto leading-relaxed">
-            Have an event, business partnership, development project, or creative marketing campaign in mind? Contact our team today.
+          <p className="text-sm text-neutral-400 max-w-xl mx-auto leading-relaxed">
+            Have an idea, business partnership, development project, or creative marketing campaign? Contact our team.
           </p>
           <div className="pt-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-sm bg-white text-neutral-900 px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#f97316] hover:text-white transition-colors duration-300"
+              className="inline-flex items-center gap-2 rounded-full bg-[#3167ff] text-white px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#ff715b] transition-colors duration-300"
             >
-              Contact Us
+              Get in Touch
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
