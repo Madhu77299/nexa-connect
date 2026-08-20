@@ -34,7 +34,11 @@ export default function Navbar() {
 
   return (
     <div className="w-full flex justify-center sticky top-0 z-50 px-4 pt-4 pb-2 pointer-events-none">
-      <header className="w-full max-w-6xl rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-xl shadow-lg dark:shadow-2xl py-3 px-6 md:px-8 pointer-events-auto transition-all duration-300">
+      <header className={`w-full max-w-6xl rounded-2xl border transition-all duration-300 backdrop-blur-md pointer-events-auto py-3 px-6 md:px-8 ${
+        isScrolled
+          ? 'bg-white/60 dark:bg-[#090d16]/70 border-neutral-200/80 dark:border-neutral-800/80 shadow-md backdrop-blur-xl'
+          : 'bg-white/30 dark:bg-[#090d16]/40 border-neutral-200/40 dark:border-neutral-800/40 shadow-sm'
+      }`}>
         <div className="mx-auto flex items-center justify-between">
           
           {/* Logo / Brand Lockup */}
