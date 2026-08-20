@@ -33,7 +33,11 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="w-full flex justify-center sticky top-0 z-50 px-4 pt-4 pointer-events-none">
+    <div className={`w-full flex justify-center sticky top-0 z-50 px-4 pt-4 pb-4 pointer-events-none transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-gradient-to-b from-[#f5f7fb] via-[#f5f7fb]/95 to-transparent dark:from-[#08111f] dark:via-[#08111f]/95' 
+        : ''
+    }`}>
       <header className={`w-full max-w-7xl rounded-full border transition-all duration-300 backdrop-blur-md pointer-events-auto ${
         isScrolled 
           ? 'bg-[#08111f]/90 dark:bg-[#101c2f]/90 border-[#3167ff]/20 shadow-md py-2.5 px-6' 
