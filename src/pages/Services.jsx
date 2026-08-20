@@ -181,7 +181,7 @@ export default function Services() {
                 {activeService.title}
               </h2>
               <p className="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                {activeService.details.overview}
+                {activeService.description}
               </p>
             </div>
 
@@ -189,7 +189,7 @@ export default function Services() {
             <div className="space-y-4">
               <h4 className="text-xs font-bold text-neutral-400 uppercase tracking-widest">Key Deliverables</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {activeService.details.features.map((feature, index) => (
+                {activeService.capabilities.map((feature, index) => (
                   <div key={index} className="flex gap-2 items-start text-sm text-neutral-600 dark:text-neutral-350">
                     <CheckCircle className="h-4.5 w-4.5 text-[#20c9b5] shrink-0 mt-0.5" />
                     <span>{feature}</span>
