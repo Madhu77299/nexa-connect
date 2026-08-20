@@ -33,32 +33,15 @@ export default function Navbar() {
   ];
 
   return (
-    <div className={`w-full flex justify-center sticky top-0 z-50 px-4 pt-4 pb-4 pointer-events-none transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-gradient-to-b from-[#f5f7fb] via-[#f5f7fb]/95 to-transparent dark:from-[#08111f] dark:via-[#08111f]/95' 
-        : ''
-    }`}>
-      <header className={`w-full max-w-7xl rounded-full border transition-all duration-300 backdrop-blur-md pointer-events-auto ${
-        isScrolled 
-          ? 'bg-white/95 dark:bg-[#101c2f]/95 border-neutral-200/80 dark:border-[#3167ff]/20 shadow-md py-2.5 px-6' 
-          : 'bg-transparent py-4 px-6'
-      }`}>
+    <div className="w-full flex justify-center sticky top-0 z-50 px-4 pt-4 pb-2 pointer-events-none">
+      <header className="w-full max-w-6xl rounded-2xl border border-neutral-800/80 bg-[#090d16]/90 backdrop-blur-xl shadow-2xl py-3 px-6 md:px-8 pointer-events-auto transition-all duration-300">
         <div className="mx-auto flex items-center justify-between">
           
           {/* Logo / Brand Lockup */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            {/* N-FLOW brand icon */}
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-display font-black text-lg shadow-sm group-hover:bg-[#3167ff] dark:group-hover:bg-[#20c9b5] dark:group-hover:text-neutral-950 transition-colors duration-300">
-              N
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-black tracking-tight text-neutral-900 dark:text-white leading-none font-display">
-                PMK NEXA
-              </span>
-              <span className="text-[8px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mt-0.5">
-                SOLUTIONS
-              </span>
-            </div>
+            <span className="text-base font-black tracking-tight text-white font-display">
+              PMK NEXA
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,20 +52,13 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`relative py-1 text-xs font-bold uppercase tracking-widest transition-colors hover:text-[#3167ff] dark:hover:text-[#20c9b5] ${
+                  className={`text-sm font-medium transition-colors hover:text-white ${
                     isActive 
-                      ? 'text-neutral-900 dark:text-white' 
-                      : 'text-neutral-500 dark:text-neutral-400'
+                      ? 'text-white font-semibold' 
+                      : 'text-neutral-400'
                   }`}
                 >
                   {link.name}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute left-0 bottom-0 h-[3px] w-full bg-[#3167ff] dark:bg-[#20c9b5] rounded-full"
-                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                    />
-                  )}
                 </Link>
               );
             })}
@@ -93,7 +69,7 @@ export default function Navbar() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="rounded-full p-2 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/40 transition-colors"
+              className="rounded-full p-2 text-neutral-400 hover:text-white hover:bg-neutral-800/60 transition-colors"
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -102,10 +78,9 @@ export default function Navbar() {
             {/* Contact CTA */}
             <Link
               to="/contact"
-              className="flex items-center gap-1.5 rounded-full bg-[#3167ff] text-white px-5 py-2 text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-[#ff715b] transition-all duration-300"
+              className="rounded-full bg-[#dfff00] hover:bg-[#eaff33] text-neutral-950 px-6 py-2 text-sm font-bold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
               Get in Touch
-              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
@@ -113,7 +88,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="rounded-full p-2 text-neutral-600 dark:text-neutral-400"
+              className="rounded-full p-2 text-neutral-400"
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
@@ -121,7 +96,7 @@ export default function Navbar() {
             
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="rounded-full p-2 text-neutral-600 dark:text-neutral-400"
+              className="rounded-full p-2 text-neutral-400"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -138,7 +113,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className="md:hidden border-t border-neutral-200/50 dark:border-neutral-800/50 mt-4 overflow-hidden"
+              className="md:hidden border-t border-neutral-800/80 mt-3 overflow-hidden"
             >
               <div className="space-y-1 pb-4 pt-3">
                 {navLinks.map((link, idx) => {
@@ -148,22 +123,22 @@ export default function Navbar() {
                       key={link.name}
                       to={link.path}
                       onClick={() => setIsOpen(false)}
-                      className={`block rounded-md px-3 py-2 text-sm font-bold uppercase tracking-wider transition-colors ${
+                      className={`block rounded-md px-3 py-2 text-sm font-bold transition-colors ${
                         isActive 
-                          ? 'bg-neutral-100 text-neutral-950 dark:bg-neutral-900 dark:text-white' 
-                          : 'text-neutral-500 hover:bg-neutral-50 dark:text-neutral-400 dark:hover:bg-neutral-900/50'
+                          ? 'bg-neutral-800 text-white' 
+                          : 'text-neutral-400 hover:bg-neutral-900 hover:text-white'
                       }`}
                     >
-                      <span className="text-[10px] font-normal text-neutral-400 dark:text-neutral-500 mr-2">0{idx + 1}</span>
+                      <span className="text-[10px] font-normal text-neutral-500 mr-2">0{idx + 1}</span>
                       {link.name}
                     </Link>
                   );
                 })}
-                <div className="pt-4 border-t border-neutral-100 dark:border-neutral-900 mt-2">
+                <div className="pt-4 border-t border-neutral-800 mt-2">
                   <Link
                     to="/contact"
                     onClick={() => setIsOpen(false)}
-                    className="block w-full text-center rounded-full bg-[#3167ff] text-white py-2.5 text-xs font-bold uppercase tracking-wider shadow-md"
+                    className="block w-full text-center rounded-full bg-[#dfff00] text-neutral-950 py-2.5 text-sm font-bold shadow-md"
                   >
                     Get in Touch
                   </Link>
