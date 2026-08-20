@@ -5,27 +5,27 @@ import { companyConfig, servicesData } from '../data/companyData';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-[#0a0f1d] transition-colors duration-300">
+    <footer className="border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-[#101c2f] transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         
         {/* Large Logo Block */}
-        <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-neutral-900 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex flex-col">
             <span className="text-3xl font-black text-neutral-900 dark:text-white uppercase tracking-tighter font-display leading-none">
               PMK NEXA
             </span>
-            <span className="text-xs font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mt-1">
+            <span className="text-xs font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mt-1">
               Solutions Pvt. Ltd.
             </span>
           </div>
           <div className="flex space-x-6 text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
-            <a href={companyConfig.socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[#1d4ed8] dark:hover:text-[#f97316] transition-colors">
+            <a href={companyConfig.socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[#3167ff] dark:hover:text-[#20c9b5] transition-colors">
               LinkedIn
             </a>
-            <a href={companyConfig.socials.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-[#1d4ed8] dark:hover:text-[#f97316] transition-colors">
+            <a href={companyConfig.socials.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-[#3167ff] dark:hover:text-[#20c9b5] transition-colors">
               X
             </a>
-            <a href={companyConfig.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#1d4ed8] dark:hover:text-[#f97316] transition-colors">
+            <a href={companyConfig.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#3167ff] dark:hover:text-[#20c9b5] transition-colors">
               Instagram
             </a>
           </div>
@@ -47,7 +47,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {servicesData.map((svc) => (
                 <li key={svc.id}>
-                  <Link to="/services" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-[#1d4ed8] dark:hover:text-[#f97316] transition-colors font-medium">
+                  <Link to="/services" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-[#3167ff] dark:hover:text-[#20c9b5] transition-colors font-medium">
                     {svc.title}
                   </Link>
                 </li>
@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
 
         {/* Rights, terms and footer bottom */}
-        <div className="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-900 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-400 dark:text-neutral-500 gap-4">
+        <div className="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-400 dark:text-neutral-500 gap-4">
           <p>© {new Date().getFullYear()} PMK Nexa Solutions Pvt. Ltd. All rights reserved.</p>
           <div className="flex space-x-6 font-semibold">
             <a href="#" className="hover:underline">Privacy Policy</a>

@@ -7,9 +7,9 @@ export default function About() {
   return (
     <PageTransition>
       {/* 1. Editorial Hero Area */}
-      <section className="bg-neutral-50 dark:bg-neutral-900/10 py-24 border-b border-neutral-200/50 dark:border-neutral-900 transition-colors duration-300">
+      <section className="bg-neutral-50 dark:bg-[#101c2f] py-24 border-b border-neutral-200/50 dark:border-neutral-800 transition-colors duration-300">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-[10px] font-bold tracking-widest text-[#1d4ed8] dark:text-[#f97316] uppercase">OUR STORY</span>
+          <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase">OUR STORY</span>
           <h1 className="text-4xl font-black text-neutral-900 dark:text-white sm:text-7xl max-w-4xl leading-tight">
             Connecting companies with talent, services, and operations.
           </h1>
@@ -20,10 +20,10 @@ export default function About() {
       </section>
 
       {/* 2. Main Narrative Layout */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 bg-[#faf9f6] dark:bg-[#0a0f1d] transition-colors duration-300">
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
         
         <div className="lg:col-span-5 space-y-6">
-          <span className="text-[10px] font-bold tracking-widest text-[#1d4ed8] dark:text-[#f97316] uppercase block">THE PHILOSOPHY</span>
+          <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase block">THE PHILOSOPHY</span>
           <h2 className="text-3xl font-extrabold text-neutral-900 dark:text-white">
             What Drives Us
           </h2>
@@ -39,7 +39,7 @@ export default function About() {
           
           {/* Vision */}
           <div className="flex gap-6 items-start">
-            <div className="p-3 bg-neutral-100 dark:bg-neutral-900 rounded-sm text-neutral-900 dark:text-white shrink-0">
+            <div className="p-3 bg-white dark:bg-[#101c2f] border border-neutral-200 dark:border-neutral-800 rounded-xl text-[#3167ff] dark:text-[#20c9b5] shrink-0">
               <Eye className="h-5 w-5" />
             </div>
             <div>
@@ -52,7 +52,7 @@ export default function About() {
 
           {/* Mission */}
           <div className="flex gap-6 items-start">
-            <div className="p-3 bg-neutral-100 dark:bg-neutral-900 rounded-sm text-neutral-900 dark:text-white shrink-0">
+            <div className="p-3 bg-white dark:bg-[#101c2f] border border-neutral-200 dark:border-neutral-800 rounded-xl text-[#3167ff] dark:text-[#20c9b5] shrink-0">
               <Target className="h-5 w-5" />
             </div>
             <div>
@@ -65,7 +65,7 @@ export default function About() {
 
           {/* Core Approach */}
           <div className="flex gap-6 items-start">
-            <div className="p-3 bg-neutral-100 dark:bg-neutral-900 rounded-sm text-neutral-900 dark:text-white shrink-0">
+            <div className="p-3 bg-white dark:bg-[#101c2f] border border-neutral-200 dark:border-neutral-800 rounded-xl text-[#3167ff] dark:text-[#20c9b5] shrink-0">
               <Compass className="h-5 w-5" />
             </div>
             <div>
@@ -81,7 +81,7 @@ export default function About() {
       </section>
 
       {/* 3. Values Grid */}
-      <section className="bg-neutral-50 dark:bg-neutral-900/10 py-24 transition-colors duration-300 border-t border-neutral-200/50 dark:border-neutral-900">
+      <section className="bg-neutral-50 dark:bg-[#101c2f]/20 py-24 transition-colors duration-300 border-t border-neutral-200/50 dark:border-neutral-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading 
             label="CORPORATE VALUES" 
@@ -91,24 +91,24 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             
-            <div className="bg-white dark:bg-neutral-950 p-8 rounded-sm border border-neutral-200/60 dark:border-neutral-900 shadow-sm">
-              <div className="text-xs font-bold text-[#1d4ed8] dark:text-[#f97316] mb-3 uppercase tracking-wider">// 01. Dependability</div>
+            <div className="bg-white dark:bg-[#101c2f] p-8 rounded-2xl border border-neutral-200/60 dark:border-neutral-800 shadow-sm hover:shadow-md transition-all">
+              <div className="text-xs font-bold text-[#3167ff] dark:text-[#20c9b5] mb-3 uppercase tracking-wider">// 01. Dependability</div>
               <h4 className="font-bold text-neutral-900 dark:text-white mb-2 text-lg">SLA Integrity</h4>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 We design clear milestones, follow up closely with suppliers, and ensure deliverables meet agreed-upon timelines.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-neutral-950 p-8 rounded-sm border border-neutral-200/60 dark:border-neutral-900 shadow-sm">
-              <div className="text-xs font-bold text-[#1d4ed8] dark:text-[#f97316] mb-3 uppercase tracking-wider">// 02. Node Connection</div>
+            <div className="bg-white dark:bg-[#101c2f] p-8 rounded-2xl border border-neutral-200/60 dark:border-neutral-800 shadow-sm hover:shadow-md transition-all">
+              <div className="text-xs font-bold text-[#ff715b] mb-3 uppercase tracking-wider">// 02. Node Connection</div>
               <h4 className="font-bold text-neutral-900 dark:text-white mb-2 text-lg">Shared Success</h4>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 We look for win-win structures. When vendors and talent succeed, client growth follows automatically.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-neutral-950 p-8 rounded-sm border border-neutral-200/60 dark:border-neutral-900 shadow-sm">
-              <div className="text-xs font-bold text-[#1d4ed8] dark:text-[#f97316] mb-3 uppercase tracking-wider">// 03. Practical Tech</div>
+            <div className="bg-white dark:bg-[#101c2f] p-8 rounded-2xl border border-neutral-200/60 dark:border-neutral-800 shadow-sm hover:shadow-md transition-all">
+              <div className="text-xs font-bold text-[#20c9b5] mb-3 uppercase tracking-wider">// 03. Practical Tech</div>
               <h4 className="font-bold text-neutral-900 dark:text-white mb-2 text-lg">Outcome-Driven Builds</h4>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 We avoid building unnecessary complexities. We build technologies that make administrative tracking, sales, and analytics fast and simple.

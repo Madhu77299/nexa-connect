@@ -3,22 +3,19 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isInteractive, setIsInteractive] = useState(false); // Over buttons/links
-  const [cursorText, setCursorText] = useState(''); // "VIEW", "EXPLORE", "OPEN"
+  const [isInteractive, setIsInteractive] = useState(false);
+  const [cursorText, setCursorText] = useState('');
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 30, stiffness: 300, mass: 0.5 };
+  const springConfig = { damping: 30, stiffness: 280, mass: 0.55 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    // Disable on touch devices
     const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (hasTouch) {
-      return;
-    }
+    if (hasTouch) return;
 
     setIsVisible(true);
 
@@ -57,31 +54,31 @@ export default function CustomCursor() {
     <>
       {/* Outer ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-neutral-800 dark:border-neutral-200 pointer-events-none z-[9999] flex items-center justify-center font-bold text-[8px] tracking-widest text-neutral-800 dark:text-neutral-200 overflow-hidden"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#3167ff] dark:border-[#20c9b5] pointer-events-none z-[9999] flex items-center justify-center font-bold text-[8px] tracking-widest text-[#3167ff] dark:text-[#20c9b5] overflow-hidden"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
         }}
         animate={{
           scale: cursorText ? 2.2 : isInteractive ? 1.4 : 1,
-          backgroundColor: cursorText ? 'rgba(29, 78, 216, 0.15)' : 'rgba(0,0,0,0)',
-          borderColor: cursorText ? '#1d4ed8' : isInteractive ? '#f97316' : '',
+          backgroundColor: cursorText ? 'rgba(49, 103, 255, 0.12)' : 'rgba(0,0,0,0)',
+          borderColor: cursorText ? '#3167ff' : isInteractive ? '#20c9b5' : '',
         }}
-        transition={{ type: 'spring', stiffness: 250, damping: 25 }}
+        transition={{ type: 'spring', stiffness: 220, damping: 22 }}
       >
         {cursorText}
       </motion.div>
       
       {/* Inner dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-blue-600 dark:bg-cyan-400 rounded-full pointer-events-none z-[9999] ml-[12px] mt-[12px]"
+        className="fixed top-0 left-0 w-2 h-2 bg-[#3167ff] dark:bg-[#20c9b5] rounded-full pointer-events-none z-[9999] ml-[12px] mt-[12px]"
         style={{
           x: cursorX,
           y: cursorY,
         }}
         animate={{
           scale: cursorText || isInteractive ? 0.3 : 1,
-          backgroundColor: cursorText ? '#f97316' : '',
+          backgroundColor: cursorText ? '#ff715b' : '',
         }}
       />
     </>

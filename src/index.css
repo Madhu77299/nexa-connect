@@ -3,53 +3,45 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-display: "Syne", sans-serif;
-  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Manrope", "Plus Jakarta Sans", sans-serif;
   --font-sans: "Plus Jakarta Sans", sans-serif;
 }
 
 @layer base {
   :root {
-    --color-primary: #0f172a; /* Midnight Slate / Navy */
-    --color-brand-accent: #1d4ed8; /* Royal Blue */
-    --color-brand-coral: #f97316; /* Coral */
-    --color-bg-light: #faf9f6; /* Warm White */
-    --color-bg-dark: #0a0f1d; /* Deep Charcoal / Navy */
+    --color-primary: #08111f;       /* Deep Midnight Navy */
+    --color-surface-dark: #101c2f;  /* Secondary Dark */
+    --color-brand: #3167ff;         /* Electric Cobalt Blue */
+    --color-accent-aqua: #20c9b5;   /* Aqua/Mint */
+    --color-accent-coral: #ff715b;  /* Coral Accent */
+    --color-bg-light: #f5f7fb;      /* Light Background */
+    --color-text-dark: #0b1220;
+    --color-text-light: #e9eef7;
   }
 
   body {
     font-family: var(--font-sans);
-    @apply antialiased text-slate-800 bg-[#faf9f6] dark:bg-[#080b11] dark:text-slate-100 transition-colors duration-300;
-    background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-  
-  .dark body {
-    background-image: radial-gradient(rgba(250, 249, 246, 0.02) 1px, transparent 1px);
-    background-size: 32px 32px;
+    @apply antialiased text-[#0b1220] bg-[#f5f7fb] dark:bg-[#08111f] dark:text-[#e9eef7] transition-colors duration-300;
   }
   
   h1, h2, h3, .font-heading {
     font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
 }
 
-/* Custom interactive styles */
-.interactive-card {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-}
-.interactive-card:hover {
-  transform: translateY(-6px);
+/* Premium card specifications */
+.nexa-card {
+  @apply bg-white dark:bg-[#101c2f] border border-neutral-200/60 dark:border-neutral-800/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300;
 }
 
 .text-stroke-custom {
-  -webkit-text-stroke: 1px rgba(15, 23, 42, 0.2);
+  -webkit-text-stroke: 1px rgba(15, 23, 42, 0.15);
   color: transparent;
 }
 .dark .text-stroke-custom {
-  -webkit-text-stroke: 1px rgba(250, 249, 246, 0.15);
+  -webkit-text-stroke: 1px rgba(250, 249, 246, 0.1);
   color: transparent;
 }
 
@@ -61,33 +53,48 @@
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 35s linear infinite;
 }
-
 .animate-marquee:hover {
   animation-play-state: paused;
 }
 
-/* Dynamic Page Background Section Overrides to expose radial grid */
-.bg-\[\#faf9f6\] {
-  background-color: transparent !important;
-}
-.dark .dark\:bg-\[\#0a0f1d\] {
-  background-color: transparent !important;
-}
-.bg-white {
-  /* Only override on full-page sections, keep card inputs as solid */
-  background-color: rgba(250, 249, 246, 0.4);
-}
-.dark .bg-white, .dark .dark\:bg-neutral-950 {
-  background-color: rgba(8, 11, 17, 0.4);
-}
-.bg-neutral-50 {
-  background-color: rgba(15, 23, 42, 0.02) !important;
-}
-.dark .bg-neutral-50, .dark .dark\:bg-neutral-900\/10, .dark .dark\:bg-neutral-900\/20, .dark .dark\:bg-neutral-900\/30 {
-  background-color: rgba(255, 255, 255, 0.02) !important;
+/* Scroll tracking divider line drawing */
+.animate-flow-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 4s ease-out forwards;
 }
 
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
+/* Legacy theme color mapping to synchronize all screens with the new startup palette */
+.bg-blue-600, .bg-blue-700 {
+  background-color: #3167ff !important;
+}
+.dark .dark\:bg-cyan-400, .dark .dark\:bg-cyan-500, .dark .dark\:bg-cyan-600 {
+  background-color: #20c9b5 !important;
+}
+.text-blue-600, .text-blue-700 {
+  color: #3167ff !important;
+}
+.dark .dark\:text-cyan-400, .dark .dark\:text-cyan-500 {
+  color: #20c9b5 !important;
+}
+.border-blue-600, .border-blue-700 {
+  border-color: #3167ff !important;
+}
+.dark .dark\:border-cyan-400, .dark .dark\:border-cyan-500 {
+  border-color: #20c9b5 !important;
+}
+.bg-neutral-950, .dark .dark\:bg-neutral-950 {
+  background-color: #08111f !important;
+}
+.bg-neutral-900, .dark .dark\:bg-neutral-900 {
+  background-color: #101c2f !important;
+}
 
