@@ -287,57 +287,7 @@ export default function Home() {
       </section>
 
       {/* 7. Unique Ecosystem Connections Infographic Section */}
-      <section className="bg-[#f5f7fb] dark:bg-[#08111f] py-24 border-t border-neutral-200/50 dark:border-neutral-900/60 transition-colors duration-300">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
-            label="NEXA CONNECTION MAP" 
-            title="Ecosystem Node Flow" 
-            subtitle="Visualizing the operations syncing under the PMK Nexa grid." 
-          />
 
-          <div className="mt-16 relative flex items-center justify-center p-8 border border-neutral-200 dark:border-neutral-900 bg-white dark:bg-[#101c2f] rounded-2xl min-h-[400px]">
-            {/* Dynamic node network rendering (6-8 structured nodes) */}
-            <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center pointer-events-none opacity-40">
-              <svg className="w-full h-full stroke-neutral-200 dark:stroke-neutral-800" strokeWidth="2">
-                {/* Node connector lines */}
-                <line x1="50%" y1="50%" x2="20%" y2="25%" className="animate-flow-line stroke-[#3167ff]" />
-                <line x1="50%" y1="50%" x2="80%" y2="25%" className="animate-flow-line stroke-[#20c9b5]" />
-                <line x1="50%" y1="50%" x2="85%" y2="75%" className="animate-flow-line stroke-[#ff715b]" />
-                <line x1="50%" y1="50%" x2="15%" y2="75%" className="animate-flow-line stroke-[#3167ff]" />
-                <line x1="50%" y1="50%" x2="50%" y2="15%" className="animate-flow-line stroke-[#20c9b5]" />
-                <line x1="50%" y1="50%" x2="50%" y2="85%" className="animate-flow-line stroke-[#ff715b]" />
-              </svg>
-            </div>
-
-            {/* Nodes positioning */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-16 relative z-10 w-full max-w-3xl items-center text-center">
-              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl">
-                <span className="text-xs font-bold">VENDORS</span>
-              </div>
-              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-3">
-                <span className="text-xs font-bold">BUSINESS</span>
-              </div>
-              {/* Central hub */}
-              <div className="p-6 bg-[#3167ff] text-white rounded-full font-black text-sm max-w-[100px] mx-auto md:col-start-2 md:row-start-2 flex items-center justify-center border-4 border-white dark:border-[#101c2f] shadow-lg">
-                NEXA
-              </div>
-              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-1 md:row-start-3">
-                <span className="text-xs font-bold">EVENTS</span>
-              </div>
-              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-3 md:row-start-3">
-                <span className="text-xs font-bold">CREATORS</span>
-              </div>
-              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-2 md:row-start-1">
-                <span className="text-xs font-bold">TECHNOLOGY</span>
-              </div>
-              <div className="p-4 bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 rounded-xl md:col-start-2 md:row-start-3">
-                <span className="text-xs font-bold">TALENT</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* 8. Careers Section */}
       <section className="bg-[#101c2f] py-24 text-white transition-colors duration-300">
