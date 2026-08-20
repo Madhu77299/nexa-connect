@@ -19,7 +19,14 @@
 
   body {
     font-family: var(--font-sans);
-    @apply antialiased text-slate-800 bg-[#faf9f6] dark:bg-[#0a0f1d] dark:text-slate-100 transition-colors duration-300;
+    @apply antialiased text-slate-800 bg-[#faf9f6] dark:bg-[#080b11] dark:text-slate-100 transition-colors duration-300;
+    background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  
+  .dark body {
+    background-image: radial-gradient(rgba(250, 249, 246, 0.02) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
   
   h1, h2, h3, .font-heading {
