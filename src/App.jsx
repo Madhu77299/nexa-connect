@@ -5,7 +5,6 @@ import { AnimatePresence } from 'framer-motion';
 // Layout & Core
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
 import { ThemeProvider } from './hooks/useTheme.jsx';
 
 // Pages
@@ -24,7 +23,6 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen text-slate-800 dark:text-slate-100 transition-colors duration-300">
-      <CustomCursor />
       <Navbar />
       
       <main className="flex-1 flex flex-col">
