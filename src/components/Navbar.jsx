@@ -40,8 +40,8 @@ export default function Navbar() {
     }`}>
       <header className={`w-full max-w-7xl rounded-full border transition-all duration-300 backdrop-blur-md pointer-events-auto ${
         isScrolled 
-          ? 'bg-[#08111f]/90 dark:bg-[#101c2f]/90 border-[#3167ff]/20 shadow-md py-2.5 px-6' 
-          : 'bg-[#faf9f6]/40 dark:bg-[#08111f]/40 border-transparent py-4 px-6'
+          ? 'bg-white/95 dark:bg-[#101c2f]/95 border-neutral-200/80 dark:border-[#3167ff]/20 shadow-md py-2.5 px-6' 
+          : 'bg-transparent py-4 px-6'
       }`}>
         <div className="mx-auto flex items-center justify-between">
           
