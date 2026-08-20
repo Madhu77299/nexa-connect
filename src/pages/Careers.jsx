@@ -8,15 +8,12 @@ import { jobsData } from '../data/companyData';
 export default function Careers() {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const filters = ['All', 'Internship', 'Full Time', 'Creative', 'Operations', 'Business'];
+  const filters = ['All', 'Internship', 'Full Time'];
 
   const filteredJobs = jobsData.filter((job) => {
     if (activeFilter === 'All') return true;
     if (activeFilter === 'Internship') return job.type.toLowerCase().includes('internship');
     if (activeFilter === 'Full Time') return job.type.toLowerCase().includes('full time') || job.type.toLowerCase().includes('full-time');
-    if (activeFilter === 'Creative') return job.department.toLowerCase() === 'creative';
-    if (activeFilter === 'Operations') return job.department.toLowerCase() === 'operations';
-    if (activeFilter === 'Business') return job.department.toLowerCase() === 'business';
     return true;
   });
 
