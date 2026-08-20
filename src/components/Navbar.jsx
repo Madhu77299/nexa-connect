@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../hooks/useTheme.jsx';
-import { companyConfig } from '../data/companyData';
+import { companyConfig, socialLinks } from '../data/companyData';
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -86,6 +86,19 @@ export default function Navbar() {
 
           {/* Right Controls */}
           <div className="hidden md:flex items-center gap-4">
+            {/* LinkedIn Icon */}
+            <a
+              href={socialLinks.linkedin || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full p-2 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/40 transition-colors"
+              aria-label="LinkedIn Profile"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}

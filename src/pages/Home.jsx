@@ -340,17 +340,17 @@ export default function Home() {
       </section>
 
       {/* 8. Careers Section */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="bg-[#101c2f] py-24 text-white transition-colors duration-300">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-5 space-y-6">
-            <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase block">
+            <span className="text-[10px] font-bold tracking-widest text-[#20c9b5] uppercase block">
               02 / CAREERS
             </span>
-            <h2 className="text-4xl font-black text-neutral-900 dark:text-white sm:text-5xl leading-tight font-display">
+            <h2 className="text-4xl font-black text-white sm:text-5xl leading-tight font-display">
               Build what's<br />next with us.
             </h2>
-            <p className="text-sm text-neutral-500 dark:text-neutral-450 leading-relaxed">
+            <p className="text-sm text-neutral-450 leading-relaxed">
               We're looking for stars across creative, business, operational, and technical domains. Join the Nexa Network.
             </p>
             <div className="pt-2">
@@ -364,7 +364,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 h-[300px] lg:h-[400px] overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-900 relative">
+          <div className="lg:col-span-7 h-[300px] lg:h-[400px] overflow-hidden rounded-2xl border border-neutral-800 relative">
             <img 
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
               alt="Creative team collaboration" 

@@ -18,8 +18,16 @@ export const companyConfig = {
     twitter: "https://twitter.com/pmknexa",
     instagram: "https://instagram.com/pmknexa",
     facebook: "https://facebook.com/pmknexa",
-    github: "https://github.com/pmknexa"
+    // github: "https://github.com/pmknexa"
   }
+};
+
+export const socialLinks = {
+  instagram: "",
+  linkedin: "",
+  facebook: "",
+  youtube: "",
+  twitter: ""
 };
 
 export const servicesData = [
