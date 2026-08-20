@@ -21,6 +21,10 @@ import Contact from './pages/Contact';
 function AppContent() {
   const location = useLocation();
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <div className="flex flex-col min-h-screen text-slate-800 dark:text-slate-100 transition-colors duration-300">
       <Navbar />
