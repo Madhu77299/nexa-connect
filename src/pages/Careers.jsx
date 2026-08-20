@@ -47,15 +47,15 @@ export default function Careers() {
             </div>
 
             {/* Filter buttons pills */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap md:flex-nowrap gap-2 max-w-full overflow-x-auto no-scrollbar pb-2">
               {filters.map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider border transition-all ${
+                  className={`px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider border transition-all shrink-0 cursor-pointer ${
                     activeFilter === filter
                       ? 'bg-[#3167ff] text-white border-transparent'
-                      : 'bg-white dark:bg-[#101c2f] border-neutral-200 dark:border-neutral-800 text-neutral-650 hover:border-[#3167ff]/40 dark:text-neutral-350'
+                      : 'bg-white dark:bg-[#101c2f] border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-350 hover:border-[#3167ff]/40 shadow-sm'
                   }`}
                 >
                   {filter}
