@@ -68,4 +68,26 @@
   animation-play-state: paused;
 }
 
+/* Dynamic Page Background Section Overrides to expose radial grid */
+.bg-\[\#faf9f6\] {
+  background-color: transparent !important;
+}
+.dark .dark\:bg-\[\#0a0f1d\] {
+  background-color: transparent !important;
+}
+.bg-white {
+  /* Only override on full-page sections, keep card inputs as solid */
+  background-color: rgba(250, 249, 246, 0.4);
+}
+.dark .bg-white, .dark .dark\:bg-neutral-950 {
+  background-color: rgba(8, 11, 17, 0.4);
+}
+.bg-neutral-50 {
+  background-color: rgba(15, 23, 42, 0.02) !important;
+}
+.dark .bg-neutral-50, .dark .dark\:bg-neutral-900\/10, .dark .dark\:bg-neutral-900\/20, .dark .dark\:bg-neutral-900\/30 {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+
 
