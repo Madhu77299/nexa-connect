@@ -246,18 +246,18 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Card 1: Essential / Connected style */}
-            <div className="p-8 border border-neutral-800 rounded-2xl bg-[#0e131d] relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300">
+            {/* Card 1: Connected style */}
+            <div className="p-8 border border-neutral-800/80 rounded-2xl bg-[#0e131d]/60 backdrop-blur-xl relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#3167ff]/50 transition-all duration-300">
               <div className="absolute top-0 left-0 h-[3px] w-0 bg-[#3167ff] group-hover:w-full transition-all duration-500" />
               <span className="text-xs font-black text-[#3167ff] tracking-wider block mb-4">01 / CONNECTED</span>
               <h3 className="text-xl font-black text-white mb-3 font-display">Ecosystem Hub</h3>
-              <p className="text-xs text-neutral-400 leading-relaxed">
+              <p className="text-xs text-neutral-300 leading-relaxed">
                 Single coordination layer syncing business strategy, event execution, code builds, and marketing channels.
               </p>
             </div>
 
-            {/* Card 2: Elite / Practical style (Deep Navy Blue) */}
-            <div className="p-8 border border-[#3167ff]/40 rounded-2xl bg-[#0a274c] relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#3167ff]/70 transition-all duration-300">
+            {/* Card 2: Practical style (Deep Navy Blue Tinted Glass) */}
+            <div className="p-8 border border-[#3167ff]/40 rounded-2xl bg-[#0a274c]/60 backdrop-blur-xl relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#3167ff]/70 transition-all duration-300">
               <div className="absolute top-0 left-0 h-[3px] w-full bg-[#20c9b5] transition-all duration-500" />
               <span className="text-xs font-black text-[#20c9b5] tracking-wider block mb-4">02 / PRACTICAL</span>
               <h3 className="text-xl font-black text-white mb-3 font-display">Result Focus</h3>
@@ -266,8 +266,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 3: Ultimate / Flexible style (Crimson Maroon - highlighted in red) */}
-            <div className="p-8 border border-[#ff715b]/40 rounded-2xl bg-[#4c0d0d] relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#ff715b]/70 transition-all duration-300">
+            {/* Card 3: Flexible style (Crimson Maroon Tinted Glass) */}
+            <div className="p-8 border border-[#ff715b]/40 rounded-2xl bg-[#4c0d0d]/60 backdrop-blur-xl relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#ff715b]/70 transition-all duration-300">
               <div className="absolute top-0 left-0 h-[3px] w-full bg-[#ff715b] transition-all duration-500" />
               <span className="text-xs font-black text-[#ff715b] tracking-wider block mb-4">03 / FLEXIBLE</span>
               <h3 className="text-xl font-black text-white mb-3 font-display">Scale On-Demand</h3>
@@ -276,12 +276,12 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 4: Human / Direct Access style */}
-            <div className="p-8 border border-neutral-800 rounded-2xl bg-[#0e131d] relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#3167ff]/40 transition-all duration-300">
+            {/* Card 4: Human style */}
+            <div className="p-8 border border-neutral-800/80 rounded-2xl bg-[#0e131d]/60 backdrop-blur-xl relative overflow-hidden group shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#3167ff]/50 transition-all duration-300">
               <div className="absolute top-0 left-0 h-[3px] w-0 bg-[#3167ff] group-hover:w-full transition-all duration-500" />
               <span className="text-xs font-black text-[#3167ff] tracking-wider block mb-4">04 / HUMAN</span>
               <h3 className="text-xl font-black text-white mb-3 font-display">Direct Access</h3>
-              <p className="text-xs text-neutral-400 leading-relaxed">
+              <p className="text-xs text-neutral-300 leading-relaxed">
                 Real partners. We prioritize reliable support, client consultations, and dedicated SPOC setups.
               </p>
             </div>
