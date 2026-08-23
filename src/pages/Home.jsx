@@ -1,428 +1,242 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, Briefcase, Network, Calendar, Cpu, TrendingUp, Sparkles, Code, UserCheck, BarChart } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import ThreeBackground from '../components/ThreeBackground';
+import { 
+  ArrowRight, ArrowUpRight, Briefcase, Network, Calendar, Cpu, 
+  TrendingUp, Sparkles, ShieldCheck, CheckCircle2, Check, Zap 
+} from 'lucide-react';
+import { motion } from 'framer-motion';
+import CinematicHero from '../components/CinematicHero';
 import SectionHeading from '../components/SectionHeading';
 import PageTransition from '../components/PageTransition';
-import { blogsData } from '../data/companyData';
+import PartnerTicker from '../components/PartnerTicker';
+import StatsCounter from '../components/StatsCounter';
+import LeadershipSection from '../components/LeadershipSection';
+import ProjectsShowcase from '../components/ProjectsShowcase';
+import TestimonialsSection from '../components/TestimonialsSection';
+import RoiEstimator from '../components/RoiEstimator';
+import { useData } from '../context/DataContext';
+import { howWeWorkData, whyChoosePmkData } from '../data/companyData';
 
 export default function Home() {
+  const { company, services } = useData();
   const [hoveredService, setHoveredService] = useState(null);
-  const [activeStep, setActiveStep] = useState(0);
-
-  const advantageItems = [
-    {
-      number: '01 / CONNECTED',
-      color: '#3167ff',
-      glow: 'rgba(49, 103, 255, 0.2)',
-      title: 'Ecosystem Hub',
-      desc: 'Single coordination layer syncing business strategy, event execution, code builds, and marketing channels.'
-    },
-    {
-      number: '02 / PRACTICAL',
-      color: '#20c9b5',
-      glow: 'rgba(32, 201, 181, 0.2)',
-      title: 'Result Focus',
-      desc: 'Direct deployment metrics, verified supplier networks, and straightforward contract milestones.'
-    },
-    {
-      number: '03 / FLEXIBLE',
-      color: '#ff715b',
-      glow: 'rgba(255, 113, 91, 0.2)',
-      title: 'Scale On-Demand',
-      desc: 'Adjust resource commitments fluidly. Our supply chains respond in real-time to your operations load.'
-    },
-    {
-      number: '04 / HUMAN',
-      color: '#3167ff',
-      glow: 'rgba(49, 103, 255, 0.2)',
-      title: 'Direct Access',
-      desc: 'Real partners. We prioritize reliable support, client consultations, and dedicated SPOC setups.'
-    }
-  ];
-
-  const projectsData = [
-    { name: "Global Tech Summit 2025", category: "Event Operations" },
-    { name: "NexProcure Cloud Platform", category: "Technical Services" },
-    { name: "Retail Reach Strategy", category: "Digital Marketing" },
-    { name: "PartnerGrid Hub", category: "Business Development" },
-    { name: "NexaFlow CRM System", category: "Technical Services" },
-    { name: "Agile Logistics Sourcing", category: "Vendor Network" }
-  ];
-
-  const servicesList = [
-    { id: "bd", num: "01", title: "Business Development", desc: "Forging strategic partnerships and high-value alliances for long-term growth.", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" },
-    { id: "vendor", num: "02", title: "Vendor Network Support", desc: "Connecting procurement hubs with verified on-ground operational suppliers.", image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" },
-    { id: "event", num: "03", title: "Event Operations", desc: "End-to-end logistics coordination and sound production setup under live pressure.", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" },
-    { id: "tech", num: "04", title: "Technical Services", desc: "Deploying high-performance cloud apps and workflow automation frameworks.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" },
-    { id: "marketing", num: "05", title: "Digital Marketing", desc: "Constructing targeted marketing campaigns with high-impact brand identities.", image: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=600&q=80" },
-  ];
-
-  const statementWords = [
-    { label: "PEOPLE", desc: "Vetted talent pipelines mapped dynamically to meet your project standards.", icon: UserCheck },
-    { label: "BUSINESS", desc: "Strategic development routes designed to yield high-volume lead acquisitions.", icon: BarChart },
-    { label: "TECHNOLOGY", desc: "Responsive cloud application architectures constructed to scale smoothly.", icon: Code },
-    { label: "OPPORTUNITY", desc: "Connected networks matching growing resources with operational gaps.", icon: Sparkles }
-  ];
 
   return (
     <PageTransition>
-      {/* 1. Redesigned Premium Split Hero Section */}
-      <section className="relative min-h-[95vh] flex items-center bg-[#f5f7fb] dark:bg-[#08111f] overflow-hidden border-b border-neutral-200/50 dark:border-neutral-900/60 transition-colors duration-300">
-        
-        {/* Subtle background glow elements */}
-        <div className="absolute top-1/4 left-1/3 -z-10 h-96 w-96 rounded-full bg-[#3167ff]/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-[#20c9b5]/5 blur-3xl pointer-events-none" />
+      {/* 1. Global MNC Cinematic Hero Video Reel */}
+      <CinematicHero />
 
-        <div className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8 z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      {/* 2. Enterprise Partner Logo Ticker */}
+      <PartnerTicker />
+
+      {/* 3. Key Enterprise Impact Metrics Counter */}
+      <StatsCounter />
+
+      {/* 4. Core Capabilities Section (5 Capabilities ONLY) */}
+      <section id="capabilities" className="bg-[#f8fafc] dark:bg-[#0B0F17] py-24 transition-colors duration-300 border-t border-neutral-200/60 dark:border-slate-800/80">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
           
-          {/* Left Side: Headline & Copy (45%) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3167ff]/20 bg-[#3167ff]/5 px-3 py-1 text-xs font-bold text-[#3167ff] dark:text-[#20c9b5]">
-              <span className="flex h-2 w-2 rounded-full bg-[#3167ff] dark:bg-[#20c9b5] animate-pulse" />
-              PMK NEXA SOLUTIONS
-            </div>
-            
-            <h1 className="text-5xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-6xl leading-none">
-              Connecting<br />
-              Business.<br />
-              Creating<br />
-              <span className="text-[#3167ff] dark:text-[#20c9b5]">Growth.</span>
-            </h1>
-
-            <p className="text-base text-neutral-600 dark:text-neutral-400 max-w-md leading-relaxed">
-              Business development, vendor networks, events, technology and digital growth — connected through one growing ecosystem.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-2">
-              <Link
-                to="/services"
-                className="flex items-center gap-2 rounded-full bg-[#3167ff] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider shadow-md hover:bg-[#ff715b] hover:shadow-lg transition-all duration-300"
-              >
-                Explore Services
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/careers"
-                className="flex items-center gap-2 rounded-full border border-neutral-300 dark:border-neutral-800 bg-transparent px-6 py-3 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900/60 transition-all duration-300"
-              >
-                Join Our Team
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Side: High-Quality Corporate Team Image (55%) */}
-          <div className="lg:col-span-7 relative w-full flex items-center justify-center min-h-[350px] lg:min-h-[450px]">
-            {/* Background offset decorative frame */}
-            <div className="absolute top-4 left-4 right-0 bottom-0 border border-[#3167ff]/20 dark:border-neutral-800 rounded-2xl pointer-events-none z-0" />
-            
-            {/* Main Image Container */}
-            <div className="relative w-11/12 h-[340px] lg:h-[420px] overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-900 bg-white dark:bg-[#101c2f] shadow-lg z-10" data-cursor="explore">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
-                alt="PMK Nexa Solutions Collaboration"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 2. Hero Bottom Strip: Infinite Projects Marquee */}
-      <section className="bg-neutral-900 dark:bg-neutral-950 py-5 text-white border-y border-neutral-800 overflow-hidden relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-neutral-900 to-transparent dark:from-neutral-950 z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-neutral-900 to-transparent dark:from-neutral-950 z-10 pointer-events-none" />
-        
-        <div className="animate-marquee flex items-center gap-12 select-none">
-          {[...projectsData, ...projectsData].map((proj, index) => (
-            <div key={index} className="flex items-center gap-4 shrink-0 px-4">
-              <span className="text-[8px] font-black tracking-widest text-[#20c9b5] bg-neutral-850 px-2 py-0.5 rounded-sm uppercase">
-                {proj.category}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            <div className="space-y-3 max-w-2xl">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
+                // FIVE CORE CAPABILITIES
               </span>
-              <span className="text-xs font-bold uppercase tracking-widest text-neutral-300 hover:text-white transition-colors cursor-default">
-                {proj.name}
-              </span>
-              <span className="text-neutral-600 dark:text-neutral-800 font-mono">//</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. Introduction Section (Two-Column Startup Style) */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          
-          <div className="lg:col-span-5 space-y-4">
-            <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase block">
-              01 / ABOUT PMK NEXA
-            </span>
-            <h2 className="text-4xl font-black text-neutral-900 dark:text-white sm:text-5xl leading-tight font-display">
-              One ecosystem.<br />Multiple possibilities.
-            </h2>
-          </div>
-
-          <div className="lg:col-span-7 space-y-6 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed pt-2">
-            <p className="font-semibold text-neutral-800 dark:text-white text-xl">
-              We streamline operations across business, creative, and technical channels.
-            </p>
-            <p className="text-base">
-              PMK Nexa Solutions Pvt. Ltd. acts as the central orchestrator for corporate growth. By integrating strategic business consulting, high-capacity vendor networks, physical event operations, custom software engineering, and search campaigns under one umbrella, we eliminate operational overhead for growing enterprises.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 4. Sequential Scroll Milestones Statement Section */}
-      <section className="bg-neutral-900 dark:bg-neutral-950 py-24 text-white border-y border-neutral-800 transition-colors duration-300">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {statementWords.map((word, index) => {
-              const WordIcon = word.icon;
-              return (
-                <div 
-                  key={word.label}
-                  className="p-6 border border-neutral-800 rounded-xl bg-[#101c2f]/40 hover:border-[#3167ff]/40 transition-all duration-300 space-y-4"
-                >
-                  <div className="h-10 w-10 rounded-lg bg-[#3167ff]/10 text-[#3167ff] flex items-center justify-center">
-                    <WordIcon className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-xl font-black tracking-widest text-[#20c9b5] font-display">
-                    {word.label}
-                  </h3>
-                  <p className="text-xs text-neutral-450 leading-relaxed">
-                    {word.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Services Section (Left-Right List Interaction) */}
-      <section className="bg-[#f5f7fb] dark:bg-[#08111f] py-24 transition-colors duration-300">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            
-            {/* Left Column Label & Heading */}
-            <div className="lg:col-span-4 space-y-4 lg:sticky lg:top-24">
-              <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase block">// SERVICES</span>
-              <h2 className="text-4xl font-black text-neutral-900 dark:text-white leading-tight font-display">
-                What we<br />bring together.
+              <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-neutral-900 dark:text-white">
+                What We Bring Together
               </h2>
-              <p className="text-sm text-neutral-500 max-w-xs">
-                Hover over the capabilities list to preview segment operations and details.
+              <p className="text-sm text-neutral-600 dark:text-slate-400 leading-relaxed">
+                PMK NEXA SOLUTIONS PRIVATE LIMITED operates through five core capabilities and a strong professional network.
               </p>
             </div>
 
-            {/* Right Column Interactive List */}
-            <div className="lg:col-span-8 space-y-4">
-              {servicesList.map((svc) => (
-                <div
-                  key={svc.id}
-                  onMouseEnter={() => setHoveredService(svc.id)}
-                  onMouseLeave={() => setHoveredService(null)}
-                  className="group relative p-6 bg-white dark:bg-[#101c2f] border border-neutral-200/60 dark:border-neutral-800 rounded-2xl transition-all duration-350"
-                  data-cursor="view"
-                >
-                  <Link to="/services" className="flex justify-between items-center">
-                    <div className="space-y-2">
-                      <span className="text-xs font-black text-[#3167ff] dark:text-[#20c9b5] block">
-                        {svc.num}
-                      </span>
-                      <h3 className="text-xl font-bold text-neutral-800 dark:text-white group-hover:text-[#3167ff] dark:group-hover:text-[#20c9b5] transition-colors">
-                        {svc.title}
-                      </h3>
-                      <p className="text-xs text-neutral-500 dark:text-neutral-450 leading-relaxed max-w-xl">
-                        {svc.desc}
-                      </p>
-                    </div>
-                    <ArrowRight className="h-5 w-5 text-neutral-450 group-hover:translate-x-2 group-hover:text-[#3167ff] transition-all" />
-                  </Link>
-
-                  {/* Absolute image overlay when hovered */}
-                  <AnimatePresence>
-                    {hoveredService === svc.id && (
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 0.15, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        className="absolute inset-0 bg-cover bg-center rounded-2xl pointer-events-none z-0"
-                        style={{ backgroundImage: `url(${svc.image})` }}
-                      />
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 6. Why PMK Nexa (Premium Dark Section) */}
-      <section className="bg-[#08111f] text-white py-24 border-t border-neutral-900 transition-colors duration-300">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
-          
-          <div className="max-w-xl space-y-4">
-            <span className="text-[10px] font-bold text-[#20c9b5] tracking-widest uppercase block">// THE ADVANTAGE</span>
-            <h2 className="text-4xl font-black leading-none font-display">
-              Built around how business moves.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {advantageItems.map((item, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className="p-8 border border-white/10 dark:border-white/10 rounded-2xl bg-white/[0.04] dark:bg-[#101c2f]/40 backdrop-blur-xl relative overflow-hidden group hover:border-white/30 transition-all duration-300 shadow-xl cursor-pointer"
-                style={{
-                  boxShadow: `0 10px 30px -10px ${item.glow}`
-                }}
-              >
-                {/* Accent Line on top */}
-                <div 
-                  className="absolute top-0 left-0 h-[3px] w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-                  style={{ backgroundColor: item.color }}
-                />
-                
-                {/* Subtle radial glass glow */}
-                <div 
-                  className="absolute -right-12 -top-12 w-32 h-32 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
-                  style={{ backgroundColor: item.color }}
-                />
-                
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-xs font-bold block" style={{ color: item.color }}>
-                    {item.number}
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-                </div>
-
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#20c9b5] transition-colors font-display">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-neutral-300 leading-relaxed font-normal">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 7. Unique Ecosystem Connections Infographic Section */}
-
-
-      {/* 8. Careers Section */}
-      <section className="bg-[#101c2f] py-24 text-white transition-colors duration-300">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-5 space-y-6">
-            <span className="text-[10px] font-bold tracking-widest text-[#20c9b5] uppercase block">
-              02 / CAREERS
-            </span>
-            <h2 className="text-4xl font-black text-white sm:text-5xl leading-tight font-display">
-              Build what's<br />next with us.
-            </h2>
-            <p className="text-sm text-neutral-450 leading-relaxed">
-              We're looking for stars across creative, business, operational, and technical domains. Join the Nexa Network.
-            </p>
-            <div className="pt-2">
-              <Link 
-                to="/careers" 
-                className="inline-flex items-center gap-2 rounded-full bg-[#3167ff] text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider shadow-md hover:bg-[#ff715b] transition-all"
-              >
-                Explore Opportunities
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 h-[300px] lg:h-[400px] overflow-hidden rounded-2xl border border-neutral-800 relative">
-            <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
-              alt="Creative team collaboration" 
-              className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-            />
-          </div>
-
-        </div>
-      </section>
-
-      {/* 9. Blogs Insights Section */}
-      <section className="bg-white dark:bg-[#101c2f] py-24 border-t border-neutral-200/50 dark:border-neutral-900/60 transition-colors duration-300">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-12">
-            <SectionHeading 
-              label="INSIGHTS" 
-              title="From the Nexa Journal." 
-              subtitle="Business insights, technical systems, and logistics." 
-            />
-            <Link to="/blogs" className="text-xs font-bold text-[#3167ff] dark:text-[#20c9b5] hover:underline uppercase tracking-wider whitespace-nowrap mb-6 lg:mb-0">
-              View All Entries →
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg transition-all cursor-pointer shrink-0"
+            >
+              <span>Explore All Capabilities</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {blogsData.slice(0, 3).map((post) => (
-              <article 
-                key={post.id}
-                className="bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-200/60 dark:border-neutral-800/80 p-6 rounded-2xl flex flex-col justify-between"
-                data-cursor="explore"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((svc) => (
+              <div
+                key={svc.id}
+                onMouseEnter={() => setHoveredService(svc.id)}
+                onMouseLeave={() => setHoveredService(null)}
+                className="group relative p-7 bg-white dark:bg-[#121824] border border-neutral-200/80 dark:border-slate-800 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-5"
               >
-                <div className="space-y-4">
-                  <span className="text-[10px] font-bold text-[#3167ff] dark:text-[#20c9b5] uppercase tracking-widest block">
-                    {post.category}
-                  </span>
-                  <Link to={`/blogs/${post.id}`}>
-                    <h4 className="text-lg font-bold text-neutral-900 dark:text-white hover:text-[#3167ff] dark:hover:text-[#20c9b5] transition-colors leading-tight line-clamp-2">
-                      {post.title}
-                    </h4>
-                  </Link>
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400 line-clamp-3">
-                    {post.summary}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 font-mono">
+                      CAPABILITY {svc.number}
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+
+                  <h3 className="text-xl font-black text-neutral-900 dark:text-white font-display group-hover:text-blue-600 dark:group-hover:text-amber-400 transition-colors leading-snug">
+                    {svc.title}
+                  </h3>
+
+                  <p className="text-xs text-neutral-600 dark:text-slate-300 leading-relaxed font-normal">
+                    {svc.shortDescription || svc.description}
                   </p>
                 </div>
-                <div className="pt-6 border-t border-neutral-200/40 dark:border-neutral-800 mt-6 flex justify-between items-center">
-                  <span className="text-[10px] text-neutral-450">
-                    {post.date} · {post.readTime}
-                  </span>
-                  <Link to={`/blogs/${post.id}`} className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1 hover:text-[#3167ff] dark:hover:text-[#20c9b5]">
-                    Read <ArrowRight className="h-3 w-3" />
+
+                <div className="pt-4 border-t border-neutral-100 dark:border-slate-800 flex items-center justify-between">
+                  <Link 
+                    to="/services" 
+                    className="text-xs font-bold text-blue-600 dark:text-amber-400 hover:underline flex items-center gap-1"
+                  >
+                    <span>View Details &amp; Scope</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
+
+          {/* Network Solutions Highlight Banner */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-neutral-900 dark:bg-[#121824] text-white border border-neutral-800 dark:border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 max-w-3xl">
+              <span className="text-[10px] font-black uppercase tracking-widest text-amber-400 block font-mono">
+                // CONNECTED BUSINESS MODEL
+              </span>
+              <h3 className="text-2xl font-black font-display text-white">
+                Operated Through A Strong Professional Network
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Through our network, we connect clients with the right vendors, professionals and specialised service providers (Drone, Construction, Solar, Interior, Media) based on their requirements.
+              </p>
+            </div>
+
+            <Link
+              to="/contact"
+              className="px-7 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-black uppercase tracking-wider shadow-lg transition-all shrink-0"
+            >
+              <span>Submit Requirement →</span>
+            </Link>
+          </div>
+
         </div>
       </section>
 
-      {/* 10. Let's Build Contact CTA */}
-      <section className="bg-neutral-900 dark:bg-neutral-950 py-24 text-white text-center border-t border-neutral-800">
+      {/* 5. Executive Leadership & Governance Section */}
+      <LeadershipSection />
+
+      {/* 6. Dynamic Projects Portfolio Showcase */}
+      <div id="our-work">
+        <ProjectsShowcase />
+      </div>
+
+      {/* 7. How We Work 4-Stage Workflow */}
+      <section className="bg-neutral-100 dark:bg-[#0F141F] py-24 border-t border-neutral-200 dark:border-slate-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
+              // STRUCTURED PROCESS
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black font-display text-neutral-900 dark:text-white">
+              How We Work
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-500 dark:text-slate-400">
+              A clear, disciplined 4-stage execution workflow.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {howWeWorkData.map((item) => (
+              <div
+                key={item.step}
+                className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-md flex flex-col justify-between space-y-4 hover:border-slate-700 transition-all"
+              >
+                <div className="h-9 w-9 rounded-xl bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 flex items-center justify-center font-mono font-black text-xs shadow-md">
+                  {item.step}
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-xl font-black font-display text-neutral-900 dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-neutral-600 dark:text-slate-300 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 8. Why Choose PMK Strengths Grid */}
+      <section className="bg-white dark:bg-[#0B0F17] py-24 border-t border-neutral-200 dark:border-slate-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="space-y-2 max-w-xl">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
+              // THE PMK ADVANTAGE
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black font-display text-neutral-900 dark:text-white">
+              Why Choose PMK?
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChoosePmkData.map((str, idx) => (
+              <div
+                key={idx}
+                className="p-7 rounded-3xl bg-neutral-50 dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-sm hover:border-slate-700 transition-all flex items-start gap-4"
+              >
+                <div className="h-10 w-10 rounded-2xl bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center shrink-0 font-mono font-black text-xs">
+                  0{idx + 1}
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-base font-black text-neutral-900 dark:text-white font-display">
+                    {str.title}
+                  </h3>
+                  <p className="text-xs text-neutral-600 dark:text-slate-300 leading-relaxed">
+                    {str.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 9. Capability Scoping & ROI Estimator */}
+      <RoiEstimator />
+
+      {/* 10. Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* 11. Final Website Positioning Callout */}
+      <section className="bg-neutral-900 dark:bg-[#070A10] py-24 text-white text-center border-t border-slate-800">
         <div className="mx-auto max-w-4xl px-4 space-y-6">
-          <span className="text-[10px] font-bold tracking-widest text-[#20c9b5] uppercase block">GET STARTED</span>
-          <h2 className="text-5xl font-black font-display uppercase tracking-tight leading-none">
-            Let's build<br />something meaningful.
+          <span className="text-[10px] font-black tracking-widest text-amber-400 uppercase block font-mono">
+            // PMK NEXA SOLUTIONS PRIVATE LIMITED
+          </span>
+          <h2 className="text-4xl sm:text-6xl font-black font-display uppercase tracking-tight leading-tight">
+            Your Growth. Our Network.
           </h2>
-          <p className="text-sm text-neutral-400 max-w-xl mx-auto leading-relaxed">
-            Have an idea, business partnership, development project, or creative marketing campaign? Contact our team.
+          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+            Connecting Businesses, Professionals, Vendors and Opportunities. One Network. Multiple Capabilities. Endless Opportunities.
           </p>
-          <div className="pt-4">
+          <div className="pt-4 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 text-xs font-black uppercase tracking-wider transition-all shadow-xl"
+            >
+              <span>Explore Capabilities</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[#3167ff] text-white px-8 py-4 text-xs font-bold uppercase tracking-wider hover:bg-[#ff715b] transition-colors duration-300"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/80 px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-200 hover:text-white hover:bg-slate-700 transition-colors"
             >
-              Get in Touch
-              <ArrowRight className="h-4 w-4" />
+              <span>Connect With Us</span>
             </Link>
           </div>
         </div>

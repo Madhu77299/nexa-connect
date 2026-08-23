@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles, Phone, Mail, ArrowRight, Shield, Globe, ExternalLink, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../hooks/useTheme.jsx';
-import { companyConfig, socialLinks } from '../data/companyData';
+import ThemeToggle from './ThemeToggle';
+import Logo from './Logo';
+import GpsGlobeBadge from './GpsGlobeBadge';
+import { useData } from '../context/DataContext';
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
+  const { company, services } = useData();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [servicesDropdown, setServicesDropdown] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -23,135 +26,274 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile drawer on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+    setServicesDropdown(false);
+  }, [location.pathname]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Careers', path: '/careers' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Capabilities', path: '/services', hasDropdown: true },
+    { name: 'Our Work & Process', path: '/our-work' },
+    { name: 'Careers', path: '/careers', isHiring: true },
     { name: 'Blogs', path: '/blogs' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
-    <div className="w-full flex justify-center sticky top-0 z-50 px-4 pt-4 pb-2 pointer-events-none">
-      <header className={`w-full max-w-6xl rounded-2xl border transition-all duration-300 backdrop-blur-md pointer-events-auto py-3 px-6 md:px-8 ${
-        isScrolled
-          ? 'bg-white/60 dark:bg-[#090d16]/70 border-neutral-200/80 dark:border-neutral-800/80 shadow-md backdrop-blur-xl'
-          : 'bg-white/30 dark:bg-[#090d16]/40 border-neutral-200/40 dark:border-neutral-800/40 shadow-sm'
-      }`}>
-        <div className="mx-auto flex items-center justify-between">
-          
-          {/* Logo / Brand Lockup */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <span className="text-base font-black tracking-tight text-neutral-900 dark:text-white font-display">
-              PMK NEXA
-            </span>
+    <>
+      {/* Top Thin Global Notification Bar */}
+      <div className="w-full bg-[#080B11] text-neutral-400 text-[11px] border-b border-white/[0.06] py-1.5 px-4 sm:px-8 hidden md:flex items-center justify-between z-50">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 text-slate-300 font-bold group cursor-pointer" title="GPS Satellite Coordinates: 18.2969° N, 83.8967° E">
+            <GpsGlobeBadge className="h-4.5 w-4.5" />
+            <span>HQ: {company?.registrationLocation || "Srikakulam district, Andhra Pradesh, India"}</span>
+          </div>
+          <span className="text-white/20">|</span>
+          <span className="text-neutral-400">
+            Corporate ID: <strong>PMK Nexa Solutions Private Limited</strong>
+          </span>
+        </div>
+
+        <div className="flex items-center gap-5 font-semibold">
+          <Link to="/opportunities" className="text-amber-400 hover:underline flex items-center gap-1">
+            <Sparkles className="h-3 w-3" />
+            We Are Hiring
           </Link>
+          <Link to="/about" className="hover:text-white transition-colors">Governance &amp; SLA</Link>
+          <Link to="/contact" className="hover:text-white transition-colors">Client Support</Link>
+          <Link to="/admin" className="text-slate-300 hover:text-white hover:underline flex items-center gap-1">
+            CMS Admin
+          </Link>
+        </div>
+      </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`text-sm font-medium transition-colors hover:text-[#3167ff] dark:hover:text-[#20c9b5] ${
-                    isActive 
-                      ? 'text-[#3167ff] dark:text-[#20c9b5] font-bold' 
-                      : 'text-neutral-600 dark:text-neutral-400'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
+      {/* Main Sticky Header */}
+      <header className={`w-full sticky top-0 z-40 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-[#0B0F17]/95 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl py-3'
+          : 'bg-[#0B0F17]/80 backdrop-blur-xl border-b border-white/[0.05] py-4'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          
+          {/* Brand Logo Lockup */}
+          <div className="flex items-center gap-8">
+            <Logo className="h-9 sm:h-10" />
 
-          {/* Right Controls */}
-          <div className="hidden md:flex items-center gap-4">
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="rounded-full p-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800/60 transition-colors"
-              aria-label="Toggle Theme"
-            >
-              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-5">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
 
-            {/* Contact CTA */}
-            <Link
-              to="/contact"
-              className="rounded-full bg-[#3167ff] hover:bg-[#2552d4] text-white px-6 py-2 text-sm font-bold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
-            >
-              Get in Touch
-            </Link>
+                if (link.hasDropdown) {
+                  return (
+                    <div
+                      key={link.name}
+                      className="relative"
+                      onMouseEnter={() => setServicesDropdown(true)}
+                      onMouseLeave={() => setServicesDropdown(false)}
+                    >
+                      <Link
+                        to={link.path}
+                        className={`flex items-center gap-1.5 text-sm font-bold tracking-tight py-2 transition-colors ${
+                          isActive || location.pathname.startsWith('/services')
+                            ? 'text-amber-400'
+                            : 'text-neutral-300 hover:text-white'
+                        }`}
+                      >
+                        <span>{link.name}</span>
+                        <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesDropdown ? 'rotate-180' : ''}`} />
+                      </Link>
+
+                      {/* Mega Dropdown Preview */}
+                      <AnimatePresence>
+                        {servicesDropdown && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 8 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 w-[420px] rounded-2xl bg-[#121824] border border-white/15 p-5 shadow-2xl space-y-3 z-50"
+                          >
+                            <div className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 pb-2 border-b border-white/10 flex justify-between font-mono">
+                              <span>ENTERPRISE CAPABILITIES</span>
+                              <span>5 ACTIVE DOMAINS</span>
+                            </div>
+                            <div className="space-y-2">
+                              {services.slice(0, 5).map((svc) => (
+                                <Link
+                                  key={svc.id}
+                                  to="/services"
+                                  className="flex items-start justify-between p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors group"
+                                >
+                                  <div>
+                                    <h4 className="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">
+                                      {svc.title}
+                                    </h4>
+                                    <p className="text-[11px] text-neutral-400 line-clamp-1">
+                                      {svc.shortDescription || svc.description}
+                                    </p>
+                                  </div>
+                                  <ArrowRight className="h-3.5 w-3.5 text-neutral-500 group-hover:translate-x-1 group-hover:text-white transition-all shrink-0 mt-0.5" />
+                                </Link>
+                              ))}
+                            </div>
+                            <div className="pt-2 border-t border-white/10 flex justify-between items-center text-xs">
+                              <Link to="/services" className="text-amber-400 font-bold hover:underline">
+                                View Full Capability Matrix →
+                              </Link>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`relative text-sm font-bold tracking-tight py-2 transition-colors flex items-center gap-1.5 ${
+                      isActive ? 'text-amber-400' : 'text-neutral-300 hover:text-white'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    {link.isHiring && (
+                      <span className="flex h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
 
-          {/* Mobile drawer controls */}
-          <div className="flex items-center gap-2 md:hidden">
-            <button
-              onClick={toggleTheme}
-              className="rounded-full p-2 text-neutral-600 dark:text-neutral-400"
-              aria-label="Toggle Theme"
+          {/* Right Action Items: Theme Toggle & Primary Enterprise Button */}
+          <div className="flex items-center gap-3.5">
+            <ThemeToggle />
+
+            <Link
+              to="/services"
+              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider shadow-lg transition-all"
             >
-              {theme === 'dark' ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
-            </button>
-            
+              <span>Explore Solutions</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+
+            {/* Mobile Hamburger Toggle Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="rounded-full p-2 text-neutral-600 dark:text-neutral-400"
-              aria-label="Toggle menu"
+              className="lg:hidden p-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white transition-colors cursor-pointer"
+              aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
 
         </div>
+      </header>
 
-        {/* Mobile menu drawer */}
-        <AnimatePresence>
-          {isOpen && (
+      {/* Mobile Off-Canvas Full Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 z-50 lg:hidden">
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className="md:hidden border-t border-neutral-200/80 dark:border-neutral-800/80 mt-3 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            />
+
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 26, stiffness: 280 }}
+              className="relative w-full max-w-sm h-full bg-[#0B0F17] border-l border-white/10 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto z-10 text-white"
             >
-              <div className="space-y-1 pb-4 pt-3">
-                {navLinks.map((link, idx) => {
-                  const isActive = location.pathname === link.path;
-                  return (
+              <div>
+                <div className="flex items-center justify-between pb-5 border-b border-white/10">
+                  <Logo className="h-8" />
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 rounded-full text-neutral-400 hover:text-white"
+                  >
+                    <X className="h-6 w-6" />
+                  </button>
+                </div>
+
+                <nav className="py-6 space-y-2">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 px-3 block mb-2 font-mono">
+                    GLOBAL ENTERPRISE DIRECTORY
+                  </span>
+                  {navLinks.map((link, idx) => (
                     <Link
                       key={link.name}
                       to={link.path}
                       onClick={() => setIsOpen(false)}
-                      className={`block rounded-md px-3 py-2 text-sm font-bold transition-colors ${
-                        isActive 
-                          ? 'bg-[#3167ff]/10 text-[#3167ff] dark:bg-neutral-800 dark:text-white' 
-                          : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-900'
+                      className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-bold transition-all ${
+                        location.pathname === link.path
+                          ? 'bg-white/[0.08] text-amber-400 border border-amber-400/30'
+                          : 'text-neutral-300 hover:bg-white/[0.05]'
                       }`}
                     >
-                      <span className="text-[10px] font-normal text-neutral-400 dark:text-neutral-500 mr-2">0{idx + 1}</span>
-                      {link.name}
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-xs text-neutral-500">0{idx + 1}</span>
+                        <span>{link.name}</span>
+                      </div>
+                      <ChevronRight className="h-4 w-4 text-neutral-500" />
                     </Link>
-                  );
-                })}
-                <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 mt-2">
-                  <Link
-                    to="/contact"
-                    onClick={() => setIsOpen(false)}
-                    className="block w-full text-center rounded-full bg-[#3167ff] text-white py-2.5 text-sm font-bold shadow-md"
-                  >
-                    Get in Touch
-                  </Link>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="pt-6 border-t border-white/10 space-y-4">
+                <div className="space-y-2 text-xs text-neutral-400">
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-3.5 w-3.5 text-amber-400" />
+                    <span>{company?.contact?.email || "info@pmknexasolutions.com"}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-3.5 w-3.5 text-emerald-400" />
+                    <span>{company?.contact?.phone || "+91 86880 07523"}</span>
+                  </div>
                 </div>
+
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full rounded-full bg-blue-600 text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg"
+                >
+                  <span>Connect With Enterprise Desk</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
-    </div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

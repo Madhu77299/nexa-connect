@@ -1,0 +1,165 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ShieldCheck, Award, Calendar, MapPin, Building2, Quote, Sparkles, ArrowRight } from 'lucide-react';
+import { useData } from '../context/DataContext';
+import { Link } from 'react-router-dom';
+
+export default function LeadershipSection() {
+  const { company, mediaSettings } = useData();
+
+  const founderImage = mediaSettings?.founderImageUrl || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80";
+
+  const milestones = [
+    { label: "Company Legal Name", value: company.name || "PMK Nexa Solutions Private Limited", icon: Building2 },
+    { label: "Incorporation Date", value: company.incorporationDate || "April 20, 2026", icon: Calendar },
+    { label: "Registered Jurisdiction", value: company.registrationLocation || "Srikakulam district, Andhra Pradesh, India", icon: MapPin },
+    { label: "Governance Benchmark", value: "Verified MCA & Corporate SLA Compliant", icon: ShieldCheck }
+  ];
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-[#f5f7fb] to-white dark:from-[#08111f] dark:to-[#0c1524] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
+      {/* Background Decorative Glow */}
+      <div className="absolute top-1/2 left-0 -z-10 h-96 w-96 rounded-full bg-[#3167ff]/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 rounded-full bg-[#20c9b5]/10 blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Tag */}
+        <div className="flex flex-col items-center text-center mb-16 space-y-3">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#3167ff]/10 dark:bg-[#20c9b5]/10 text-xs font-black text-[#3167ff] dark:text-[#20c9b5] uppercase tracking-widest">
+            <Award className="h-4 w-4" />
+            EXECUTIVE LEADERSHIP &amp; GOVERNANCE
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black text-neutral-900 dark:text-white font-display tracking-tight leading-tight">
+            Architecting the Future of Connected Business.
+          </h2>
+          <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl">
+            Led by founder {company.founder || "Prasanna Korikana"}, PMK Nexa Solutions Private Limited operates with corporate qualitative integrity and scalable execution discipline.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Founder Leadership Card (5 cols) */}
+          <div className="lg:col-span-5">
+            <div className="relative rounded-3xl bg-white dark:bg-[#101c2f] border border-neutral-200/80 dark:border-neutral-700/80 p-8 shadow-xl overflow-hidden group">
+              {/* Top Accent Gradient */}
+              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#3167ff] via-[#20c9b5] to-[#ff715b]" />
+              
+              {/* Founder Avatar & Lockup */}
+              <div className="flex items-center gap-5 mb-6">
+                <div className="relative">
+                  <div className="h-20 w-20 rounded-2xl bg-gradient-to-tr from-[#3167ff] to-[#20c9b5] p-1 shadow-md">
+                    <img 
+                      src={founderImage} 
+                      alt={company.founder || "Prasanna Korikana"} 
+                      className="h-full w-full object-cover rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                  </div>
+                  <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#3167ff] text-white shadow-xs">
+                    <Sparkles className="h-3.5 w-3.5" />
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-black text-neutral-900 dark:text-white font-display">
+                    {company.founder || "Prasanna Korikana"}
+                  </h3>
+                  <span className="text-xs font-bold text-[#3167ff] dark:text-[#20c9b5] uppercase tracking-wider block">
+                    {company.founderTitle || "Founder & CEO"}
+                  </span>
+                  <span className="text-[11px] text-neutral-500 dark:text-neutral-400">
+                    PMK Nexa Solutions Private Limited
+                  </span>
+                </div>
+              </div>
+
+              {/* Founder Message / Bio */}
+              <div className="relative p-4 rounded-2xl bg-neutral-50 dark:bg-[#08111f]/60 border border-neutral-200/60 dark:border-neutral-800/80 mb-6">
+                <Quote className="h-5 w-5 text-[#3167ff]/40 dark:text-[#20c9b5]/40 mb-2" />
+                <p className="text-xs text-neutral-700 dark:text-neutral-300 leading-relaxed italic">
+                  "{company.founderBio || "Our goal is simple: eliminate operational friction. When businesses, verified suppliers, and cutting-edge tech synchronize, boundless growth becomes repeatable and sustainable."}"
+                </p>
+              </div>
+
+              {/* Direct CTA */}
+              <div className="flex items-center justify-between pt-2 border-t border-neutral-200 dark:border-neutral-800">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">
+                  Leadership Office
+                </span>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3167ff] dark:text-[#20c9b5] hover:underline"
+                >
+                  Schedule Consultation <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Official MCA Corporate Governance Details (7 cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="space-y-2">
+              <span className="text-[10px] font-extrabold text-[#20c9b5] tracking-widest uppercase block">
+                // LEGAL &amp; CORPORATE IDENTITY
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white font-display">
+                Registered Corporate Entity
+              </h3>
+              <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Incorporated under the Companies Act, PMK Nexa Solutions Private Limited serves as a structured institutional partner for enterprises, scale-ups, and vendor ecosystems.
+              </p>
+            </div>
+
+            {/* Corporate Data Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {milestones.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div 
+                    key={idx}
+                    className="p-5 rounded-2xl bg-white dark:bg-[#101c2f] border border-neutral-200/80 dark:border-neutral-800/80 shadow-xs hover:border-[#3167ff]/50 dark:hover:border-[#20c9b5]/50 transition-all"
+                  >
+                    <div className="flex items-center gap-2.5 mb-2 text-[#3167ff] dark:text-[#20c9b5]">
+                      <Icon className="h-4 w-4" />
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-400">
+                        {item.label}
+                      </span>
+                    </div>
+                    <div className="text-sm font-black text-neutral-900 dark:text-white tracking-tight">
+                      {item.value}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Strategic Pillars */}
+            <div className="p-6 rounded-2xl bg-white/60 dark:bg-[#0c1524] border border-neutral-200/80 dark:border-neutral-800/80 space-y-3">
+              <span className="text-[10px] font-extrabold text-neutral-400 uppercase tracking-widest block">
+                EXECUTIVE PILLARS OF EXCELLENCE
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#3167ff]" />
+                  <span className="font-bold">Transparent SLAs</span>
+                </div>
+                <div className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#20c9b5]" />
+                  <span className="font-bold">Verified Supply Chains</span>
+                </div>
+                <div className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#ff715b]" />
+                  <span className="font-bold">Cloud Automation</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+}

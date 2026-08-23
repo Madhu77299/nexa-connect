@@ -1,314 +1,413 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Mail, Phone, Clock, FileText, Send, Sparkles } from 'lucide-react';
-import SectionHeading from '../components/SectionHeading';
+import { 
+  Briefcase, Network, Calendar, Cpu, TrendingUp, ArrowRight, 
+  CheckCircle2, ShieldCheck, Sparkles, Send, Loader2, Award, 
+  Zap, Users, FileText, Check, Camera, Sun, Home, Layers, Plane 
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
-import { servicesData } from '../data/companyData';
+import SectionHeading from '../components/SectionHeading';
+import SuccessModal from '../components/SuccessModal';
+import { servicesData, companyConfig } from '../data/companyData';
+import { useData } from '../context/DataContext';
 
 export default function Services() {
-  const [activeService, setActiveService] = useState(servicesData[0]);
-  const [showInquiryForm, setShowInquiryForm] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const { services, logInquiry } = useData();
+  const activeServicesList = services && services.length > 0 ? services : servicesData;
+  
+  const [activeTabId, setActiveTabId] = useState(activeServicesList[0]?.id || 'business-development');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [referenceId, setReferenceId] = useState('');
 
-  // Form State
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
-  const [message, setMessage] = useState('');
+  const [inquiryForm, setInquiryForm] = useState({
+    name: '',
+    companyName: '',
+    email: '',
+    phone: '',
+    requirement: ''
+  });
 
-  // Service Specific details
-  const [targetMarket, setTargetMarket] = useState('B2B Corporate');
-  const [estimatedBudget, setEstimatedBudget] = useState('Scale operations');
-  const [logisticsScale, setLogisticsScale] = useState('Regional distribution');
-  const [eventFormat, setEventFormat] = useState('Corporate Staging');
-  const [platformFocus, setPlatformFocus] = useState('Full Stack SaaS Web App');
+  const selectedService = activeServicesList.find(s => s.id === activeTabId) || activeServicesList[0];
+
+  const getServiceIcon = (id) => {
+    switch (id) {
+      case 'business-development':
+        return <Briefcase className="h-5 w-5" />;
+      case 'vendor-network':
+        return <Network className="h-5 w-5" />;
+      case 'event-operations':
+        return <Calendar className="h-5 w-5" />;
+      case 'technical':
+        return <Cpu className="h-5 w-5" />;
+      case 'digital-growth':
+      case 'digital-marketing':
+        return <TrendingUp className="h-5 w-5" />;
+      default:
+        return <Sparkles className="h-5 w-5" />;
+    }
+  };
 
   const handleInquirySubmit = (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setShowInquiryForm(false);
-      setName('');
-      setEmail('');
-      setCompany('');
-      setMessage('');
-    }, 4000);
-  };
+    if (!inquiryForm.name || !inquiryForm.email) return;
 
-  const getFormInputs = () => {
-    switch (activeService.id) {
-      case 'business-development':
-        return (
-          <>
-            <div>
-              <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Target Market Segment</label>
-              <select 
-                value={targetMarket} 
-                onChange={(e) => setTargetMarket(e.target.value)} 
-                className="w-full bg-[#f5f7fb] dark:bg-[#101c2f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-              >
-                <option value="B2B Corporate">B2B Corporate Partners</option>
-                <option value="SaaS/Startup">SaaS & Startups</option>
-                <option value="Consumer Retail">Consumer Retail Networks</option>
-              </select>
-            </div>
-            <div>
-              <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Estimated Scale Budget</label>
-              <select 
-                value={estimatedBudget} 
-                onChange={(e) => setEstimatedBudget(e.target.value)} 
-                className="w-full bg-[#f5f7fb] dark:bg-[#101c2f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-              >
-                <option value="Pilot validation">Pilot Validation Stage</option>
-                <option value="Scale operations">Scale Operations</option>
-                <option value="Enterprise integration">Enterprise Integration</option>
-              </select>
-            </div>
-          </>
-        );
-      case 'vendor-network':
-        return (
-          <>
-            <div>
-              <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Logistics & Supply Scale</label>
-              <select 
-                value={logisticsScale} 
-                onChange={(e) => setLogisticsScale(e.target.value)} 
-                className="w-full bg-[#f5f7fb] dark:bg-[#101c2f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-              >
-                <option value="Regional distribution">Regional Distribution</option>
-                <option value="National supply network">National Supply Network</option>
-                <option value="On-demand event logistics">On-Demand Event Logistics</option>
-              </select>
-            </div>
-          </>
-        );
-      case 'event-operations':
-        return (
-          <>
-            <div>
-              <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Preferred Event Format</label>
-              <select 
-                value={eventFormat} 
-                onChange={(e) => setEventFormat(e.target.value)} 
-                className="w-full bg-[#f5f7fb] dark:bg-[#101c2f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-              >
-                <option value="Corporate Staging">Corporate AGM / Staging</option>
-                <option value="Tech Summit">Tech Summit / Exhibition</option>
-                <option value="Brand Launch">Brand Launch & Visual Production</option>
-              </select>
-            </div>
-          </>
-        );
-      case 'technical-services':
-        return (
-          <>
-            <div>
-              <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Target Technology Stack</label>
-              <select 
-                value={platformFocus} 
-                onChange={(e) => setPlatformFocus(e.target.value)} 
-                className="w-full bg-[#f5f7fb] dark:bg-[#101c2f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-              >
-                <option value="Full Stack SaaS Web App">Full Stack SaaS Web App</option>
-                <option value="Custom CRM Automation">Custom CRM Automation</option>
-                <option value="Vendor Logistics API Sync">Vendor Logistics API Sync</option>
-              </select>
-            </div>
-          </>
-        );
-      default:
-        return null;
-    }
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      const trackingId = logInquiry({
+        name: inquiryForm.name,
+        company: inquiryForm.companyName || 'Enterprise Partner',
+        phone: inquiryForm.phone,
+        email: inquiryForm.email,
+        subject: `[CAPABILITY INQUIRY] ${selectedService.title}`,
+        message: `Requested Service: ${selectedService.title}\nCompany: ${inquiryForm.companyName}\nPhone: ${inquiryForm.phone}\nRequirement:\n${inquiryForm.requirement}`
+      });
+      setReferenceId(trackingId);
+      setIsModalOpen(true);
+      setInquiryForm({
+        name: '',
+        companyName: '',
+        email: '',
+        phone: '',
+        requirement: ''
+      });
+    }, 800);
   };
 
   return (
     <PageTransition>
-      {/* 1. Page Header Block */}
-      <section className="bg-neutral-50 dark:bg-[#101c2f] py-20 border-b border-neutral-200/50 dark:border-neutral-800 transition-colors duration-300">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-[10px] font-bold tracking-widest text-[#3167ff] dark:text-[#20c9b5] uppercase">WHAT WE DELIVER</span>
-          <h1 className="text-4xl font-black text-neutral-900 dark:text-white sm:text-6xl max-w-3xl leading-tight">
-            Comprehensive business operational coordination.
-          </h1>
-          <p className="text-base text-neutral-600 dark:text-neutral-300 max-w-2xl leading-relaxed">
-            Eliminating intermediate management friction by consolidating procurement, staging, event coordination, coding, and campaign scale inside one dashboard.
-          </p>
-        </div>
-      </section>
+      <div className="bg-[#f8fafc] dark:bg-[#0B0F17] text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-300 antialiased">
+        
+        {/* ========================================================================= */}
+        {/* 1. HERO HEADER: 5 CORE CAPABILITIES */}
+        {/* ========================================================================= */}
+        <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-bold tracking-wider text-amber-700 dark:text-amber-400 uppercase shadow-sm">
+              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+              <span>FIVE CORE CAPABILITIES // ONE CONNECTED NETWORK</span>
+            </div>
 
-      {/* 2. Interactive Service Explorer Grid */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto">
+              Our Core Capabilities
+            </h1>
+
+            <p className="text-sm sm:text-lg text-neutral-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              PMK NEXA SOLUTIONS PRIVATE LIMITED operates through five core capabilities and a strong professional network.
+            </p>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* 2. CORE CAPABILITIES INTERACTIVE SHOWCASE */}
+        {/* ========================================================================= */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
           
-          {/* Left panel selector list */}
-          <div className="lg:col-span-5 space-y-4">
-            <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-6">// CORE CAPABILITIES</h3>
-            <div className="space-y-3">
-              {servicesData.map((svc) => (
+          {/* Top Capability Selector Tabs */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {activeServicesList.map((svc) => {
+              const isCurrent = svc.id === activeTabId;
+              return (
                 <button
                   key={svc.id}
-                  onClick={() => {
-                    setActiveService(svc);
-                    setShowInquiryForm(false);
-                  }}
-                  className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex justify-between items-center ${
-                    activeService.id === svc.id
-                      ? 'bg-[#3167ff] text-white border-transparent shadow-md'
-                      : 'bg-white dark:bg-[#101c2f] border-neutral-200/60 dark:border-neutral-800 text-neutral-800 dark:text-white hover:border-[#3167ff]/40'
+                  onClick={() => setActiveTabId(svc.id)}
+                  className={`p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-3 ${
+                    isCurrent
+                      ? 'bg-neutral-900 dark:bg-slate-100 border-neutral-900 dark:border-white text-white dark:text-slate-950 shadow-xl scale-102'
+                      : 'bg-white dark:bg-slate-900 border-neutral-200 dark:border-slate-800 text-neutral-700 dark:text-slate-300 hover:border-slate-600'
                   }`}
                 >
-                  <span className="text-sm font-bold uppercase tracking-wider">{svc.title}</span>
-                  <ArrowRight className={`h-4 w-4 shrink-0 transition-transform ${
-                    activeService.id === svc.id ? 'translate-x-1' : ''
-                  }`} />
+                  <div className="flex items-center justify-between">
+                    <span className={`text-[10px] font-mono font-black uppercase px-2 py-0.5 rounded-full ${
+                      isCurrent ? 'bg-white/20 dark:bg-slate-900/20 text-white dark:text-slate-950' : 'bg-neutral-100 dark:bg-slate-800 text-blue-600 dark:text-amber-400'
+                    }`}>
+                      {svc.number || "01"}
+                    </span>
+                    <div className={isCurrent ? 'text-white dark:text-slate-950' : 'text-blue-600 dark:text-amber-400'}>
+                      {getServiceIcon(svc.id)}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xs sm:text-sm font-black font-display leading-snug">
+                      {svc.title}
+                    </h3>
+                  </div>
                 </button>
-              ))}
-            </div>
+              );
+            })}
           </div>
 
-          {/* Right panel details details */}
-          <div className="lg:col-span-7 bg-white dark:bg-[#101c2f] border border-neutral-200/60 dark:border-neutral-800 p-8 rounded-3xl shadow-sm space-y-8 relative overflow-hidden">
+          {/* Active Capability Deep-Dive Card */}
+          <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-10">
             
-            {/* Header info */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-black text-[#3167ff] dark:text-[#20c9b5] uppercase tracking-widest bg-[#3167ff]/10 px-2 py-0.5 rounded">
-                  Active Service Segment
-                </span>
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-6 border-b border-neutral-200 dark:border-slate-800">
+              <div className="space-y-2 max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 text-xs font-black uppercase tracking-wider font-mono">
+                  CAPABILITY {selectedService.number}
+                </div>
+                <h2 className="text-2xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">
+                  {selectedService.title}
+                </h2>
+                <p className="text-sm sm:text-base text-neutral-600 dark:text-slate-300 leading-relaxed font-normal">
+                  {selectedService.shortDescription || selectedService.description}
+                </p>
               </div>
-              <h2 className="text-3xl font-black text-neutral-900 dark:text-white font-display leading-tight">
-                {activeService.title}
-              </h2>
-              <p className="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                {activeService.description}
-              </p>
+
+              <a
+                href="#scope-requirement-form"
+                className="px-7 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-black uppercase tracking-wider shadow-lg transition-all shrink-0 cursor-pointer"
+              >
+                <span>Request This Capability →</span>
+              </a>
             </div>
 
-            {/* Structured features checklist */}
+            {/* Feature Deliverables */}
             <div className="space-y-4">
-              <h4 className="text-xs font-bold text-neutral-400 uppercase tracking-widest">Key Deliverables</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {activeService.capabilities.map((feature, index) => (
-                  <div key={index} className="flex gap-2 items-start text-sm text-neutral-600 dark:text-neutral-350">
-                    <CheckCircle className="h-4.5 w-4.5 text-[#20c9b5] shrink-0 mt-0.5" />
-                    <span>{feature}</span>
+              <h4 className="text-xs font-extrabold uppercase tracking-widest text-neutral-400 dark:text-slate-400">
+                // DELIVERABLE SCOPE &amp; CAPABILITY MATRIX
+              </h4>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {(Array.isArray(selectedService.capabilities) ? selectedService.capabilities : selectedService.features || []).map((feat, idx) => (
+                  <div 
+                    key={idx} 
+                    className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-800 flex items-start gap-3"
+                  >
+                    <div className="h-6 w-6 rounded-lg bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="h-3.5 w-3.5" />
+                    </div>
+                    <span className="text-xs font-bold text-neutral-800 dark:text-slate-200 leading-relaxed">
+                      {feat}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* SLA terms summary */}
-            <div className="p-4 rounded-xl bg-neutral-50 dark:bg-[#08111f]/60 text-xs text-neutral-550 space-y-2 border border-neutral-200/30 dark:border-neutral-800">
-              <span className="font-bold text-[#ff715b] uppercase block">Operational Target SLA</span>
-              <p className="leading-relaxed">
-                All initiatives deployed in this track are subject to strict SLA validation pipelines: weekly client checkins, milestone tracking, and secure supplier contract boundaries.
-              </p>
-            </div>
-
-            {/* Action buttons triggers */}
-            {!showInquiryForm ? (
-              <div className="pt-4 flex gap-4">
-                <button
-                  onClick={() => setShowInquiryForm(true)}
-                  className="inline-flex items-center gap-2 rounded-full bg-[#3167ff] text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider shadow hover:bg-[#ff715b] transition-all"
-                >
-                  Explore {activeService.title} →
-                </button>
-              </div>
-            ) : (
-              <div className="border-t border-neutral-200 dark:border-neutral-800 pt-6 mt-6 space-y-6">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-widest flex items-center gap-1.5">
-                    <Sparkles className="h-4 w-4 text-[#20c9b5]" />
-                    Dynamic Inquiry Setup
+            {/* Vendor Onboarding Diagram */}
+            {selectedService.id === 'vendor-network' && (
+              <div className="pt-8 border-t border-neutral-200 dark:border-slate-800 space-y-8">
+                
+                <div className="text-center space-y-2 max-w-2xl mx-auto">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-amber-400 block">
+                    STRUCTURED SUPPLIER PROTOCOL
+                  </span>
+                  <h3 className="text-2xl font-black font-display text-neutral-900 dark:text-white">
+                    Vendor Onboarding Process
                   </h3>
-                  <button 
-                    onClick={() => setShowInquiryForm(false)}
-                    className="text-xs text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
-                  >
-                    Cancel
-                  </button>
+                  <p className="text-xs text-neutral-500 dark:text-slate-400">
+                    A streamlined, transparent 6-step lifecycle connecting quality vendors with enterprise demand.
+                  </p>
                 </div>
 
-                {formSubmitted ? (
-                  <div className="p-6 rounded-2xl bg-[#20c9b5]/10 border border-[#20c9b5]/30 text-center space-y-3">
-                    <CheckCircle className="h-10 w-10 text-[#20c9b5] mx-auto" />
-                    <h4 className="text-base font-bold text-neutral-900 dark:text-white">Inquiry Received</h4>
-                    <p className="text-xs text-neutral-500 max-w-sm mx-auto">
-                      Thank you. Your domain consultation specs have been mapped successfully. A PMK Nexa administrator will coordinate followups within 24 business hours.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleInquirySubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Your Name</label>
-                        <input 
-                          type="text" 
-                          required 
-                          value={name} 
-                          onChange={(e) => setName(e.target.value)} 
-                          placeholder="Madhu Sudhana" 
-                          className="w-full bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Corporate Email</label>
-                        <input 
-                          type="email" 
-                          required 
-                          value={email} 
-                          onChange={(e) => setEmail(e.target.value)} 
-                          placeholder="client@company.com" 
-                          className="w-full bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Company / Organization</label>
-                        <input 
-                          type="text" 
-                          required 
-                          value={company} 
-                          onChange={(e) => setCompany(e.target.value)} 
-                          placeholder="PMK Nexa Solutions" 
-                          className="w-full bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-                        />
-                      </div>
-                      {getFormInputs()}
-                    </div>
-
-                    <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-450 dark:text-neutral-400 block mb-1">Requirements Details</label>
-                      <textarea 
-                        rows="3" 
-                        required 
-                        value={message} 
-                        onChange={(e) => setMessage(e.target.value)} 
-                        placeholder="Briefly describe what your operations require..." 
-                        className="w-full bg-[#f5f7fb] dark:bg-[#08111f] border border-neutral-300 dark:border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full flex items-center justify-center gap-2 rounded-full bg-[#3167ff] text-white py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#20c9b5]"
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+                  {[
+                    { num: '01', title: 'Submit Profile', desc: 'Send your professional portfolio & credentials.' },
+                    { num: '02', title: 'Fill Registration Form', desc: 'Complete the supplier application form.' },
+                    { num: '03', title: 'Profile Verification', desc: 'Our team reviews & validates your details.' },
+                    { num: '04', title: 'Pay Registration Fee & Sign Agreement', desc: 'Complete payment & sign master SLA contract.' },
+                    { num: '05', title: 'Access to Leads', desc: 'Receive high-quality, verified corporate project leads.' },
+                    { num: '06', title: 'Commission Payment', desc: 'Earn lucrative revenue on successful project conversions.' }
+                  ].map((st, i) => (
+                    <div 
+                      key={i} 
+                      className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-800 flex flex-col justify-between space-y-3 relative group hover:border-slate-600 transition-all"
                     >
-                      <Send className="h-4 w-4" />
-                      Submit Consultation Specs
-                    </button>
-                  </form>
-                )}
+                      <div className="h-8 w-8 rounded-xl bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 flex items-center justify-center font-mono font-black text-xs shadow-md">
+                        {st.num}
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-xs font-black text-neutral-900 dark:text-white font-display">
+                          {st.title}
+                        </h4>
+                        <p className="text-[11px] text-neutral-500 dark:text-slate-400 leading-relaxed">
+                          {st.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Guarantee Banner */}
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-700 via-blue-800 to-slate-900 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left border border-blue-600/30">
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-amber-400 block font-mono">
+                      VERIFIED VENDOR ASSURANCE
+                    </span>
+                    <h4 className="text-lg font-black font-display text-white">
+                      No Conversions in 6 Months? Get Extra 6 Months of Free Leads!
+                    </h4>
+                  </div>
+
+                  <Link
+                    to="/contact"
+                    className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition-colors shadow-md shrink-0"
+                  >
+                    <span>Register as Vendor →</span>
+                  </Link>
+                </div>
+
+                {/* Specialized Network Solutions Grid */}
+                <div className="space-y-3">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400 dark:text-slate-400 block">
+                    // SPECIALIZED SOLUTIONS AVAILABLE THROUGH OUR NETWORK
+                  </span>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 text-center">
+                    {[
+                      "Drone & Survey Services",
+                      "Construction Services",
+                      "Solar Solutions",
+                      "Interior Solutions",
+                      "Branding & Printing",
+                      "Photography & Videography",
+                      "Others"
+                    ].map((spec, idx) => (
+                      <div key={idx} className="p-3 rounded-xl bg-neutral-100 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-800 text-xs font-bold text-neutral-800 dark:text-slate-200">
+                        {spec}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             )}
 
           </div>
 
-        </div>
-      </section>
+          {/* Network Solutions Statement */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-neutral-900 dark:bg-[#121824] text-white border border-neutral-800 dark:border-slate-800 shadow-2xl space-y-4">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block font-mono">
+              // NETWORK SOLUTIONS MODEL
+            </span>
+            <h3 className="text-2xl font-black font-display text-white">
+              Connected Professional Network
+            </h3>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
+              Through our network, we connect clients with the right vendors, professionals and specialised service providers based on their requirements. Any additional specialised services are represented as solutions available through our network.
+            </p>
+          </div>
+
+          {/* Scoping Form */}
+          <div id="scope-requirement-form" className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-6">
+            <div className="space-y-1">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
+                // RAPID REQUIREMENT SCOPING
+              </span>
+              <h3 className="text-2xl font-black font-display text-neutral-900 dark:text-white">
+                Submit Requirement for: {selectedService.title}
+              </h3>
+              <p className="text-xs text-neutral-500 dark:text-slate-400">
+                Our operations team will structure the execution plan and connect verified network resources within 24 hours.
+              </p>
+            </div>
+
+            <form onSubmit={handleInquirySubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-slate-300 block mb-1">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={inquiryForm.name}
+                    onChange={(e) => setInquiryForm({ ...inquiryForm, name: e.target.value })}
+                    placeholder="e.g. Ramesh Verma"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-slate-300 block mb-1">
+                    Company / Organization
+                  </label>
+                  <input
+                    type="text"
+                    value={inquiryForm.companyName}
+                    onChange={(e) => setInquiryForm({ ...inquiryForm, companyName: e.target.value })}
+                    placeholder="e.g. TechSolutions India"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-slate-300 block mb-1">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={inquiryForm.email}
+                    onChange={(e) => setInquiryForm({ ...inquiryForm, email: e.target.value })}
+                    placeholder="ramesh@techsolutions.com"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-slate-300 block mb-1">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    value={inquiryForm.phone}
+                    onChange={(e) => setInquiryForm({ ...inquiryForm, phone: e.target.value })}
+                    placeholder="+91 86880 07523"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-neutral-700 dark:text-slate-300 block mb-1">
+                  Describe Your Requirement
+                </label>
+                <textarea
+                  rows="3"
+                  value={inquiryForm.requirement}
+                  onChange={(e) => setInquiryForm({ ...inquiryForm, requirement: e.target.value })}
+                  placeholder="Outline your timeline, deliverables, target scale, and operational requirements..."
+                  className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full py-4 rounded-2xl bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 hover:bg-neutral-800 dark:hover:bg-white text-xs font-black uppercase tracking-wider shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <span>Submitting Requirement...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    <span>Submit Requirement &amp; Get Consultation</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+
+        </section>
+
+        {/* Success Modal */}
+        <SuccessModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          referenceId={referenceId}
+          title="Capability Requirement Received!"
+          message="Your requirement has been routed to our specialized operations team. We will review your project parameters and contact you within 24 hours."
+        />
+
+      </div>
     </PageTransition>
   );
 }

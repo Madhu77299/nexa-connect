@@ -4,12 +4,12 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Check local storage or system preference
+    // Default strictly to 'light' theme unless user explicitly clicked dark
     const savedTheme = localStorage.getItem('nexa-theme');
-    if (savedTheme) return savedTheme;
-    
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return systemPrefersDark ? 'dark' : 'light';
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      return savedTheme;
+    }
+    return 'light';
   });
 
   useEffect(() => {

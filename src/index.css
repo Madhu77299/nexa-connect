@@ -9,19 +9,33 @@
 
 @layer base {
   :root {
-    --color-primary: #08111f;       /* Deep Midnight Navy */
-    --color-surface-dark: #101c2f;  /* Secondary Dark */
-    --color-brand: #3167ff;         /* Electric Cobalt Blue */
-    --color-accent-aqua: #20c9b5;   /* Aqua/Mint */
-    --color-accent-coral: #ff715b;  /* Coral Accent */
-    --color-bg-light: #f5f7fb;      /* Light Background */
-    --color-text-dark: #0b1220;
-    --color-text-light: #e9eef7;
+    --color-primary: #0B0E14;       /* Deep Obsidian Slate */
+    --color-surface-dark: #121722;  /* Executive Charcoal */
+    --color-brand: #2563EB;         /* Deep Royal Sapphire */
+    --color-accent-gold: #F59E0B;   /* Warm Champagne Gold */
+    --color-accent-amber: #D97706;  /* Executive Ochre Amber */
+    --color-bg-light: #F8FAFC;      /* Crisp Light Background */
+    --color-text-dark: #0F172A;
+    --color-text-light: #F8FAFC;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     font-family: var(--font-sans);
-    @apply antialiased text-[#0b1220] bg-[#f5f7fb] dark:bg-[#08111f] dark:text-[#e9eef7] transition-colors duration-300;
+    @apply antialiased text-[#0F172A] bg-[#F8FAFC] dark:bg-[#0B0E14] dark:text-[#F8FAFC];
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+  }
+  
+  *, *::before, *::after {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease, box-shadow 0.25s ease;
+  }
+
+  /* Don't slow down transforms, video playback, or cursor */
+  [data-cursor-dot], [data-cursor-outline], .animate-marquee, .animate-spin, video {
+    transition: none !important;
   }
   
   h1, h2, h3, .font-heading {
@@ -31,9 +45,9 @@
   }
 }
 
-/* Premium card specifications */
+/* Global MNC Glassmorphic card specifications */
 .nexa-card {
-  @apply bg-white dark:bg-[#101c2f] border border-neutral-200/60 dark:border-neutral-800/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300;
+  @apply bg-white dark:bg-[#121722]/90 backdrop-blur-xl border border-neutral-200/80 dark:border-white/[0.08] rounded-3xl shadow-sm hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300;
 }
 
 .text-stroke-custom {
@@ -72,32 +86,6 @@
   }
 }
 
-/* Legacy theme color mapping to synchronize all screens with the new startup palette */
-.bg-blue-600, .bg-blue-700 {
-  background-color: #3167ff !important;
-}
-.dark .dark\:bg-cyan-400, .dark .dark\:bg-cyan-500, .dark .dark\:bg-cyan-600 {
-  background-color: #20c9b5 !important;
-}
-.text-blue-600, .text-blue-700 {
-  color: #3167ff !important;
-}
-.dark .dark\:text-cyan-400, .dark .dark\:text-cyan-500 {
-  color: #20c9b5 !important;
-}
-.border-blue-600, .border-blue-700 {
-  border-color: #3167ff !important;
-}
-.dark .dark\:border-cyan-400, .dark .dark\:border-cyan-500 {
-  border-color: #20c9b5 !important;
-}
-.bg-neutral-950, .dark .dark\:bg-neutral-950 {
-  background-color: #08111f !important;
-}
-.bg-neutral-900, .dark .dark\:bg-neutral-900 {
-  background-color: #101c2f !important;
-}
-
 /* Hide Netlify injected widgets, badges, and drawers */
 #netlify-drawer-root,
 netlify-drawer,
@@ -110,7 +98,4 @@ iframe[src*="netlify"],
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
-  height: 0 !important;
-  width: 0 !important;
 }
-
