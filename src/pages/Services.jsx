@@ -92,10 +92,6 @@ export default function Services() {
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto">
               Our Core Capabilities
             </h1>
-
-            <p className="text-sm sm:text-lg text-neutral-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              PMK NEXA SOLUTIONS PRIVATE LIMITED operates through five core capabilities and a strong professional network.
-            </p>
           </div>
         </section>
 
@@ -277,18 +273,20 @@ export default function Services() {
 
           </div>
 
-          {/* Network Solutions Statement */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-neutral-900 dark:bg-[#121824] text-white border border-neutral-800 dark:border-slate-800 shadow-2xl space-y-4">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block font-mono">
-              // NETWORK SOLUTIONS MODEL
-            </span>
-            <h3 className="text-2xl font-black font-display text-white">
-              Connected Professional Network
-            </h3>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
-              Through our network, we connect clients with the right vendors, professionals and specialised service providers based on their requirements. Any additional specialised services are represented as solutions available through our network.
-            </p>
-          </div>
+          {/* Network Solutions Statement - Only for Vendor Network Solutions */}
+          {selectedService.id === 'vendor-network' && (
+            <div className="p-8 sm:p-10 rounded-3xl bg-neutral-900 dark:bg-[#121824] text-white border border-neutral-800 dark:border-slate-800 shadow-2xl space-y-4">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block font-mono">
+                // NETWORK SOLUTIONS MODEL
+              </span>
+              <h3 className="text-2xl font-black font-display text-white">
+                Connected Professional Network
+              </h3>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
+                Through our network, we connect clients with the right vendors, professionals and specialised service providers based on their requirements. Any additional specialised services are represented as solutions available through our network.
+              </p>
+            </div>
+          )}
 
           {/* Scoping Form */}
           <div id="scope-requirement-form" className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-6">

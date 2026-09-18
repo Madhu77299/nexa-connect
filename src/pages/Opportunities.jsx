@@ -50,7 +50,7 @@ export default function Opportunities() {
     { id: 'Web Development', label: 'Web Development' },
     { id: 'Mobile App Development', label: 'Mobile App Development' },
     { id: 'Event Operations', label: 'Event Operations' },
-    { id: 'Digital Growth & Social Media', label: 'Digital Growth & Social Media' },
+    { id: 'Digital Marketing & Social Media', label: 'Digital Marketing & Social Media' },
     { id: 'Vendor Operations & Business Dev', label: 'Vendor Operations & Business Dev' }
   ];
 
@@ -179,7 +179,7 @@ export default function Opportunities() {
             </h1>
 
             <p className="text-base sm:text-lg text-neutral-600 dark:text-slate-300 max-w-2xl leading-relaxed">
-              Explore rewarding full-time roles and high-impact internship opportunities in Full-Stack Web, Mobile Apps, Event Operations, Digital Growth, and Vendor Sourcing.
+              Explore rewarding full-time roles and high-impact internship opportunities in Full-Stack Web, Mobile Apps, Event Operations, Digital Marketing, and Vendor Sourcing.
             </p>
 
             {/* Metrics Bar */}
@@ -204,8 +204,8 @@ export default function Opportunities() {
           </div>
         </section>
 
-        {/* Enterprise Partner Ticker */}
-        <PartnerTicker />
+        {/* Enterprise Ecosystem Partners Grid */}
+        <PartnerTicker noScroll={true} />
 
         {/* ========================================================================= */}
         {/* 2. PROGRAM TYPE SWITCHER & DOMAIN FILTERS */}
@@ -375,7 +375,7 @@ export default function Opportunities() {
                 Submit Your Resume &amp; Profile
               </h2>
               <p className="text-xs text-neutral-500 dark:text-slate-400">
-                Your application will be directly logged into the PMK Nexa executive recruitment desk and routed to <span className="font-mono text-blue-600 dark:text-amber-400">info@pmknexasolutions.com</span>.
+                Your application will be directly logged into the PMK Nexa executive recruitment desk and routed to <span className="font-mono text-blue-600 dark:text-amber-400">pmknexasolutions@gmail.com</span>.
               </p>
             </div>
 
@@ -458,7 +458,7 @@ export default function Opportunities() {
                     <option value="Web Development">Web Development (Frontend UI/UX)</option>
                     <option value="Mobile App Development">Mobile App Development (iOS &amp; Android)</option>
                     <option value="Event Operations">Event Operations &amp; Production Logistics</option>
-                    <option value="Digital Growth & Social Media">Digital Growth &amp; Social Media</option>
+                    <option value="Digital Marketing & Social Media">Digital Marketing &amp; Social Media</option>
                     <option value="Vendor Operations & Business Dev">Vendor Operations &amp; Business Dev</option>
                   </select>
                 </div>
@@ -554,7 +554,7 @@ export default function Opportunities() {
           onClose={() => setIsSuccessOpen(false)}
           referenceId={referenceId}
           title="Resume Application Successfully Submitted!"
-          message="Your application and resume have been directly logged into the PMK Nexa recruitment database and forwarded to info@pmknexasolutions.com. Our talent team will review your profile within 48 hours."
+          message="Your application and resume have been directly logged into the PMK Nexa recruitment database and forwarded to pmknexasolutions@gmail.com. Our talent team will review your profile within 48 hours."
         />
 
       </div>

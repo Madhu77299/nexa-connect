@@ -1713,7 +1713,7 @@ export default function Admin() {
                       <option>Network Collaborations</option>
                       <option>Event Operations</option>
                       <option>Technical Projects</option>
-                      <option>Digital Growth Campaigns</option>
+                      <option>Digital Marketing Campaigns</option>
                     </select>
                   </div>
                 </div>

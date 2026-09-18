@@ -4,7 +4,7 @@ export default function GpsGlobeBadge({ className = "h-4 w-4" }) {
   return (
     <div 
       className="inline-flex items-center justify-center relative group cursor-pointer"
-      title="Google Maps Location: Srikakulam district, Andhra Pradesh, India (18.2969° N, 83.8967° E)"
+      title="Locations: Head Office Vizag - Madhurawada | Branch Office Rajam, Srikakulam dist, AP"
     >
       {/* Subtle Ambient Pulse behind Google Maps Pin */}
       <span className="absolute -inset-1 rounded-full bg-[#EA4335]/20 animate-ping opacity-75" />

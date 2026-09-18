@@ -19,8 +19,9 @@
 - **Ecosystem Vision:** *One Network. Multiple Capabilities. Endless Opportunities.*
 - **Founder & CEO:** Prasanna Korikana
 - **Incorporation Date:** April 20, 2026
-- **Registered Headquarters:** Srikakulam district, Andhra Pradesh, India
-- **Official Helpdesk:** `info@pmknexasolutions.com` | `+91 86880 07523`
+- **Head Office:** Vizag - Madhurawada, Andhra Pradesh, India
+- **Branch & Registered Office:** Krishna Complex (First Floor), Palakonda Road, Rajam, Srikakulam district, Andhra Pradesh - 532127
+- **Official Helpdesk:** `pmknexasolutions@gmail.com` | `+91 86880 07523`
 
 ---
 
@@ -76,6 +77,7 @@ Full-lifecycle technology engineering and cloud platform delivery:
 
 ### 5. Digital Growth
 Comprehensive digital marketing, multi-channel branding, and performance campaigns:
+- Shoots (Full Day Events Coverage + Live streams + Content Creation)
 - Social media strategy, content marketing, and influencer partnerships
 - Search engine optimization (SEO), paid search (SEM), and retargeting
 - Graphic design, corporate brand assets, and creative production
@@ -161,9 +163,10 @@ The administrative control center is accessible at `/admin`:
 
 ## 📞 Contact & Inquiries
 
-- **Registered Office:** Srikakulam district, Andhra Pradesh, India
+- **Head Office:** Vizag - Madhurawada, Andhra Pradesh, India
+- **Branch Office:** Krishna Complex (First Floor), Palakonda Road, Rajam, Srikakulam district, Andhra Pradesh - 532127
 - **WhatsApp Support:** [+91 86880 07523](https://wa.me/918688007523)
-- **Email:** [info@pmknexasolutions.com](mailto:info@pmknexasolutions.com)
+- **Email:** [pmknexasolutions@gmail.com](mailto:pmknexasolutions@gmail.com)
 - **Website:** [https://pmk-nexa-solutions.surge.sh](https://pmk-nexa-solutions.surge.sh)
 
 ---

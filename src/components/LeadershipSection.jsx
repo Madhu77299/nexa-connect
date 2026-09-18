@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Award, Calendar, MapPin, Building2, Quote, Sparkles, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Award, Calendar, MapPin, Building2, Quote, Sparkles, ArrowRight, ExternalLink } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { Link } from 'react-router-dom';
 
@@ -12,8 +12,8 @@ export default function LeadershipSection() {
   const milestones = [
     { label: "Company Legal Name", value: company.name || "PMK Nexa Solutions Private Limited", icon: Building2 },
     { label: "Incorporation Date", value: company.incorporationDate || "April 20, 2026", icon: Calendar },
-    { label: "Registered Jurisdiction", value: company.registrationLocation || "Srikakulam district, Andhra Pradesh, India", icon: MapPin },
-    { label: "Governance Benchmark", value: "Verified MCA & Corporate SLA Compliant", icon: ShieldCheck }
+    { label: "Head Office", value: "Vizag - Madhurawada, AP", icon: Building2 },
+    { label: "Branch & Registered Office", value: "Krishna Complex, Rajam, Srikakulam - 532127", icon: MapPin }
   ];
 
   return (
@@ -78,18 +78,29 @@ export default function LeadershipSection() {
               <div className="relative p-4 rounded-2xl bg-neutral-50 dark:bg-[#08111f]/60 border border-neutral-200/60 dark:border-neutral-800/80 mb-6">
                 <Quote className="h-5 w-5 text-[#3167ff]/40 dark:text-[#20c9b5]/40 mb-2" />
                 <p className="text-xs text-neutral-700 dark:text-neutral-300 leading-relaxed italic">
-                  "{company.founderBio || "Our goal is simple: eliminate operational friction. When businesses, verified suppliers, and cutting-edge tech synchronize, boundless growth becomes repeatable and sustainable."}"
+                  "{((company.founderBio || "").replace(/Under his leadership/gi, 'Under her leadership')) || "Prasanna Korikana is an entrepreneur and operations strategist committed to building interconnected business ecosystems. Under her leadership, PMK Nexa Solutions provides integrated business development, enterprise vendor networks, high-stakes event operations, modern technical solutions, and digital marketing."}"
                 </p>
               </div>
 
-              {/* Direct CTA */}
-              <div className="flex items-center justify-between pt-2 border-t border-neutral-200 dark:border-neutral-800">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">
-                  Leadership Office
-                </span>
+              {/* Direct CTA & Connect on LinkedIn */}
+              <div className="flex items-center justify-between pt-4 border-t border-neutral-200 dark:border-neutral-800 gap-3">
+                <a
+                  href="https://www.linkedin.com/in/prasanna-korikana/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0a66c2] hover:bg-[#004182] text-white font-bold text-xs shadow-md shadow-[#0a66c2]/20 transition-all cursor-pointer group/btn"
+                  title="Connect with Prasanna Korikana on LinkedIn"
+                >
+                  <svg className="h-3.5 w-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  <span>Connect</span>
+                  <ExternalLink className="h-3 w-3 opacity-80 group-hover/btn:opacity-100 transition-opacity" />
+                </a>
+
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3167ff] dark:text-[#20c9b5] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3167ff] dark:text-[#20c9b5] hover:underline whitespace-nowrap"
                 >
                   Schedule Consultation <ArrowRight className="h-3.5 w-3.5" />
                 </Link>

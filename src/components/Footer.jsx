@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowUpRight, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUpRight, Globe, Building2 } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import Logo from './Logo';
 
@@ -66,7 +66,7 @@ export default function Footer() {
         {/* Large Logo & Social Follow Block */}
         <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-4">
-            <Logo className="h-10" />
+            <Logo className="h-11 sm:h-12" variant="auto" />
           </div>
           
           <div className="flex flex-col items-start md:items-end gap-2.5">
@@ -173,15 +173,27 @@ export default function Footer() {
             <ul className="space-y-3 text-xs text-neutral-600 dark:text-neutral-400">
               <li className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 shrink-0 text-[#0066FF] dark:text-[#00F2FE]" />
-                <span className="truncate">{company?.contact?.email || "info@pmknexasolutions.com"}</span>
+                <a href="mailto:pmknexasolutions@gmail.com" className="hover:underline truncate">
+                  {company?.contact?.email || "pmknexasolutions@gmail.com"}
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 shrink-0 text-[#0066FF] dark:text-[#00F2FE]" />
                 <span>{company?.contact?.phone || "+91 86880 07523"}</span>
               </li>
               <li className="flex items-start gap-2.5">
+                <Building2 className="h-4 w-4 shrink-0 mt-0.5 text-[#0066FF] dark:text-[#00F2FE]" />
+                <div className="leading-tight">
+                  <span className="block text-neutral-900 dark:text-white font-semibold">Head Office:</span>
+                  <span>Vizag - Madhurawada, AP</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-[#0066FF] dark:text-[#00F2FE]" />
-                <span className="leading-tight">{company?.registrationLocation || "Srikakulam district, Andhra Pradesh, India"}</span>
+                <div className="leading-tight">
+                  <span className="block text-neutral-900 dark:text-white font-semibold">Branch Office:</span>
+                  <span>Krishna Complex (1st Floor), Palakonda Rd, Rajam, Srikakulam dist - 532127</span>
+                </div>
               </li>
             </ul>
           </div>

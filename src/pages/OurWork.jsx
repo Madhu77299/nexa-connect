@@ -10,7 +10,7 @@ import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
 import PartnerTicker from '../components/PartnerTicker';
 import { useData } from '../context/DataContext';
-import { howWeWorkData, whyChoosePmkData } from '../data/companyData';
+import { howWeWorkData } from '../data/companyData';
 
 export default function OurWork() {
   const { projects } = useData();
@@ -24,7 +24,7 @@ export default function OurWork() {
     'Network Collaborations',
     'Event Operations',
     'Technical Projects',
-    'Digital Growth Campaigns'
+    'Digital Marketing Campaigns'
   ];
 
   const filteredProjects = activeCategory === 'All'
@@ -45,15 +45,15 @@ export default function OurWork() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-bold tracking-wider text-amber-700 dark:text-amber-400 uppercase shadow-sm mx-auto">
               <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-              <span>EXECUTION PROCESS &amp; COMPLETED ENGAGEMENTS</span>
+              <span>COMPLETED PROJECTS &amp; EXECUTION METHODOLOGY</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto leading-tight">
-              Our Work &amp; How We Work
+              Our Work
             </h1>
 
             <p className="text-sm sm:text-lg text-neutral-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Discover our structured 4-stage execution methodology alongside actual commercial case studies delivered across business growth, network solutions, high-stakes events, technical platforms, and digital campaigns.
+              Discover our completed commercial engagements and case studies across enterprise growth, vendor networks, high-stakes events, technical platforms, and digital campaigns—delivered through our structured 4-stage execution methodology.
             </p>
 
             <div className="pt-2 flex flex-wrap justify-center gap-4">
@@ -61,69 +61,23 @@ export default function OurWork() {
                 href="#projects-grid"
                 className="px-7 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-black uppercase tracking-wider shadow-lg transition-all cursor-pointer"
               >
-                <span>View Case Studies ↓</span>
+                <span>Explore Our Work ↓</span>
               </a>
               <a
                 href="#how-we-work-process"
                 className="px-7 py-3.5 rounded-2xl bg-neutral-100 dark:bg-slate-800 border border-neutral-200 dark:border-slate-700 text-neutral-800 dark:text-white text-xs font-black uppercase tracking-wider transition-all cursor-pointer hover:bg-neutral-200 dark:hover:bg-slate-700"
               >
-                <span>Our 4-Step Process ↓</span>
+                <span>How We Work ↓</span>
               </a>
             </div>
           </div>
         </section>
 
-        {/* Partner Ticker */}
-        <PartnerTicker />
+        {/* Strategic Ecosystem Partners Grid */}
+        <PartnerTicker noScroll={true} />
 
         {/* ========================================================================= */}
-        {/* 2. SECTION 1: HOW WE WORK (4-STAGE METHODOLOGY) */}
-        {/* ========================================================================= */}
-        <section id="how-we-work-process" className="py-20 border-b border-neutral-200 dark:border-slate-800/80 bg-neutral-100 dark:bg-[#0B0F17]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            
-            <div className="text-center space-y-2 max-w-2xl mx-auto">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // EXECUTION METHODOLOGY
-              </span>
-              <h2 className="text-3xl sm:text-5xl font-black font-display text-neutral-900 dark:text-white">
-                How We Work
-              </h2>
-              <p className="text-xs sm:text-sm text-neutral-500 dark:text-slate-400">
-                A disciplined, end-to-end framework turning requirements into seamless reality.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {howWeWorkData.map((item) => (
-                <div
-                  key={item.step}
-                  className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-md hover:border-slate-600 transition-all flex flex-col justify-between space-y-6 group"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-black px-3.5 py-1.5 rounded-full bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 shadow-md">
-                      {item.step}
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-neutral-400 dark:text-slate-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-black font-display text-neutral-900 dark:text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-slate-300 leading-relaxed font-normal">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* 3. SECTION 2: OUR WORK & EXPERIENCE */}
+        {/* 2. SECTION 1: OUR WORK & EXPERIENCE (PROJECTS & CASE STUDIES FIRST) */}
         {/* ========================================================================= */}
         <section id="projects-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12">
           
@@ -179,14 +133,13 @@ export default function OurWork() {
                     {/* Project Image */}
                     <div className="relative h-56 w-full overflow-hidden bg-neutral-900">
                       <img 
-                        src={project.image || "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80"} 
+                        src={project.image} 
                         alt={project.name}
-                        className="h-full w-full object-cover group-hover:scale-105 transition-all duration-700"
+                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       
-                      {/* Category badge */}
-                      <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[10px] font-extrabold uppercase tracking-widest text-amber-400">
+                      <span className="absolute bottom-3 left-3 text-[10px] font-bold text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md font-mono">
                         {project.category}
                       </span>
 
@@ -242,39 +195,44 @@ export default function OurWork() {
 
         </section>
 
+
         {/* ========================================================================= */}
-        {/* 4. SECTION 3: WHY CHOOSE PMK */}
+        {/* 3. SECTION 2: HOW WE WORK (4-STAGE METHODOLOGY SECOND) */}
         {/* ========================================================================= */}
-        <section className="bg-neutral-100 dark:bg-[#0F141F] py-20 border-t border-neutral-200 dark:border-slate-800/80">
+        <section id="how-we-work-process" className="py-20 border-t border-neutral-200 dark:border-slate-800/80 bg-neutral-100 dark:bg-[#0B0F17]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
-            <div className="space-y-2 max-w-xl">
+            <div className="text-center space-y-2 max-w-2xl mx-auto">
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // THE PMK ADVANTAGE
+                // EXECUTION METHODOLOGY
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">
-                Why Choose PMK?
+              <h2 className="text-3xl sm:text-5xl font-black font-display text-neutral-900 dark:text-white">
+                How We Work
               </h2>
-              <p className="text-xs text-neutral-500 dark:text-slate-400">
-                Core institutional strengths backing every project engagement.
+              <p className="text-xs sm:text-sm text-neutral-500 dark:text-slate-400">
+                A disciplined, end-to-end framework turning requirements into seamless reality.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {whyChoosePmkData.map((str, idx) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {howWeWorkData.map((item) => (
                 <div
-                  key={idx}
-                  className="p-7 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-md hover:border-slate-700 transition-all flex items-start gap-4"
+                  key={item.step}
+                  className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-md hover:border-slate-600 transition-all flex flex-col justify-between space-y-6 group"
                 >
-                  <div className="h-10 w-10 rounded-2xl bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center shrink-0 font-mono font-black text-xs">
-                    0{idx + 1}
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-black px-3.5 py-1.5 rounded-full bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 shadow-md">
+                      {item.step}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-neutral-400 dark:text-slate-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                   </div>
-                  <div className="space-y-1">
-                    <h3 className="text-base font-black text-neutral-900 dark:text-white font-display">
-                      {str.title}
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-black font-display text-neutral-900 dark:text-white">
+                      {item.title}
                     </h3>
-                    <p className="text-xs text-neutral-600 dark:text-slate-300 leading-relaxed">
-                      {str.description}
+                    <p className="text-xs text-neutral-600 dark:text-slate-300 leading-relaxed font-normal">
+                      {item.description}
                     </p>
                   </div>
                 </div>
@@ -283,6 +241,7 @@ export default function OurWork() {
 
           </div>
         </section>
+
 
         {/* ========================================================================= */}
         {/* 5. CONSULTATION CTA BANNER */}

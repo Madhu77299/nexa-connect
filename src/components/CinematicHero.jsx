@@ -69,8 +69,8 @@ export default function CinematicHero() {
     {
       id: "slide-5",
       tag: "CORE CAPABILITY 04 & 05 // TECH & DIGITAL",
-      title: "Technical Solutions & Digital Growth.",
-      highlight: "Digital Growth.",
+      title: "Technical Solutions & Digital Marketing.",
+      highlight: "Digital Marketing.",
       subtitle: "Providing access to technical expertise, full-stack platforms, branding, graphic designing, digital marketing, and promotional strategies.",
       videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-working-on-a-computer-keyboard-40073-large.mp4",
       posterUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",

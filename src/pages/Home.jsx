@@ -10,8 +10,6 @@ import SectionHeading from '../components/SectionHeading';
 import PageTransition from '../components/PageTransition';
 import PartnerTicker from '../components/PartnerTicker';
 import StatsCounter from '../components/StatsCounter';
-import LeadershipSection from '../components/LeadershipSection';
-import ProjectsShowcase from '../components/ProjectsShowcase';
 import TestimonialsSection from '../components/TestimonialsSection';
 import RoiEstimator from '../components/RoiEstimator';
 import { useData } from '../context/DataContext';
@@ -96,38 +94,14 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Network Solutions Highlight Banner */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-neutral-900 dark:bg-[#121824] text-white border border-neutral-800 dark:border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 max-w-3xl">
-              <span className="text-[10px] font-black uppercase tracking-widest text-amber-400 block font-mono">
-                // CONNECTED BUSINESS MODEL
-              </span>
-              <h3 className="text-2xl font-black font-display text-white">
-                Operated Through A Strong Professional Network
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Through our network, we connect clients with the right vendors, professionals and specialised service providers (Drone, Construction, Solar, Interior, Media) based on their requirements.
-              </p>
-            </div>
 
-            <Link
-              to="/contact"
-              className="px-7 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-black uppercase tracking-wider shadow-lg transition-all shrink-0"
-            >
-              <span>Submit Requirement →</span>
-            </Link>
-          </div>
 
         </div>
       </section>
 
-      {/* 5. Executive Leadership & Governance Section */}
-      <LeadershipSection />
 
-      {/* 6. Dynamic Projects Portfolio Showcase */}
-      <div id="our-work">
-        <ProjectsShowcase />
-      </div>
+
+
 
       {/* 7. How We Work 4-Stage Workflow */}
       <section className="bg-neutral-100 dark:bg-[#0F141F] py-24 border-t border-neutral-200 dark:border-slate-800/80">

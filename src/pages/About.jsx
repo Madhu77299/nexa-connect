@@ -7,9 +7,8 @@ import { Link } from 'react-router-dom';
 import SectionHeading from '../components/SectionHeading';
 import PageTransition from '../components/PageTransition';
 import PartnerTicker from '../components/PartnerTicker';
-import StatsCounter from '../components/StatsCounter';
 import LeadershipSection from '../components/LeadershipSection';
-import { howWeWorkData, whyChoosePmkData, companyConfig } from '../data/companyData';
+import { whyChoosePmkData, companyConfig } from '../data/companyData';
 
 export default function About() {
   return (
@@ -26,18 +25,18 @@ export default function About() {
               <span>THE CONNECTED BUSINESS ECOSYSTEM</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight leading-tight max-w-4xl text-neutral-900 dark:text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight leading-snug max-w-3xl text-neutral-900 dark:text-white">
               Connecting Businesses, Professionals, Vendors and Opportunities.
             </h1>
 
             <p className="text-base sm:text-lg text-neutral-600 dark:text-slate-300 max-w-3xl leading-relaxed">
-              PMK NEXA SOLUTIONS PRIVATE LIMITED is a connected business ecosystem focused on supporting growth through Business Growth, Network Solutions, Event Operations, Technical Solutions and Digital Growth.
+              PMK NEXA SOLUTIONS PRIVATE LIMITED is a connected business ecosystem focused on supporting growth through Business Growth, Network Solutions, Event Operations, Technical Solutions and Digital Marketing.
             </p>
           </div>
         </section>
 
-        {/* Partner Logo Ticker */}
-        <PartnerTicker />
+        {/* Strategic Ecosystem Partners Grid */}
+        <PartnerTicker noScroll={true} />
 
         {/* ========================================================================= */}
         {/* 2. ABOUT US NARRATIVE */}
@@ -59,20 +58,6 @@ export default function About() {
                 Rather than treating services as disconnected silos, PMK NEXA SOLUTIONS PRIVATE LIMITED coordinates execution through five core capabilities backed by verified regional networks across India.
               </p>
 
-              <div className="pt-2 flex flex-wrap gap-3">
-                <Link
-                  to="/services"
-                  className="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg transition-all"
-                >
-                  <span>Explore 5 Core Capabilities →</span>
-                </Link>
-                <Link
-                  to="/contact"
-                  className="px-6 py-3 rounded-2xl bg-neutral-100 dark:bg-slate-800 text-neutral-800 dark:text-white text-xs font-bold uppercase tracking-wider hover:bg-neutral-200 dark:hover:bg-slate-700 transition-all"
-                >
-                  <span>Connect With Us</span>
-                </Link>
-              </div>
             </div>
 
             <div className="lg:col-span-6">
@@ -87,10 +72,6 @@ export default function About() {
 
                 <div className="space-y-3 text-xs text-neutral-600 dark:text-slate-300">
                   <div className="flex justify-between py-2 border-b border-neutral-100 dark:border-slate-800">
-                    <span className="text-neutral-400">Tagline:</span>
-                    <strong className="text-neutral-900 dark:text-white font-mono">Your Growth. Our Network.</strong>
-                  </div>
-                  <div className="flex justify-between py-2 border-b border-neutral-100 dark:border-slate-800">
                     <span className="text-neutral-400">Core Capabilities:</span>
                     <span className="text-blue-600 dark:text-amber-400 font-bold">5 Specialized Disciplines</span>
                   </div>
@@ -99,8 +80,12 @@ export default function About() {
                     <span className="text-neutral-900 dark:text-white">April 20, 2026</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-neutral-100 dark:border-slate-800">
-                    <span className="text-neutral-400">Registered HQ:</span>
-                    <span className="text-neutral-900 dark:text-white">Srikakulam district, AP, India</span>
+                    <span className="text-neutral-400">Head Office:</span>
+                    <span className="text-neutral-900 dark:text-white">Vizag - Madhurawada, AP</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b border-neutral-100 dark:border-slate-800">
+                    <span className="text-neutral-400">Branch &amp; Reg. Office:</span>
+                    <span className="text-neutral-900 dark:text-white text-right">Krishna Complex, Palakonda Rd, Rajam - 532127</span>
                   </div>
                   <div className="flex justify-between py-2">
                     <span className="text-neutral-400">Founder &amp; CEO:</span>
@@ -116,54 +101,7 @@ export default function About() {
         {/* Leadership Section */}
         <LeadershipSection />
 
-        {/* Enterprise Key Stats */}
-        <StatsCounter />
 
-        {/* ========================================================================= */}
-        {/* 3. HOW WE WORK WORKFLOW */}
-        {/* ========================================================================= */}
-        <section id="how-we-work" className="bg-neutral-100 dark:bg-[#0F141F] py-20 border-t border-neutral-200 dark:border-slate-800/80">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            
-            <div className="text-center space-y-2 max-w-2xl mx-auto">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // EXECUTION METHODOLOGY
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">
-                How We Work
-              </h2>
-              <p className="text-xs text-neutral-500 dark:text-slate-400">
-                A simple, clear, and disciplined 4-stage workflow driving successful project outcomes.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {howWeWorkData.map((item) => (
-                <div
-                  key={item.step}
-                  className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-lg hover:border-slate-700 transition-all flex flex-col justify-between space-y-6 group"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-black px-3 py-1 rounded-full bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950">
-                      {item.step}
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-neutral-400 dark:text-slate-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-black font-display text-neutral-900 dark:text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-slate-300 leading-relaxed font-normal">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </section>
 
         {/* ========================================================================= */}
         {/* 4. WHY CHOOSE PMK? */}

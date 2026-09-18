@@ -8,7 +8,7 @@ import {
 
 const DataContext = createContext();
 
-const STORAGE_KEY = 'pmk_nexa_live_cms_data_v4';
+const STORAGE_KEY = 'pmk_nexa_live_cms_data_v8';
 
 export function detectSocialPlatform(url) {
   if (!url) return { name: 'Website', icon: 'globe' };
@@ -50,7 +50,7 @@ const initialProjects = [
   {
     id: "proj-3",
     name: "Retail Reach Growth Campaign",
-    category: "Digital Growth Campaigns",
+    category: "Digital Marketing Campaigns",
     client: "Kore Retail Networks",
     year: "2026",
     image: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=800&q=80",
@@ -176,9 +176,9 @@ export const DataProvider = ({ children }) => {
         description: "PMK NEXA SOLUTIONS PRIVATE LIMITED connects businesses, professionals, vendors and opportunities through a strong and reliable network.",
         founder: "Prasanna Korikana",
         founderTitle: "Founder & CEO",
-        founderBio: "Prasanna Korikana is an entrepreneur and operations strategist committed to building interconnected business ecosystems. Under his leadership, PMK Nexa Solutions provides integrated business development, enterprise vendor networks, high-stakes event operations, modern technical solutions, and digital growth.",
+        founderBio: "Prasanna Korikana is an entrepreneur and operations strategist committed to building interconnected business ecosystems. Under her leadership, PMK Nexa Solutions provides integrated business development, enterprise vendor networks, high-stakes event operations, modern technical solutions, and digital marketing.",
         incorporationDate: "April 20, 2026",
-        registrationLocation: "Srikakulam district, Andhra Pradesh, India",
+        registrationLocation: "Rajam, Srikakulam district, Andhra Pradesh, 532127",
         stats: {
           projectsCount: "150+",
           slaAdherence: "99.8%",
@@ -186,10 +186,27 @@ export const DataProvider = ({ children }) => {
           hubsCount: "12+"
         },
         contact: {
-          email: "info@pmknexasolutions.com",
+          email: "pmknexasolutions@gmail.com",
           phone: "+91 86880 07523",
           whatsapp: "+91 86880 07523",
-          address: "Srikakulam district, Andhra Pradesh, India"
+          address: "Head Office: Vizag - Madhurawada | Branch Office: Krishna Complex (1st Floor), Palakonda Road, Rajam, Srikakulam district, Andhra Pradesh, 532127",
+          headOffice: {
+            title: "Head Office",
+            city: "Vizag (Visakhapatnam)",
+            area: "Madhurawada",
+            state: "Andhra Pradesh",
+            full: "Vizag - Madhurawada, Andhra Pradesh, India"
+          },
+          branchOffice: {
+            title: "Branch Office",
+            building: "Krishna Complex (First Floor)",
+            street: "Palakonda Road",
+            city: "Rajam",
+            district: "Srikakulam district",
+            state: "Andhra Pradesh",
+            pincode: "532127",
+            full: "Krishna Complex (First Floor), Palakonda Road, Rajam, Srikakulam district, Andhra Pradesh, 532127"
+          }
         }
       },
       mediaSettings: {

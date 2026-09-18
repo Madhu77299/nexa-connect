@@ -11,14 +11,31 @@ export const companyConfig = {
   description: "PMK NEXA SOLUTIONS PRIVATE LIMITED connects businesses, professionals, vendors and opportunities through a strong and reliable network.",
   founder: "Prasanna Korikana",
   founderTitle: "Founder & CEO",
-  founderBio: "Prasanna Korikana is an entrepreneur and operations strategist committed to building interconnected business ecosystems. Under his leadership, PMK Nexa Solutions provides integrated business development, enterprise vendor networks, high-stakes event operations, modern technical solutions, and digital growth.",
+  founderBio: "Prasanna Korikana is an entrepreneur and operations strategist committed to building interconnected business ecosystems. Under her leadership, PMK Nexa Solutions provides integrated business development, enterprise vendor networks, high-stakes event operations, modern technical solutions, and digital marketing.",
   incorporationDate: "April 20, 2026",
-  registrationLocation: "Srikakulam district, Andhra Pradesh, India",
+  registrationLocation: "Rajam, Srikakulam district, Andhra Pradesh, 532127",
   contact: {
-    email: "info@pmknexasolutions.com",
+    email: "pmknexasolutions@gmail.com",
     phone: "+91 86880 07523",
     whatsapp: "+91 86880 07523",
-    address: "Srikakulam district, Andhra Pradesh, India",
+    address: "Head Office: Vizag - Madhurawada | Branch Office: Krishna Complex (1st Floor), Palakonda Road, Rajam, Srikakulam district, Andhra Pradesh, 532127",
+    headOffice: {
+      title: "Head Office",
+      city: "Vizag (Visakhapatnam)",
+      area: "Madhurawada",
+      state: "Andhra Pradesh",
+      full: "Vizag - Madhurawada, Andhra Pradesh, India"
+    },
+    branchOffice: {
+      title: "Branch Office",
+      building: "Krishna Complex (First Floor)",
+      street: "Palakonda Road",
+      city: "Rajam",
+      district: "Srikakulam district",
+      state: "Andhra Pradesh",
+      pincode: "532127",
+      full: "Krishna Complex (First Floor), Palakonda Road, Rajam, Srikakulam district, Andhra Pradesh, 532127"
+    },
     officeHours: "Monday - Saturday: 9:00 AM - 7:00 PM"
   },
   stats: {
@@ -120,13 +137,14 @@ export const servicesData = [
     ]
   },
   {
-    id: "digital-growth",
+    id: "digital-marketing",
     number: "05",
-    title: "Digital Growth",
-    shortDescription: "Supporting businesses with branding, graphic designing, digital marketing, social media and promotional strategies.",
-    description: "We craft data-driven promotional campaigns, cohesive brand identity systems, high-retention graphic designs, cross-channel social media marketing, and strategic lead generation frameworks to expand business reach.",
+    title: "Digital Marketing",
+    shortDescription: "Supporting businesses with branding, graphic designing, shoots & live streaming, digital marketing, social media and promotional strategies.",
+    description: "We craft data-driven promotional campaigns, cohesive brand identity systems, high-retention graphic designs, professional event & commercial shoots (full day event coverage, live streaming, content creation), cross-channel social media marketing, and strategic lead generation frameworks to expand business reach.",
     icon: "TrendingUp",
     capabilities: [
+      "Shoots (Full Day Events Coverage + Live streams + Content Creation)",
       "Brand Identity Systems & Visual Guidelines",
       "Graphic Designing & Corporate Marketing Collateral",
       "Social Media Management & Authority Building",
@@ -200,7 +218,7 @@ export const experienceCategories = [
   { id: "network-collab", name: "Network Collaborations" },
   { id: "event-ops", name: "Event Operations" },
   { id: "technical-proj", name: "Technical Projects" },
-  { id: "digital-campaigns", name: "Digital Growth Campaigns" }
+  { id: "digital-campaigns", name: "Digital Marketing Campaigns" }
 ];
 
 /**
@@ -275,9 +293,9 @@ export const opportunitiesData = [
   },
   {
     id: "digital-growth-spec",
-    title: "Digital Growth & Social Media Strategist",
+    title: "Digital Marketing & Social Media Strategist",
     programType: "Full-Time",
-    track: "Digital Growth & Social Media",
+    track: "Digital Marketing & Social Media",
     location: "Hybrid / Remote",
     experience: "1-3 Years",
     stipendOrSalary: "₹3.5 - 6.5 LPA",
@@ -288,7 +306,7 @@ export const opportunitiesData = [
     id: "digital-growth-intern",
     title: "Digital Marketing & Creative Content Intern",
     programType: "Internship",
-    track: "Digital Growth & Social Media",
+    track: "Digital Marketing & Social Media",
     location: "Remote",
     experience: "Freshers / Creative Students",
     stipendOrSalary: "₹12,000 - 18,000 / Month + PPO",
@@ -313,35 +331,181 @@ export const jobsData = opportunitiesData;
 export const blogsData = [
   {
     id: "vendor-ecosystem-2026",
+    slug: "vendor-ecosystem-2026",
+    featured: true,
     title: "Building Resilient Corporate Supply Chains via Structured Vendor Networks",
     category: "Network Solutions",
-    date: "August 2026",
+    date: "August 24, 2026",
     readTime: "4 min read",
+    readingTime: "4 min read",
     author: "Prasanna Korikana",
     authorRole: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
-    excerpt: "How single-point vendor orchestration eliminates fragmented procurement and guarantees 100% SLA compliance for modern businesses."
+    authorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    excerpt: "How single-point vendor orchestration eliminates fragmented procurement, enforces strict QA audits, and guarantees 100% SLA compliance for modern enterprise operations.",
+    summary: "How single-point vendor orchestration eliminates fragmented procurement, enforces strict QA audits, and guarantees 100% SLA compliance for modern enterprise operations.",
+    tags: ["Supply Chain", "Vendor SLA", "Procurement", "B2B Scale"],
+    content: `In an increasingly volatile commercial landscape, mid-market enterprises and established corporations face a mutual bottleneck: fragmented vendor networks. When marketing teams source individual printing shops, construction heads manage unvetted civil contractors, and HR scrambles for corporate gifting vendors, project oversight collapses under disparate communication channels.
+
+### The 6-Step Intake Difference
+At PMK Nexa Solutions, we engineered a unified vendor protocol designed to eliminate procurement leakage. Rather than acting as an uncontrolled directory, every vendor in our network undergoes a stringent six-step audit:
+
+1. Comprehensive portfolio verification and operational capacity assessment.
+2. Background checks, legal registrations, and compliance certifications.
+3. Financial transparency and SLA contract binding.
+4. Active lead dispatch paired with dedicated Single Point of Contact (SPOC) supervision.
+5. On-ground milestone verification before final settlement.
+6. Continuous KPI tracking with automated re-qualification cycles.
+
+### The Power of the Single Point of Contact (SPOC)
+By consolidating multi-vendor engagements under a single PMK Nexa relationship manager, clients reduce administrative procurement overhead by over 42%. Whether deploying drone surveying across remote sites or activating multi-city interior fitouts, enterprise leadership deals with one accountable partner, one consolidated billing structure, and guaranteed delivery timelines.`
   },
   {
     id: "event-production-zero-downtime",
+    slug: "event-production-zero-downtime",
+    featured: false,
     title: "The Zero-Downtime Blueprint for Corporate Summits & High-Stakes Events",
     category: "Event Operations",
-    date: "August 2026",
+    date: "August 18, 2026",
     readTime: "5 min read",
+    readingTime: "5 min read",
     author: "PMK Nexa Operations Desk",
     authorRole: "Logistics Team",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
-    excerpt: "Behind the scenes of stage logistics, multi-camera live broadcasting sync, and synchronized vendor management for 2,500+ attendee conferences."
+    authorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+    excerpt: "Behind the scenes of stage engineering, multi-camera live broadcasting sync, and synchronized vendor management for 2,500+ attendee conferences.",
+    summary: "Behind the scenes of stage engineering, multi-camera live broadcasting sync, and synchronized vendor management for 2,500+ attendee conferences.",
+    tags: ["Live Events", "Audio/Visual", "Stage Production", "Operations"],
+    content: `High-stakes corporate summits allow zero margin for technical hiccups. When 2,500 delegates gather and keynotes are broadcast globally to remote stakeholders, an audio dropout or lighting failure is not just an inconvenience—it degrades institutional brand equity.
+
+### Redundancy as a Core Design Principle
+Our event production methodology approaches stage mechanics with mission-critical precision. Every system is deployed with immediate automatic fallback:
+
+### Audio & Visual Rigging
+Dual-redundant Dante audio networks, secondary Dante DSP hardware failover, and battery-backed uninterruptible power supply (UPS) lines feeding every audio distribution trunk.
+
+### Broadcasting & Connectivity
+Multi-camera synchronized SDI pipelines feeding into dual live encoders with bonded cellular and dedicated fiber uplinks, ensuring uninterrupted global webcasting.
+
+### On-Ground Vendor Coordination
+Stage managers, guest protocol officers, AV engineers, and catering staff synchronize over dedicated real-time digital comms channels managed by our central operations desk.
+
+### The Post-Event Debrief
+Our responsibility continues beyond the closing remarks. We deliver complete audience engagement reports, broadcast latency analytics, and itemized vendor efficiency audits within 48 hours of event wrap-up.`
   },
   {
     id: "digital-engineering-velocity",
+    slug: "digital-engineering-velocity",
+    featured: false,
     title: "Accelerating Enterprise Web & Cloud Architectures in 2026",
     category: "Technical Solutions",
-    date: "August 2026",
+    date: "August 11, 2026",
     readTime: "6 min read",
+    readingTime: "6 min read",
     author: "Tech Engineering Team",
     authorRole: "Cloud Platform Lead",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    excerpt: "Deploying full-stack microservices, responsive web applications, and automated lead workflows to drive operational velocity."
+    authorAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    excerpt: "Deploying full-stack microservices, reactive web applications, and automated lead workflows to drive operational velocity.",
+    summary: "Deploying full-stack microservices, reactive web applications, and automated lead workflows to drive operational velocity.",
+    tags: ["React 19", "Cloud Infra", "Full-Stack", "Web Performance"],
+    content: `Modern businesses cannot afford digital infrastructure that moves slower than their strategic ambitions. In 2026, web applications are no longer static digital brochures; they are transactional nerve centers that automate client intake, qualify leads in real-time, and orchestrate complex partner operations.
+
+### Modern Frontend Velocity with React 19 & Vite
+By transitioning legacy monolithic portals to componentized React architectures powered by Vite 8 and Tailwind CSS v4, we have helped enterprise partners achieve:
+
+1. Sub-second initial page loads across regional mobile networks.
+2. 99+ Lighthouse performance and accessibility scores.
+3. Modular design systems that enable marketing and engineering teams to deploy landing initiatives 3x faster.
+
+### Microservice-Driven Operational Pipelines
+A beautiful interface is only as effective as the automated pipelines behind it. We architect serverless event triggers that instantly sync form submissions to CRM systems, generate PDF documentation, and dispatch WhatsApp and email notifications to account executives within milliseconds.`
+  },
+  {
+    id: "digital-growth-roi-funnels",
+    slug: "digital-growth-roi-funnels",
+    featured: false,
+    title: "Beyond Vanity Metrics: Constructing High-ROI B2B Growth Funnels",
+    category: "Digital Marketing",
+    date: "August 04, 2026",
+    readTime: "5 min read",
+    readingTime: "5 min read",
+    author: "Rohan Varma",
+    authorRole: "Head of Digital Strategy",
+    authorAvatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=160&q=80",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+    excerpt: "Why social impressions mean nothing without qualified pipeline velocity: our structured 3-phase inbound framework for B2B enterprises.",
+    summary: "Why social impressions mean nothing without qualified pipeline velocity: our structured 3-phase inbound framework for B2B enterprises.",
+    tags: ["Digital Marketing", "B2B Leads", "Growth Strategy", "Conversion"],
+    content: `Thousands of monthly impressions and viral social videos look impressive on executive slideshows, but they frequently fail to reflect on the balance sheet. In B2B enterprise growth, pipeline quality consistently outranks sheer top-of-funnel traffic volume.
+
+### The High-Intent Funnel Framework
+Our growth team designs campaigns around buyer intent rather than generic consumer engagement:
+
+### Phase 1: Authority & Technical Positioning
+We publish authoritative white papers, case study breakdowns, and verified customer testimonials that speak directly to Chief Procurement Officers and Managing Directors.
+
+### Phase 2: Frictionless Conversions
+We replace 15-field intimidating contact forms with interactive diagnostic tools, immediate WhatsApp scheduling, and transparent service scopes that pre-qualify prospective clients.
+
+### Phase 3: Automated Retargeting & Nurturing
+Prospects who interact with case studies receive tailored follow-up sequences delivering tactical industry insights, gradually shortening the enterprise sales cycle from 90 days to under 21 days.`
+  },
+  {
+    id: "regional-expansion-ap-corridor",
+    slug: "regional-expansion-ap-corridor",
+    featured: false,
+    title: "Unlocking Industrial Growth Across the Coastal Andhra Pradesh Corridor",
+    category: "Business Growth",
+    date: "July 28, 2026",
+    readTime: "4 min read",
+    readingTime: "4 min read",
+    author: "Prasanna Korikana",
+    authorRole: "Founder & CEO",
+    authorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    excerpt: "Strategic perspectives on decentralizing corporate hubs, nurturing tier-2/3 technical talent, and building local commercial ecosystems.",
+    summary: "Strategic perspectives on decentralizing corporate hubs, nurturing tier-2/3 technical talent, and building local commercial ecosystems.",
+    tags: ["Economic Scale", "Regional Hubs", "Talent Ecosystem", "AP Corridor"],
+    content: `For decades, technological and logistical innovation in India remained heavily centralized around metropolitan clusters like Bengaluru, Hyderabad, and Mumbai. However, infrastructural advancements and widespread fiber connectivity are creating unprecedented economic opportunities across Tier-2 and Tier-3 corridors.
+
+### Headquartered in Srikakulam, Operating Pan-India
+When PMK Nexa Solutions was incorporated in Srikakulam, our vision was unambiguous: build an enterprise-grade ecosystem that connects local industrial and service talent with national corporate demands.
+
+1. High-caliber engineering and design talent operating with regional cost-efficiencies.
+2. Direct access to emerging infrastructure projects requiring drone surveillance, industrial civil works, and solar energy installations.
+3. Rapid on-ground mobilization without metropolitan bureaucratic inertia.
+
+By establishing our primary operations hub in Coastal Andhra, we deliver tier-1 corporate caliber with unmatched regional execution agility.`
+  },
+  {
+    id: "future-of-drone-surveying",
+    slug: "future-of-drone-surveying",
+    featured: false,
+    title: "Precision Aerial Surveying: Transforming Infrastructure & Solar Projects",
+    category: "Network Solutions",
+    date: "July 19, 2026",
+    readTime: "5 min read",
+    readingTime: "5 min read",
+    author: "K. Satish Kumar",
+    authorRole: "Drone Operations Specialist",
+    authorAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=160&q=80",
+    image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80",
+    excerpt: "How LiDAR sensors and high-resolution aerial mapping cut project feasibility timelines by 75% for industrial construction and renewable installations.",
+    summary: "How LiDAR sensors and high-resolution aerial mapping cut project feasibility timelines by 75% for industrial construction and renewable installations.",
+    tags: ["Drones", "LiDAR", "Solar Mapping", "Surveying"],
+    content: `Traditional manual land surveying across multi-acre commercial sites can span several weeks, fraught with terrain hazards and measurement discrepancies. Today, unmanned aerial vehicles (UAVs) equipped with RTK (Real-Time Kinematic) sensors are fundamentally reshaping infrastructure readiness.
+
+### Millimeter-Level Topographical Precision
+Through our verified vendor network, PMK Nexa facilitates turnkey drone surveillance for major civil, solar, and industrial projects:
+
+### 3D Volumetric Analysis
+Calculating cut-and-fill soil volumes for construction excavation in hours rather than weeks, preventing multimillion-rupee earthmoving miscalculations.
+
+### Solar Radiance Mapping
+High-precision digital elevation models (DEM) identify micro-shading patterns and surface tilts to optimize solar panel placement and maximize megawatt generation yields.
+
+### Autonomous Thermal Inspections
+Detecting micro-cracks and sub-optimal solar cells across operational solar farms from 50 meters altitude with radiometric thermal imagery.`
   }
 ];

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Sparkles, Phone, Mail, ArrowRight, Shield, Globe, ExternalLink, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail, ArrowRight, Shield, Globe, ExternalLink, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 import Logo from './Logo';
-import GpsGlobeBadge from './GpsGlobeBadge';
 import { useData } from '../context/DataContext';
 
 export default function Navbar() {
@@ -55,51 +54,24 @@ export default function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Capabilities', path: '/services', hasDropdown: true },
-    { name: 'Our Work & Process', path: '/our-work' },
-    { name: 'Careers', path: '/careers', isHiring: true },
+    { name: 'Our Work', path: '/our-work' },
     { name: 'Blogs', path: '/blogs' },
     { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
     <>
-      {/* Top Thin Global Notification Bar */}
-      <div className="w-full bg-[#080B11] text-neutral-400 text-[11px] border-b border-white/[0.06] py-1.5 px-4 sm:px-8 hidden md:flex items-center justify-between z-50">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 text-slate-300 font-bold group cursor-pointer" title="GPS Satellite Coordinates: 18.2969° N, 83.8967° E">
-            <GpsGlobeBadge className="h-4.5 w-4.5" />
-            <span>HQ: {company?.registrationLocation || "Srikakulam district, Andhra Pradesh, India"}</span>
-          </div>
-          <span className="text-white/20">|</span>
-          <span className="text-neutral-400">
-            Corporate ID: <strong>PMK Nexa Solutions Private Limited</strong>
-          </span>
-        </div>
-
-        <div className="flex items-center gap-5 font-semibold">
-          <Link to="/opportunities" className="text-amber-400 hover:underline flex items-center gap-1">
-            <Sparkles className="h-3 w-3" />
-            We Are Hiring
-          </Link>
-          <Link to="/about" className="hover:text-white transition-colors">Governance &amp; SLA</Link>
-          <Link to="/contact" className="hover:text-white transition-colors">Client Support</Link>
-          <Link to="/admin" className="text-slate-300 hover:text-white hover:underline flex items-center gap-1">
-            CMS Admin
-          </Link>
-        </div>
-      </div>
-
       {/* Main Sticky Header */}
       <header className={`w-full sticky top-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0B0F17]/95 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl py-3'
-          : 'bg-[#0B0F17]/80 backdrop-blur-xl border-b border-white/[0.05] py-4'
+          ? 'bg-[#0B0F17]/95 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl py-2.5'
+          : 'bg-[#0B0F17]/85 backdrop-blur-xl border-b border-white/[0.05] py-3.5'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Brand Logo Lockup */}
           <div className="flex items-center gap-8">
-            <Logo className="h-9 sm:h-10" />
+            <Logo className="h-10 sm:h-12" />
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-5">
@@ -189,17 +161,18 @@ export default function Navbar() {
             </nav>
           </div>
 
-          {/* Right Action Items: Theme Toggle & Primary Enterprise Button */}
-          <div className="flex items-center gap-3.5">
-            <ThemeToggle />
-
+          {/* Right Action Items: CMS Admin, Theme Toggle & Mobile Menu */}
+          <div className="flex items-center gap-3">
             <Link
-              to="/services"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider shadow-lg transition-all"
+              to="/admin"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.16] border border-white/15 text-xs font-bold text-slate-200 hover:text-white transition-all shadow-xs group"
+              title="PMK Nexa CMS Admin Console"
             >
-              <span>Explore Solutions</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <Shield className="h-3.5 w-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
+              <span>CMS Admin</span>
             </Link>
+
+            <ThemeToggle />
 
             {/* Mobile Hamburger Toggle Button */}
             <button
@@ -273,7 +246,7 @@ export default function Navbar() {
                 <div className="space-y-2 text-xs text-neutral-400">
                   <div className="flex items-center gap-2">
                     <Mail className="h-3.5 w-3.5 text-amber-400" />
-                    <span>{company?.contact?.email || "info@pmknexasolutions.com"}</span>
+                    <span>{company?.contact?.email || "pmknexasolutions@gmail.com"}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="h-3.5 w-3.5 text-emerald-400" />
@@ -281,14 +254,25 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                <Link
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full rounded-full bg-blue-600 text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg"
-                >
-                  <span>Connect With Enterprise Desk</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                <div className="flex flex-col gap-2.5">
+                  <Link
+                    to="/admin"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full rounded-2xl bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-white py-3 text-xs font-bold uppercase tracking-wider"
+                  >
+                    <Shield className="h-3.5 w-3.5 text-amber-400" />
+                    <span>CMS Admin Console</span>
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full rounded-full bg-blue-600 text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg"
+                  >
+                    <span>Connect With Enterprise Desk</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </div>

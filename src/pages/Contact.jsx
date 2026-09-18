@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle, Mail, Phone, MapPin, Sparkles, AlertCircle, Loader2, MessageSquare, ArrowRight } from 'lucide-react';
+import { Send, CheckCircle, Mail, Phone, MapPin, Sparkles, AlertCircle, Loader2, MessageSquare, ArrowRight, Building2 } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import SuccessModal from '../components/SuccessModal';
 import { useData } from '../context/DataContext';
@@ -26,7 +26,7 @@ export default function Contact() {
     "Vendor Network Solutions",
     "Event Operations",
     "Technical Solutions",
-    "Digital Growth"
+    "Digital Marketing"
   ];
 
   const handleSubmit = (e) => {
@@ -156,7 +156,7 @@ export default function Contact() {
 
                   {/* Corporate Email */}
                   <a
-                    href="mailto:info@pmknexasolutions.com"
+                    href="mailto:pmknexasolutions@gmail.com"
                     className="flex items-center justify-between p-4 rounded-2xl bg-neutral-100 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-800 text-neutral-700 dark:text-slate-300 transition-all group"
                   >
                     <div className="flex items-center gap-3">
@@ -165,20 +165,64 @@ export default function Contact() {
                       </div>
                       <div>
                         <span className="text-xs font-black uppercase tracking-wider block">Official Email</span>
-                        <strong className="text-xs text-neutral-900 dark:text-white">info@pmknexasolutions.com</strong>
+                        <strong className="text-xs text-neutral-900 dark:text-white">pmknexasolutions@gmail.com</strong>
                       </div>
                     </div>
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
 
-                {/* HQ Coordinates */}
-                <div className="pt-4 border-t border-neutral-100 dark:border-slate-800 flex items-start gap-3 text-xs text-neutral-500 dark:text-slate-400">
-                  <MapPin className="h-4 w-4 shrink-0 text-blue-600 dark:text-amber-400 mt-0.5" />
+                {/* Office Locations */}
+                <div className="pt-5 border-t border-neutral-100 dark:border-slate-800 space-y-4">
                   <div>
-                    <strong className="text-neutral-900 dark:text-white block font-sans">Corporate Registration:</strong>
-                    <span>{company.name || "PMK NEXA SOLUTIONS PRIVATE LIMITED"}</span><br />
-                    <span>{company.registrationLocation || "Srikakulam district, Andhra Pradesh, India"}</span>
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono mb-1">
+                      // OUR OFFICES
+                    </span>
+                    <h4 className="text-sm font-black text-neutral-900 dark:text-white font-display">
+                      Head Office &amp; Branch Office
+                    </h4>
+                  </div>
+
+                  {/* Head Office Card */}
+                  <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200/80 dark:border-slate-800 space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-600/10 text-blue-600 dark:bg-amber-400/10 dark:text-amber-400">
+                        <Building2 className="h-3 w-3" />
+                        Head Office
+                      </span>
+                      <span className="text-[11px] font-bold text-neutral-500 dark:text-slate-400">Visakhapatnam</span>
+                    </div>
+                    <div className="text-xs font-black text-neutral-900 dark:text-white">
+                      Vizag - Madhurawada
+                    </div>
+                    <p className="text-[11px] text-neutral-500 dark:text-slate-400 leading-relaxed">
+                      Madhurawada, Visakhapatnam, Andhra Pradesh, India
+                    </p>
+                  </div>
+
+                  {/* Branch Office Card */}
+                  <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200/80 dark:border-slate-800 space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-600/10 text-emerald-600 dark:bg-emerald-400/10 dark:text-emerald-400">
+                        <MapPin className="h-3 w-3" />
+                        Branch Office
+                      </span>
+                      <span className="text-[11px] font-bold text-neutral-500 dark:text-slate-400">Rajam</span>
+                    </div>
+                    <div className="text-xs font-black text-neutral-900 dark:text-white">
+                      Krishna Complex (First Floor)
+                    </div>
+                    <p className="text-[11px] text-neutral-600 dark:text-slate-300 font-medium">
+                      Palakonda Road
+                    </p>
+                    <p className="text-[11px] text-neutral-500 dark:text-slate-400 leading-relaxed">
+                      Rajam, Srikakulam district, Andhra Pradesh, 532127
+                    </p>
+                  </div>
+
+                  {/* Corporate Registration Note */}
+                  <div className="text-[11px] text-neutral-400 dark:text-slate-500 pt-1">
+                    Corporate Entity: <strong className="text-neutral-700 dark:text-slate-300">{company.name || "PMK NEXA SOLUTIONS PRIVATE LIMITED"}</strong>
                   </div>
                 </div>
               </div>

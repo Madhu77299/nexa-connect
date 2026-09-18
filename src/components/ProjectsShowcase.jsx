@@ -14,7 +14,7 @@ export default function ProjectsShowcase() {
     'Network Collaborations',
     'Event Operations',
     'Technical Projects',
-    'Digital Growth Campaigns'
+    'Digital Marketing Campaigns'
   ];
 
   const filteredProjects = activeCategory === 'All'
