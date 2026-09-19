@@ -8,7 +8,6 @@ import {
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
-import PartnerTicker from '../components/PartnerTicker';
 import { useData } from '../context/DataContext';
 import { howWeWorkData } from '../data/companyData';
 
@@ -72,9 +71,6 @@ export default function OurWork() {
             </div>
           </div>
         </section>
-
-        {/* Strategic Ecosystem Partners Grid */}
-        <PartnerTicker noScroll={true} />
 
         {/* ========================================================================= */}
         {/* 2. SECTION 1: OUR WORK & EXPERIENCE (PROJECTS & CASE STUDIES FIRST) */}
