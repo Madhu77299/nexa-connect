@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Briefcase, Network, Calendar, Cpu, TrendingUp, ArrowRight, 
   CheckCircle2, ShieldCheck, Sparkles, Send, Loader2, Award, 
   Zap, Users, FileText, Check, Camera, Sun, Home, Layers, Plane 
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
 import SuccessModal from '../components/SuccessModal';
@@ -15,7 +15,16 @@ export default function Services() {
   const { services, logInquiry } = useData();
   const activeServicesList = services && services.length > 0 ? services : servicesData;
   
-  const [activeTabId, setActiveTabId] = useState(activeServicesList[0]?.id || 'business-development');
+  const location = useLocation();
+  const initialId = location.state?.activeId || activeServicesList[0]?.id || 'business-development';
+  const [activeTabId, setActiveTabId] = useState(initialId);
+  
+  useEffect(() => {
+    if (location.state?.activeId) {
+      setActiveTabId(location.state.activeId);
+      window.scrollTo(0, 0);
+    }
+  }, [location.state]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [referenceId, setReferenceId] = useState('');
@@ -84,10 +93,7 @@ export default function Services() {
         {/* ========================================================================= */}
         <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-bold tracking-wider text-amber-700 dark:text-amber-400 uppercase shadow-sm">
-              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-              <span>FIVE CORE CAPABILITIES // ONE CONNECTED NETWORK</span>
-            </div>
+
 
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto">
               Our Core Capabilities
@@ -140,9 +146,7 @@ export default function Services() {
             
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-6 border-b border-neutral-200 dark:border-slate-800">
               <div className="space-y-2 max-w-3xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 text-xs font-black uppercase tracking-wider font-mono">
-                  CAPABILITY {selectedService.number}
-                </div>
+
                 <h2 className="text-2xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">
                   {selectedService.title}
                 </h2>
@@ -161,9 +165,7 @@ export default function Services() {
 
             {/* Feature Deliverables */}
             <div className="space-y-4">
-              <h4 className="text-xs font-extrabold uppercase tracking-widest text-neutral-400 dark:text-slate-400">
-                // DELIVERABLE SCOPE &amp; CAPABILITY MATRIX
-              </h4>
+
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {(Array.isArray(selectedService.capabilities) ? selectedService.capabilities : selectedService.features || []).map((feat, idx) => (
@@ -245,28 +247,7 @@ export default function Services() {
                   </Link>
                 </div>
 
-                {/* Specialized Network Solutions Grid */}
-                <div className="space-y-3">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400 dark:text-slate-400 block">
-                    // SPECIALIZED SOLUTIONS AVAILABLE THROUGH OUR NETWORK
-                  </span>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 text-center">
-                    {[
-                      "Drone & Survey Services",
-                      "Construction Services",
-                      "Solar Solutions",
-                      "Interior Solutions",
-                      "Branding & Printing",
-                      "Photography & Videography",
-                      "Others"
-                    ].map((spec, idx) => (
-                      <div key={idx} className="p-3 rounded-xl bg-neutral-100 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-800 text-xs font-bold text-neutral-800 dark:text-slate-200">
-                        {spec}
-                      </div>
-                    ))}
-                  </div>
-                </div>
 
               </div>
             )}
@@ -276,9 +257,7 @@ export default function Services() {
           {/* Network Solutions Statement - Only for Vendor Network Solutions */}
           {selectedService.id === 'vendor-network' && (
             <div className="p-8 sm:p-10 rounded-3xl bg-neutral-900 dark:bg-[#121824] text-white border border-neutral-800 dark:border-slate-800 shadow-2xl space-y-4">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block font-mono">
-                // NETWORK SOLUTIONS MODEL
-              </span>
+
               <h3 className="text-2xl font-black font-display text-white">
                 Connected Professional Network
               </h3>
@@ -291,9 +270,7 @@ export default function Services() {
           {/* Scoping Form */}
           <div id="scope-requirement-form" className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-6">
             <div className="space-y-1">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // RAPID REQUIREMENT SCOPING
-              </span>
+
               <h3 className="text-2xl font-black font-display text-neutral-900 dark:text-white">
                 Submit Requirement for: {selectedService.title}
               </h3>

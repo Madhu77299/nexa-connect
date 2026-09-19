@@ -80,10 +80,7 @@ export default function Contact() {
         {/* Header Hero Section */}
         <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-bold tracking-wider text-amber-700 dark:text-amber-400 uppercase shadow-sm">
-              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-              <span>REQUIREMENT &amp; LEAD DESK</span>
-            </div>
+
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto">
               Tell Us What You Need.<br />
@@ -106,9 +103,7 @@ export default function Contact() {
             <div className="lg:col-span-5 space-y-6">
               <div className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-xl space-y-6">
                 <div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block mb-1 font-mono">
-                    // DIRECT CHANNELS
-                  </span>
+
                   <h3 className="text-xl font-black font-display text-neutral-900 dark:text-white">
                     Contact Options
                   </h3>
@@ -175,9 +170,7 @@ export default function Contact() {
                 {/* Office Locations */}
                 <div className="pt-5 border-t border-neutral-100 dark:border-slate-800 space-y-4">
                   <div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono mb-1">
-                      // OUR OFFICES
-                    </span>
+
                     <h4 className="text-sm font-black text-neutral-900 dark:text-white font-display">
                       Head Office &amp; Branch Office
                     </h4>
@@ -232,9 +225,7 @@ export default function Contact() {
             <div className="lg:col-span-7">
               <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-6">
                 <div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block mb-1 font-mono">
-                    // SUBMIT YOUR REQUIREMENT
-                  </span>
+
                   <h3 className="text-2xl font-black font-display text-neutral-900 dark:text-white">
                     Submit Your Requirement
                   </h3>

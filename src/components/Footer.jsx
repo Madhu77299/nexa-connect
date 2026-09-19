@@ -146,7 +146,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/services" className="hover:text-[#0066FF] dark:hover:text-[#00F2FE] transition-colors">
-                  Capabilities (5 Core)
+                  Capabilities
                 </Link>
               </li>
               <li>

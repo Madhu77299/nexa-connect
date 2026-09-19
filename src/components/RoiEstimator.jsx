@@ -24,17 +24,14 @@ export default function RoiEstimator() {
   };
 
   return (
-    <section className="py-24 bg-white dark:bg-[#0c1524] transition-colors duration-300 relative border-t border-neutral-200/60 dark:border-neutral-800/80">
+    <section className="py-12 bg-white dark:bg-[#0c1524] transition-colors duration-300 relative border-t border-neutral-200/60 dark:border-neutral-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column Description */}
           <div className="lg:col-span-5 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#20c9b5]/10 text-xs font-black text-[#20c9b5] uppercase tracking-widest">
-              <Calculator className="h-3.5 w-3.5" />
-              CAPABILITY &amp; ROI ESTIMATOR
-            </span>
+
             <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 dark:text-white font-display tracking-tight leading-tight">
               Model Your Enterprise Scope &amp; Efficiency Gains.
             </h2>

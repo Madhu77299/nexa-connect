@@ -20,13 +20,14 @@ export default function CinematicHero() {
       posterUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
       ctaText: "Explore Our Capabilities",
       ctaLink: "/services",
+      ctaState: { activeId: "business-development" },
       secondaryCtaText: "Connect With Us",
       secondaryCtaLink: "/contact",
       stats: "5 Core Capabilities · 100% Verified Network"
     },
     {
       id: "slide-2",
-      tag: "CORE CAPABILITY 01 // GROWTH",
+      tag: "GROWTH",
       title: "Business Development Support.",
       highlight: "Support.",
       subtitle: "Supporting businesses with growth opportunities, client acquisition, strategic partnerships and business development.",
@@ -34,13 +35,14 @@ export default function CinematicHero() {
       posterUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80",
       ctaText: "Explore Capabilities",
       ctaLink: "/services",
+      ctaState: { activeId: "business-development" },
       secondaryCtaText: "Connect With Us",
       secondaryCtaLink: "/contact",
       stats: "₹4.8 Cr Pipeline · Strategic Partnerships"
     },
     {
       id: "slide-3",
-      tag: "CORE CAPABILITY 02 // VENDOR ECOSYSTEM",
+      tag: "VENDOR ECOSYSTEM",
       title: "Vendor Network Solutions.",
       highlight: "Solutions.",
       subtitle: "Connecting clients and businesses with the right vendors, professionals and service providers through our network.",
@@ -48,13 +50,14 @@ export default function CinematicHero() {
       posterUrl: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80",
       ctaText: "Explore Vendor Network",
       ctaLink: "/services",
+      ctaState: { activeId: "vendor-network" },
       secondaryCtaText: "Connect With Us",
       secondaryCtaLink: "/contact",
       stats: "85+ Vetted Suppliers · 6-Month Lead Guarantee"
     },
     {
       id: "slide-4",
-      tag: "CORE CAPABILITY 03 // EVENT EXECUTION",
+      tag: "EVENT EXECUTION",
       title: "High-Stakes Event Operations.",
       highlight: "Event Operations.",
       subtitle: "Supporting the planning, coordination, vendor management and execution of events. Any kind of events like corporate, weddings, and company events.",
@@ -62,13 +65,14 @@ export default function CinematicHero() {
       posterUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1920&q=80",
       ctaText: "View Event Operations",
       ctaLink: "/services",
+      ctaState: { activeId: "event-operations" },
       secondaryCtaText: "Connect With Us",
       secondaryCtaLink: "/contact",
       stats: "2,500+ Attendees · Multi-Camera Broadcast"
     },
     {
       id: "slide-5",
-      tag: "CORE CAPABILITY 04 & 05 // TECH & DIGITAL",
+      tag: "TECH & DIGITAL",
       title: "Technical Solutions & Digital Marketing.",
       highlight: "Digital Marketing.",
       subtitle: "Providing access to technical expertise, full-stack platforms, branding, graphic designing, digital marketing, and promotional strategies.",
@@ -76,6 +80,7 @@ export default function CinematicHero() {
       posterUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
       ctaText: "Explore Tech & Digital",
       ctaLink: "/services",
+      ctaState: { activeId: "technical" },
       secondaryCtaText: "Connect With Us",
       secondaryCtaLink: "/contact",
       stats: "Modern Web & Apps · Multi-Channel Reach"
@@ -93,7 +98,7 @@ export default function CinematicHero() {
 
   return (
     <div className="relative w-full min-h-[72vh] lg:min-h-[80vh] flex flex-col justify-start bg-[#0A0D14] text-white overflow-hidden select-none">
-      
+
       {/* 1. Cinematic Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
@@ -116,7 +121,7 @@ export default function CinematicHero() {
 
       {/* 2. Main Content Viewport */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-8 sm:pb-12 flex flex-col justify-between flex-1">
-        
+
         {/* Top Recognition Badge */}
         <div className="flex items-center justify-between gap-4 mb-4">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/75 border border-white/15 backdrop-blur-xl text-xs font-bold tracking-wider text-amber-400 shadow-xl">
@@ -147,10 +152,7 @@ export default function CinematicHero() {
               className="space-y-4 sm:space-y-5"
             >
               {/* Category Tag */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-neutral-900/80 border border-neutral-700 backdrop-blur-md text-xs sm:text-sm font-extrabold uppercase tracking-wider text-amber-400">
-                <Zap className="h-3.5 w-3.5 text-amber-400" />
-                <span>{currentSlide.tag}</span>
-              </div>
+
 
               {/* Mega Headline */}
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] font-display text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
@@ -169,6 +171,7 @@ export default function CinematicHero() {
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <Link
                   to={currentSlide.ctaLink}
+                  state={currentSlide.ctaState}
                   className="flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-xl transition-all duration-300 hover:scale-105"
                 >
                   <span>{currentSlide.ctaText || "Explore Our Capabilities"}</span>
@@ -200,11 +203,10 @@ export default function CinematicHero() {
               <button
                 key={idx}
                 onClick={() => setActiveSlide(idx)}
-                className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${
-                  activeSlide === idx 
-                    ? 'w-10 bg-amber-400' 
+                className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${activeSlide === idx
+                    ? 'w-10 bg-amber-400'
                     : 'w-2.5 bg-white/30 hover:bg-white/60'
-                }`}
+                  }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}

@@ -20,10 +20,7 @@ export default function About() {
         {/* ========================================================================= */}
         <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-bold tracking-wider text-amber-700 dark:text-amber-400 uppercase shadow-sm">
-              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-              <span>THE CONNECTED BUSINESS ECOSYSTEM</span>
-            </div>
+
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight leading-snug max-w-3xl text-neutral-900 dark:text-white">
               Connecting Businesses, Professionals, Vendors and Opportunities.

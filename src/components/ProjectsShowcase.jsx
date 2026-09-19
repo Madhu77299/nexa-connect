@@ -22,16 +22,13 @@ export default function ProjectsShowcase() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section className="py-24 bg-white dark:bg-[#0B0F17] transition-colors duration-300 relative border-t border-neutral-200/60 dark:border-slate-800/80">
+    <section className="py-12 bg-white dark:bg-[#0B0F17] transition-colors duration-300 relative border-t border-neutral-200/60 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
           <div className="space-y-3">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 dark:bg-slate-800 text-xs font-black text-blue-600 dark:text-amber-400 uppercase tracking-widest font-mono">
-              <Layers className="h-3.5 w-3.5" />
-              OUR WORK &amp; EXPERIENCE
-            </span>
+
             <h2 className="text-3xl sm:text-5xl font-black text-neutral-900 dark:text-white font-display tracking-tight">
               Enterprise Case Studies &amp; Experience
             </h2>

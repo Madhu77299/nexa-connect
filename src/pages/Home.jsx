@@ -31,14 +31,12 @@ export default function Home() {
       <StatsCounter />
 
       {/* 4. Core Capabilities Section (5 Capabilities ONLY) */}
-      <section id="capabilities" className="bg-[#f8fafc] dark:bg-[#0B0F17] py-24 transition-colors duration-300 border-t border-neutral-200/60 dark:border-slate-800/80">
+      <section id="capabilities" className="bg-[#f8fafc] dark:bg-[#0B0F17] py-12 transition-colors duration-300 border-t border-neutral-200/60 dark:border-slate-800/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div className="space-y-3 max-w-2xl">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // FIVE CORE CAPABILITIES
-              </span>
+
               <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-neutral-900 dark:text-white">
                 What We Bring Together
               </h2>
@@ -66,9 +64,7 @@ export default function Home() {
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 font-mono">
-                      CAPABILITY {svc.number}
-                    </span>
+
                     <ArrowUpRight className="h-4 w-4 text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
 
@@ -83,7 +79,8 @@ export default function Home() {
 
                 <div className="pt-4 border-t border-neutral-100 dark:border-slate-800 flex items-center justify-between">
                   <Link 
-                    to="/services" 
+                    to="/services"
+                    state={{ activeId: svc.id }}
                     className="text-xs font-bold text-blue-600 dark:text-amber-400 hover:underline flex items-center gap-1"
                   >
                     <span>View Details &amp; Scope</span>
@@ -104,13 +101,11 @@ export default function Home() {
 
 
       {/* 7. How We Work 4-Stage Workflow */}
-      <section className="bg-neutral-100 dark:bg-[#0F141F] py-24 border-t border-neutral-200 dark:border-slate-800/80">
+      <section className="bg-neutral-100 dark:bg-[#0F141F] py-12 border-t border-neutral-200 dark:border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-              // STRUCTURED PROCESS
-            </span>
+
             <h2 className="text-3xl sm:text-5xl font-black font-display text-neutral-900 dark:text-white">
               How We Work
             </h2>
@@ -144,13 +139,11 @@ export default function Home() {
       </section>
 
       {/* 8. Why Choose PMK Strengths Grid */}
-      <section className="bg-white dark:bg-[#0B0F17] py-24 border-t border-neutral-200 dark:border-slate-800/80">
+      <section className="bg-white dark:bg-[#0B0F17] py-12 border-t border-neutral-200 dark:border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="space-y-2 max-w-xl">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-              // THE PMK ADVANTAGE
-            </span>
+
             <h2 className="text-3xl sm:text-5xl font-black font-display text-neutral-900 dark:text-white">
               Why Choose PMK?
             </h2>
@@ -187,11 +180,9 @@ export default function Home() {
       <TestimonialsSection />
 
       {/* 11. Final Website Positioning Callout */}
-      <section className="bg-neutral-900 dark:bg-[#070A10] py-24 text-white text-center border-t border-slate-800">
+      <section className="bg-neutral-900 dark:bg-[#070A10] py-12 text-white text-center border-t border-slate-800">
         <div className="mx-auto max-w-4xl px-4 space-y-6">
-          <span className="text-[10px] font-black tracking-widest text-amber-400 uppercase block font-mono">
-            // PMK NEXA SOLUTIONS PRIVATE LIMITED
-          </span>
+
           <h2 className="text-4xl sm:text-6xl font-black font-display uppercase tracking-tight leading-tight">
             Your Growth. Our Network.
           </h2>

@@ -169,10 +169,7 @@ export default function Opportunities() {
           <div className="absolute bottom-0 left-1/4 -z-10 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-amber-600/10 blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-bold tracking-wider text-amber-700 dark:text-amber-400 uppercase shadow-sm">
-              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-              <span>PMK NEXA CAREERS // FULL-TIME &amp; INTERNSHIPS</span>
-            </div>
+
 
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight leading-tight max-w-4xl text-neutral-900 dark:text-white">
               Build your future across our <span className="text-blue-600 dark:text-amber-400">connected enterprise network.</span>
@@ -214,9 +211,7 @@ export default function Opportunities() {
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-neutral-200 dark:border-slate-800">
             <div className="space-y-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // EXPLORE OPENINGS
-              </span>
+
               <h2 className="text-3xl font-black font-display tracking-tight text-neutral-900 dark:text-white">
                 Available Positions &amp; Internship Tracks
               </h2>

@@ -42,10 +42,7 @@ export default function OurWork() {
           <div className="absolute bottom-0 left-1/4 -z-10 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-amber-600/10 blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-bold tracking-wider text-amber-700 dark:text-amber-400 uppercase shadow-sm mx-auto">
-              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-              <span>COMPLETED PROJECTS &amp; EXECUTION METHODOLOGY</span>
-            </div>
+
 
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto leading-tight">
               Our Work
@@ -79,9 +76,7 @@ export default function OurWork() {
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-neutral-200 dark:border-slate-800">
             <div className="space-y-2">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // COMPLETED ENGAGEMENTS &amp; CASE STUDIES
-              </span>
+
               <h2 className="text-3xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">
                 Our Work &amp; Experience
               </h2>
@@ -199,9 +194,6 @@ export default function OurWork() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
             <div className="text-center space-y-2 max-w-2xl mx-auto">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // EXECUTION METHODOLOGY
-              </span>
               <h2 className="text-3xl sm:text-5xl font-black font-display text-neutral-900 dark:text-white">
                 How We Work
               </h2>
@@ -245,9 +237,6 @@ export default function OurWork() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="p-8 sm:p-12 rounded-3xl bg-neutral-900 dark:bg-[#121824] text-white border border-neutral-800 dark:border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-3 max-w-2xl text-center md:text-left">
-              <span className="text-[10px] font-black uppercase tracking-widest text-amber-400 block font-mono">
-                // TELL US WHAT YOU NEED
-              </span>
               <h3 className="text-2xl sm:text-3xl font-black font-display text-white">
                 Ready to initiate your next project with PMK Nexa?
               </h3>

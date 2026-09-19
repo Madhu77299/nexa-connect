@@ -17,7 +17,7 @@ export default function LeadershipSection() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#f5f7fb] to-white dark:from-[#08111f] dark:to-[#0c1524] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
+    <section className="py-12 bg-gradient-to-b from-[#f5f7fb] to-white dark:from-[#08111f] dark:to-[#0c1524] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
       {/* Background Decorative Glow */}
       <div className="absolute top-1/2 left-0 -z-10 h-96 w-96 rounded-full bg-[#3167ff]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 rounded-full bg-[#20c9b5]/10 blur-3xl pointer-events-none" />
@@ -26,10 +26,7 @@ export default function LeadershipSection() {
         
         {/* Header Tag */}
         <div className="flex flex-col items-center text-center mb-16 space-y-3">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#3167ff]/10 dark:bg-[#20c9b5]/10 text-xs font-black text-[#3167ff] dark:text-[#20c9b5] uppercase tracking-widest">
-            <Award className="h-4 w-4" />
-            EXECUTIVE LEADERSHIP &amp; GOVERNANCE
-          </span>
+
           <h2 className="text-3xl sm:text-5xl font-black text-neutral-900 dark:text-white font-display tracking-tight leading-tight">
             Architecting the Future of Connected Business.
           </h2>
@@ -53,12 +50,10 @@ export default function LeadershipSection() {
                     <img 
                       src={founderImage} 
                       alt={company.founder || "Prasanna Korikana"} 
-                      className="h-full w-full object-cover rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="h-full w-full object-cover rounded-xl transition-all duration-500"
                     />
                   </div>
-                  <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#3167ff] text-white shadow-xs">
-                    <Sparkles className="h-3.5 w-3.5" />
-                  </span>
+
                 </div>
 
                 <div>

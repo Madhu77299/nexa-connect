@@ -23,12 +23,7 @@ export default function PartnerTicker({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           {/* Header Badge */}
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800/90 border border-neutral-200 dark:border-neutral-700/80 text-[10px] font-extrabold uppercase tracking-widest text-neutral-600 dark:text-neutral-300 shadow-xs">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#20c9b5] animate-pulse" />
-              <span>{title}</span>
-            </div>
-          </div>
+
 
           {/* Static 4-Column Grid of Partner Badges */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
@@ -64,12 +59,7 @@ export default function PartnerTicker({
   return (
     <section className="relative w-full py-10 bg-white/40 dark:bg-[#090e18]/80 backdrop-blur-md border-y border-neutral-200/80 dark:border-neutral-800/80 overflow-hidden select-none">
       {/* Title */}
-      <div className="max-w-7xl mx-auto px-4 mb-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700/60 text-[10px] font-extrabold uppercase tracking-widest text-neutral-600 dark:text-neutral-300">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#20c9b5] animate-pulse" />
-          {title}
-        </div>
-      </div>
+
 
       {/* Gradient Fades on edges */}
       <div className="absolute left-0 top-0 bottom-0 w-24 md:w-36 bg-gradient-to-r from-[#f5f7fb] dark:from-[#08111f] to-transparent z-10 pointer-events-none" />

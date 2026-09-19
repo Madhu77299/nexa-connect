@@ -6,7 +6,7 @@ export default function Logo({
   imgClassName,
   textClassName = "text-xl sm:text-2xl",
   subTextClassName = "text-[10px] sm:text-xs",
-  showText = true,
+  showText = false,
   variant = "dark-nav" // 'dark-nav' | 'auto'
 }) {
   const finalImgClass = imgClassName || className;

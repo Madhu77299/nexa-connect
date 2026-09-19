@@ -8,7 +8,7 @@ import {
 
 const DataContext = createContext();
 
-const STORAGE_KEY = 'pmk_nexa_live_cms_data_v8';
+const STORAGE_KEY = 'pmk_nexa_live_cms_data_v9';
 
 export function detectSocialPlatform(url) {
   if (!url) return { name: 'Website', icon: 'globe' };

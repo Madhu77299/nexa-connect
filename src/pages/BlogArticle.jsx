@@ -158,7 +158,7 @@ export default function BlogArticle() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-6 text-white/80 text-xs font-mono">
-                PMK NEXA SOLUTIONS // FIELD REPORT
+                PMK NEXA SOLUTIONS
               </div>
             </div>
           )}

@@ -20,15 +20,12 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-24 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
+    <section className="py-12 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3167ff]/10 dark:bg-[#20c9b5]/10 text-xs font-black text-[#3167ff] dark:text-[#20c9b5] uppercase tracking-widest">
-            <Sparkles className="h-3.5 w-3.5" />
-            ENTERPRISE ENDORSEMENTS
-          </span>
+
           <h2 className="text-3xl sm:text-5xl font-black text-neutral-900 dark:text-white font-display tracking-tight">
             Trusted by Leaders Across India.
           </h2>

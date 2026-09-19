@@ -88,12 +88,12 @@ export const servicesData = [
     description: "Through our network, we connect clients with verified vendors, professionals and specialized service providers based on their requirements. Any specialized service is fulfilled seamlessly through our structured partner network.",
     icon: "Network",
     capabilities: [
-      "Drone & Survey Services",
       "Construction Services",
       "Solar Solutions",
       "Interior Solutions",
       "Branding & Printing",
       "Photography & Videography",
+      "Drone & Survey Services",
       "Specialized Vendor Sourcing & Due Diligence"
     ],
     onboardingSteps: [

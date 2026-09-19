@@ -43,15 +43,12 @@ export default function StatsCounter() {
   ];
 
   return (
-    <section ref={ref} className="w-full py-16 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
+    <section ref={ref} className="w-full py-10 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Tag */}
         <div className="flex flex-col items-center text-center mb-12 space-y-3">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3167ff]/10 dark:bg-[#20c9b5]/10 text-xs font-bold text-[#3167ff] dark:text-[#20c9b5] uppercase tracking-widest">
-            <Zap className="h-3.5 w-3.5" />
-            ENTERPRISE SCALE & METRICS
-          </span>
+
           <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 dark:text-white font-display tracking-tight">
             Measurable impact. Proven delivery.
           </h2>
