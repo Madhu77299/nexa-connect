@@ -233,7 +233,6 @@ export default function Navbar() {
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <span className="font-mono text-xs text-neutral-500">0{idx + 1}</span>
                         <span>{link.name}</span>
                       </div>
                       <ChevronRight className="h-4 w-4 text-neutral-500" />
