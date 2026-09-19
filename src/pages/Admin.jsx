@@ -162,26 +162,9 @@ export default function Admin() {
     const cleanPass = passcode.trim();
 
     const normalizedUser = cleanUser.replace(/[\s_\-\.]+/g, '');
-    const isUserValid = 
-      normalizedUser === 'pmkempolyee01' || 
-      normalizedUser === 'pmkemployee01' || 
-      normalizedUser === 'pmkempolyee001' || 
-      normalizedUser === 'pmkemployee001' || 
-      normalizedUser === 'pmkempolyee1' || 
-      normalizedUser === 'pmkemployee1' || 
-      normalizedUser === 'pmkemployee' || 
-      normalizedUser === 'pmkempolyee' || 
-      normalizedUser === 'pmk' || 
-      normalizedUser === 'admin';
+    const isUserValid = normalizedUser === 'pmk';
 
-    const isPassValid = 
-      cleanPass === 'pmknexa@001' || 
-      cleanPass === 'pmknexa@01' || 
-      cleanPass === 'pmknexa001' || 
-      cleanPass === 'pmknexa@1' || 
-      cleanPass === 'nexa2026' || 
-      cleanPass === 'admin' || 
-      cleanPass === 'pmk';
+    const isPassValid = cleanPass === 'pmk123';
 
     if (isUserValid && isPassValid) {
       setIsAuthenticated(true);
