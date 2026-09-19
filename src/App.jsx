@@ -31,7 +31,7 @@ function AppContent() {
   }, [location.pathname]);
 
   return (
-    <div className="flex flex-col min-h-screen text-slate-800 dark:text-slate-100 transition-colors duration-300">
+    <div className="flex flex-col min-h-screen text-slate-800 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden w-full relative">
       {!isAdmin && <Navbar />}
       
       <main className="flex-1 flex flex-col">
