@@ -27,7 +27,7 @@ export default function About() {
             </h1>
 
             <p className="text-base sm:text-lg text-neutral-600 dark:text-slate-300 max-w-3xl leading-relaxed">
-              PMK NEXA SOLUTIONS PRIVATE LIMITED is a connected business ecosystem focused on supporting growth through Business Growth, Network Solutions, Event Operations, Technical Solutions and Digital Marketing.
+              PMK Nexa Solutions Pvt.Ltd is a connected business ecosystem focused on supporting growth through Business Growth, Network Solutions, Event Operations, Technical Solutions and Digital Marketing.
             </p>
           </div>
         </section>

@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-  companyConfig as defaultCompanyConfig, 
-  servicesData as defaultServicesData, 
-  opportunitiesData as defaultJobsData, 
-  blogsData as defaultBlogsData 
+import {
+  companyConfig as defaultCompanyConfig,
+  servicesData as defaultServicesData,
+  opportunitiesData as defaultJobsData,
+  blogsData as defaultBlogsData
 } from '../data/companyData';
 
 const DataContext = createContext();
@@ -159,7 +159,12 @@ export const DataProvider = ({ children }) => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // Force update the old unsplash image to the new local image
+        if (parsed?.mediaSettings?.founderImageUrl?.includes('unsplash.com')) {
+          parsed.mediaSettings.founderImageUrl = '/pmk.jpeg';
+        }
+        return parsed;
       }
     } catch (e) {
       console.warn("Failed to load CMS data from localStorage:", e);
@@ -170,7 +175,7 @@ export const DataProvider = ({ children }) => {
       company: {
         ...defaultCompanyConfig,
         name: "PMK NEXA SOLUTIONS PRIVATE LIMITED",
-        shortName: "PMK NEXA SOLUTIONS",
+        shortName: "PMK Nexa Solutions",
         tagline: "Your Growth. Our Network.",
         supportingMessage: "One Network. Multiple Capabilities. Endless Opportunities.",
         description: "PMK NEXA SOLUTIONS PRIVATE LIMITED connects businesses, professionals, vendors and opportunities through a strong and reliable network.",
@@ -212,7 +217,7 @@ export const DataProvider = ({ children }) => {
       mediaSettings: {
         heroVideoUrl: "https://assets.mixkit.co/videos/preview/mixkit-circuit-board-loop-animation-43301-large.mp4",
         heroSecondaryVideoUrl: "https://assets.mixkit.co/videos/preview/mixkit-futuristic-technology-network-lines-and-dots-42999-large.mp4",
-        founderImageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+        founderImageUrl: "/pmk.jpeg",
         heroHeadline: "Your Growth. Our Network.",
         heroTag: "ONE NETWORK. MULTIPLE CAPABILITIES. ENDLESS OPPORTUNITIES."
       },
@@ -287,7 +292,7 @@ export const DataProvider = ({ children }) => {
     const detected = detectSocialPlatform(newUrl);
     setData(prev => ({
       ...prev,
-      socialProfiles: (prev.socialProfiles || []).map(s => 
+      socialProfiles: (prev.socialProfiles || []).map(s =>
         s.id === id ? { ...s, url: newUrl, platform: detected.name, icon: detected.icon } : s
       )
     }));
@@ -331,7 +336,7 @@ export const DataProvider = ({ children }) => {
     setData(prev => ({
       ...prev,
       projects: prev.projects.filter(p => p.id !== id),
-      recycleBin: itemToDelete 
+      recycleBin: itemToDelete
         ? [{ ...itemToDelete, binId: `bin-${Date.now()}`, itemType: 'Project', deletedAt: new Date().toLocaleString() }, ...(prev.recycleBin || [])]
         : prev.recycleBin || []
     }));
@@ -361,7 +366,7 @@ export const DataProvider = ({ children }) => {
     setData(prev => ({
       ...prev,
       services: prev.services.filter(s => s.id !== id),
-      recycleBin: itemToDelete 
+      recycleBin: itemToDelete
         ? [{ ...itemToDelete, binId: `bin-${Date.now()}`, itemType: 'Service', deletedAt: new Date().toLocaleString() }, ...(prev.recycleBin || [])]
         : prev.recycleBin || []
     }));
@@ -369,7 +374,7 @@ export const DataProvider = ({ children }) => {
 
   // Inquiries / Resume Applications Actions (with Recycle Bin backup)
   const logInquiry = (inquiry) => {
-    const refCode = inquiry.subject?.includes('Ref:') 
+    const refCode = inquiry.subject?.includes('Ref:')
       ? inquiry.subject.split('Ref:')[1]?.trim() || `NXA-${Date.now()}`
       : `NXA-${Math.floor(100000 + Math.random() * 900000)}`;
 
@@ -398,7 +403,7 @@ export const DataProvider = ({ children }) => {
     setData(prev => ({
       ...prev,
       inquiries: prev.inquiries.filter(i => i.id !== id),
-      recycleBin: itemToDelete 
+      recycleBin: itemToDelete
         ? [{ ...itemToDelete, binId: `bin-${Date.now()}`, itemType: itemToDelete.subject?.includes('APPLICATION') ? 'Resume Submission' : 'Inquiry', deletedAt: new Date().toLocaleString() }, ...(prev.recycleBin || [])]
         : prev.recycleBin || []
     }));

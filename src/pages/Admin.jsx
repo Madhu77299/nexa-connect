@@ -72,7 +72,7 @@ export default function Admin() {
   const [mediaForm, setMediaForm] = useState({
     heroVideoUrl: mediaSettings?.heroVideoUrl || "https://assets.mixkit.co/videos/preview/mixkit-circuit-board-loop-animation-43301-large.mp4",
     heroSecondaryVideoUrl: mediaSettings?.heroSecondaryVideoUrl || "https://assets.mixkit.co/videos/preview/mixkit-futuristic-technology-network-lines-and-dots-42999-large.mp4",
-    founderImageUrl: mediaSettings?.founderImageUrl || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+    founderImageUrl: mediaSettings?.founderImageUrl || "/pmk.jpeg",
     heroHeadline: mediaSettings?.heroHeadline || "Connecting Business. Creating Growth.",
     heroTag: mediaSettings?.heroTag || "ENTERPRISE CLOUD & OPERATIONS GRID"
   });

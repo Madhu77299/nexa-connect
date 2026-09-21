@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default function LeadershipSection() {
   const { company, mediaSettings } = useData();
 
-  const founderImage = mediaSettings?.founderImageUrl || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80";
+  const founderImage = mediaSettings?.founderImageUrl || "/pmk.jpeg";
 
   const milestones = [
     { label: "Company Legal Name", value: company.name || "PMK Nexa Solutions Private Limited", icon: Building2 },
@@ -50,10 +50,9 @@ export default function LeadershipSection() {
                     <img 
                       src={founderImage} 
                       alt={company.founder || "Prasanna Korikana"} 
-                      className="h-full w-full object-cover rounded-xl transition-all duration-500"
+                      className="h-full w-full object-cover object-top rounded-xl transition-all duration-500"
                     />
                   </div>
-
                 </div>
 
                 <div>
@@ -106,9 +105,6 @@ export default function LeadershipSection() {
           {/* Right Column: Official MCA Corporate Governance Details (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-2">
-              <span className="text-[10px] font-extrabold text-[#20c9b5] tracking-widest uppercase block">
-                // LEGAL &amp; CORPORATE IDENTITY
-              </span>
               <h3 className="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white font-display">
                 Registered Corporate Entity
               </h3>
@@ -124,13 +120,10 @@ export default function LeadershipSection() {
                 return (
                   <div 
                     key={idx}
-                    className="p-5 rounded-2xl bg-white dark:bg-[#101c2f] border border-neutral-200/80 dark:border-neutral-800/80 shadow-xs hover:border-[#3167ff]/50 dark:hover:border-[#20c9b5]/50 transition-all"
+                    className="flex items-center gap-3 p-5 rounded-2xl bg-white dark:bg-[#101c2f] border border-neutral-200/80 dark:border-neutral-800/80 shadow-xs hover:border-[#3167ff]/50 dark:hover:border-[#20c9b5]/50 transition-all"
                   >
-                    <div className="flex items-center gap-2.5 mb-2 text-[#3167ff] dark:text-[#20c9b5]">
-                      <Icon className="h-4 w-4" />
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-400">
-                        {item.label}
-                      </span>
+                    <div className="flex-shrink-0 text-[#3167ff] dark:text-[#20c9b5]">
+                      <Icon className="h-5 w-5" />
                     </div>
                     <div className="text-sm font-black text-neutral-900 dark:text-white tracking-tight">
                       {item.value}
