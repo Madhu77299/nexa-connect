@@ -186,12 +186,7 @@ export default function CinematicHero() {
                 </Link>
               </div>
 
-              {/* Slide Metric Pill */}
-              <div className="inline-flex items-center gap-2 pt-1 px-3 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md text-xs font-bold text-neutral-300">
-                <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                <span>Verified Network: </span>
-                <strong className="text-white font-mono">{currentSlide.stats}</strong>
-              </div>
+
             </motion.div>
           </AnimatePresence>
         </div>

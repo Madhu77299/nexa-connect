@@ -1,7 +1,7 @@
 import React from 'react';
-import { 
-  Target, Compass, Eye, ShieldCheck, Zap, ArrowRight, CheckCircle2, 
-  Sparkles, Layers, Users, Building2, Briefcase, Award 
+import {
+  Target, Compass, Eye, ShieldCheck, Zap, ArrowRight, CheckCircle2,
+  Sparkles, Layers, Users, Building2, Briefcase, Award
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '../components/SectionHeading';
@@ -14,7 +14,7 @@ export default function About() {
   return (
     <PageTransition>
       <div className="bg-[#f8fafc] dark:bg-[#0B0F17] text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-300 antialiased">
-        
+
         {/* ========================================================================= */}
         {/* 1. HERO VISION HEADER */}
         {/* ========================================================================= */}
@@ -39,12 +39,10 @@ export default function About() {
         {/* 2. ABOUT US NARRATIVE */}
         {/* ========================================================================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-6 space-y-5">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                // ABOUT OUR ECOSYSTEM
-              </span>
+          <div className="grid grid-cols-1 gap-12">
+
+            <div className="max-w-4xl mx-auto text-center space-y-5">
+
               <h2 className="text-3xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white leading-tight">
                 One Network. Multiple Capabilities. Endless Opportunities.
               </h2>
@@ -57,40 +55,7 @@ export default function About() {
 
             </div>
 
-            <div className="lg:col-span-6">
-              <div className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-5">
-                <span className="text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-                  CORPORATE IDENTITY
-                </span>
-                
-                <h3 className="text-xl font-bold text-neutral-900 dark:text-white font-display">
-                  PMK NEXA SOLUTIONS PRIVATE LIMITED
-                </h3>
 
-                <div className="space-y-3 text-xs text-neutral-600 dark:text-slate-300">
-                  <div className="flex justify-between py-2 border-b border-neutral-100 dark:border-slate-800">
-                    <span className="text-neutral-400">Core Capabilities:</span>
-                    <span className="text-blue-600 dark:text-amber-400 font-bold">5 Specialized Disciplines</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b border-neutral-100 dark:border-slate-800">
-                    <span className="text-neutral-400">Incorporation Date:</span>
-                    <span className="text-neutral-900 dark:text-white">April 20, 2026</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b border-neutral-100 dark:border-slate-800">
-                    <span className="text-neutral-400">Head Office:</span>
-                    <span className="text-neutral-900 dark:text-white">Vizag - Madhurawada, AP</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b border-neutral-100 dark:border-slate-800">
-                    <span className="text-neutral-400">Branch &amp; Reg. Office:</span>
-                    <span className="text-neutral-900 dark:text-white text-right">Krishna Complex, Palakonda Rd, Rajam - 532127</span>
-                  </div>
-                  <div className="flex justify-between py-2">
-                    <span className="text-neutral-400">Founder &amp; CEO:</span>
-                    <strong className="text-neutral-900 dark:text-white">Prasanna Korikana</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
 
           </div>
         </section>
@@ -104,11 +69,8 @@ export default function About() {
         {/* 4. WHY CHOOSE PMK? */}
         {/* ========================================================================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12">
-          
+
           <div className="space-y-2 max-w-xl">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-amber-400 block font-mono">
-              // OUR CORE STRENGTHS
-            </span>
             <h2 className="text-3xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">
               Why Choose PMK?
             </h2>

@@ -150,9 +150,7 @@ export default function Services() {
                 <h2 className="text-2xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">
                   {selectedService.title}
                 </h2>
-                <p className="text-sm sm:text-base text-neutral-600 dark:text-slate-300 leading-relaxed font-normal">
-                  {selectedService.shortDescription || selectedService.description}
-                </p>
+
               </div>
 
               <a

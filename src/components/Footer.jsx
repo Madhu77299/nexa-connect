@@ -116,9 +116,6 @@ export default function Footer() {
 
           {/* Brand description column */}
           <div className="md:col-span-1 space-y-4">
-            <h4 className="text-xs font-bold text-[#0066FF] dark:text-[#00F2FE] uppercase tracking-widest">
-              {footerSettings?.ecosystemHeader || "// THE CONNECTED ECOSYSTEM"}
-            </h4>
             <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
               {company?.tagline || footerSettings?.tagline || "Your Growth. Our Network."}
             </p>

@@ -208,10 +208,7 @@ export default function OurWork() {
                   key={item.step}
                   className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-md hover:border-slate-600 transition-all flex flex-col justify-between space-y-6 group"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-black px-3.5 py-1.5 rounded-full bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 shadow-md">
-                      {item.step}
-                    </span>
+                  <div className="flex items-center justify-end">
                     <ArrowRight className="h-4 w-4 text-neutral-400 dark:text-slate-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                   </div>
 

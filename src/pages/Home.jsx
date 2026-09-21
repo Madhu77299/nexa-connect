@@ -120,9 +120,7 @@ export default function Home() {
                 key={item.step}
                 className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-md flex flex-col justify-between space-y-4 hover:border-slate-700 transition-all"
               >
-                <div className="h-9 w-9 rounded-xl bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 flex items-center justify-center font-mono font-black text-xs shadow-md">
-                  {item.step}
-                </div>
+
                 <div className="space-y-1.5">
                   <h3 className="text-xl font-black font-display text-neutral-900 dark:text-white">
                     {item.title}
