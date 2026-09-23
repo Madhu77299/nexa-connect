@@ -207,7 +207,7 @@ export default function Opportunities() {
         {/* ========================================================================= */}
         {/* 2. PROGRAM TYPE SWITCHER & DOMAIN FILTERS */}
         {/* ========================================================================= */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-neutral-200 dark:border-slate-800">
             <div className="space-y-2">
@@ -358,7 +358,7 @@ export default function Opportunities() {
         {/* ========================================================================= */}
         {/* 3. RESUME APPLICATION FORM */}
         {/* ========================================================================= */}
-        <section id="resume-application-form" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+        <section id="resume-application-form" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
           
           <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-8">
             <div className="space-y-2">

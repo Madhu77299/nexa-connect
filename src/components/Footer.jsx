@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowUpRight, Globe, Building2 } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import Logo from './Logo';
+import NeuralBackground from './NeuralBackground';
 
 export default function Footer() {
   const { company, services, socialProfiles, footerSettings } = useData();
@@ -79,7 +80,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-[#070D18] transition-colors duration-300">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 
         {/* Large Logo & Social Follow Block */}
         <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">

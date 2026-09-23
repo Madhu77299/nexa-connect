@@ -16,7 +16,7 @@ export default function ApplicationForm() {
   if (!job) {
     return (
       <PageTransition>
-        <div className="mx-auto max-w-7xl px-4 py-32 text-center space-y-4">
+        <div className="mx-auto max-w-7xl px-4 py-6 text-center space-y-4">
           <h1 className="text-3xl font-extrabold text-neutral-900 dark:text-white">Role Not Found</h1>
           <p className="text-neutral-500">The position you want to apply for is no longer active.</p>
           <Link to="/careers" className="text-blue-600 dark:text-cyan-400 hover:underline">
@@ -192,7 +192,7 @@ export default function ApplicationForm() {
   if (successResponse) {
     return (
       <PageTransition>
-        <div className="mx-auto max-w-2xl px-4 py-24 text-center space-y-6">
+        <div className="mx-auto max-w-2xl px-4 py-10 text-center space-y-6">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-green-600 dark:bg-green-950/30 dark:text-green-400">
             <CheckCircle className="h-10 w-10 animate-bounce" />
           </div>
@@ -221,7 +221,7 @@ export default function ApplicationForm() {
 
   return (
     <PageTransition>
-      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8 bg-white dark:bg-neutral-950 transition-colors duration-300">
+      <section className="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8 bg-white dark:bg-neutral-950 transition-colors duration-300">
         
         {/* Title */}
         <div className="space-y-4 mb-8">

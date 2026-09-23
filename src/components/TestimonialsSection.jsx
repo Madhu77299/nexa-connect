@@ -20,7 +20,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-12 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
+    <section className="py-6 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

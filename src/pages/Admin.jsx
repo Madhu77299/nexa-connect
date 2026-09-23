@@ -356,7 +356,7 @@ export default function Admin() {
   if (!isAuthenticated) {
     return (
       <PageTransition>
-        <section className="min-h-screen flex items-center justify-center bg-[#080E1C] text-slate-100 px-4 py-16 relative overflow-hidden">
+        <section className="min-h-screen flex items-center justify-center bg-[#080E1C] text-slate-100 px-4 py-8 relative overflow-hidden">
           <div className="absolute top-1/4 left-1/3 -z-10 h-96 w-96 rounded-full bg-[#1D4ED8]/20 blur-3xl pointer-events-none" />
           
           <div className="w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#101D38] border border-[#1E3A6C] shadow-2xl space-y-6">

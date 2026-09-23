@@ -12,6 +12,7 @@ import PartnerTicker from '../components/PartnerTicker';
 import StatsCounter from '../components/StatsCounter';
 import TestimonialsSection from '../components/TestimonialsSection';
 import RoiEstimator from '../components/RoiEstimator';
+import NeuralBackground from '../components/NeuralBackground';
 import { useData } from '../context/DataContext';
 import { howWeWorkData, whyChoosePmkData } from '../data/companyData';
 
@@ -31,8 +32,8 @@ export default function Home() {
       <StatsCounter />
 
       {/* 4. Core Capabilities Section (5 Capabilities ONLY) */}
-      <section id="capabilities" className="bg-[#f8fafc] dark:bg-[#0B0F17] py-12 transition-colors duration-300 border-t border-neutral-200/60 dark:border-slate-800/80">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
+      <section id="capabilities" className="bg-[#f8fafc] dark:bg-[#0B0F17] py-6 transition-colors duration-300 border-t border-neutral-200/60 dark:border-slate-800/80">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div className="space-y-3 max-w-2xl">
@@ -101,8 +102,8 @@ export default function Home() {
 
 
       {/* 7. How We Work 4-Stage Workflow */}
-      <section className="bg-neutral-100 dark:bg-[#0F141F] py-12 border-t border-neutral-200 dark:border-slate-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="bg-neutral-100 dark:bg-[#0F141F] py-6 border-t border-neutral-200 dark:border-slate-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           
           <div className="text-center space-y-2 max-w-2xl mx-auto">
 
@@ -137,8 +138,8 @@ export default function Home() {
       </section>
 
       {/* 8. Why Choose PMK Strengths Grid */}
-      <section className="bg-white dark:bg-[#0B0F17] py-12 border-t border-neutral-200 dark:border-slate-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="bg-white dark:bg-[#0B0F17] py-6 border-t border-neutral-200 dark:border-slate-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           
           <div className="space-y-2 max-w-xl">
 
@@ -178,14 +179,15 @@ export default function Home() {
       <TestimonialsSection />
 
       {/* 11. Final Website Positioning Callout */}
-      <section className="bg-neutral-900 dark:bg-[#070A10] py-12 text-white text-center border-t border-slate-800">
-        <div className="mx-auto max-w-4xl px-4 space-y-6">
+      <section className="relative overflow-hidden bg-neutral-900 dark:bg-[#070A10] py-6 text-white text-center border-t border-slate-800">
+        <NeuralBackground />
+        <div className="relative z-10 mx-auto max-w-4xl px-4 space-y-6">
 
           <h2 className="text-4xl sm:text-6xl font-black font-display uppercase tracking-tight leading-tight">
             Your Growth. Our Network.
           </h2>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-            Connecting Businesses, Professionals, Vendors and Opportunities. One Network. Multiple Capabilities. Endless Opportunities.
+            A unified ecosystem connecting professionals and vendors to unlock endless business opportunities.
           </p>
           <div className="pt-4 flex flex-wrap justify-center gap-4">
             <Link

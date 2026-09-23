@@ -8,6 +8,7 @@ import {
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
+import NeuralBackground from '../components/NeuralBackground';
 import { useData } from '../context/DataContext';
 import { howWeWorkData } from '../data/companyData';
 
@@ -37,11 +38,12 @@ export default function OurWork() {
         {/* ========================================================================= */}
         {/* 1. HERO HEADER: EXECUTIVE DARK PALETTE */}
         {/* ========================================================================= */}
-        <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
+        <section className="relative pt-12 pb-12 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
+          <NeuralBackground />
           <div className="absolute top-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-blue-600/10 dark:bg-blue-900/15 blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-1/4 -z-10 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-amber-600/10 blur-3xl pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
 
 
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto leading-tight">
@@ -72,7 +74,7 @@ export default function OurWork() {
         {/* ========================================================================= */}
         {/* 2. SECTION 1: OUR WORK & EXPERIENCE (PROJECTS & CASE STUDIES FIRST) */}
         {/* ========================================================================= */}
-        <section id="projects-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12">
+        <section id="projects-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-neutral-200 dark:border-slate-800">
             <div className="space-y-2">
@@ -190,8 +192,8 @@ export default function OurWork() {
         {/* ========================================================================= */}
         {/* 3. SECTION 2: HOW WE WORK (4-STAGE METHODOLOGY SECOND) */}
         {/* ========================================================================= */}
-        <section id="how-we-work-process" className="py-20 border-t border-neutral-200 dark:border-slate-800/80 bg-neutral-100 dark:bg-[#0B0F17]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section id="how-we-work-process" className="py-8 border-t border-neutral-200 dark:border-slate-800/80 bg-neutral-100 dark:bg-[#0B0F17]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             
             <div className="text-center space-y-2 max-w-2xl mx-auto">
               <h2 className="text-3xl sm:text-5xl font-black font-display text-neutral-900 dark:text-white">
@@ -231,7 +233,7 @@ export default function OurWork() {
         {/* ========================================================================= */}
         {/* 5. CONSULTATION CTA BANNER */}
         {/* ========================================================================= */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="p-8 sm:p-12 rounded-3xl bg-neutral-900 dark:bg-[#121824] text-white border border-neutral-800 dark:border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-3 max-w-2xl text-center md:text-left">
               <h3 className="text-2xl sm:text-3xl font-black font-display text-white">

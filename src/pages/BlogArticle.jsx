@@ -17,7 +17,7 @@ export default function BlogArticle() {
   if (!post) {
     return (
       <PageTransition>
-        <div className="mx-auto max-w-7xl px-4 py-32 text-center space-y-6">
+        <div className="mx-auto max-w-7xl px-4 py-6 text-center space-y-6">
           <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-500">
             <BookOpen className="h-8 w-8" />
           </div>
@@ -60,7 +60,7 @@ export default function BlogArticle() {
         {/* Progress bar accent */}
         <div className="sticky top-0 z-30 h-1 bg-gradient-to-r from-blue-600 via-amber-500 to-emerald-500 w-full" />
 
-        <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+        <article className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
           
           {/* Top Navigation */}
           <div className="flex items-center justify-between pb-8">

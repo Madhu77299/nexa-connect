@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle, Mail, Phone, MapPin, Sparkles, AlertCircle, Loader2, MessageSquare, ArrowRight, Building2 } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import SuccessModal from '../components/SuccessModal';
+import NeuralBackground from '../components/NeuralBackground';
 import { useData } from '../context/DataContext';
 
 export default function Contact() {
@@ -78,8 +79,9 @@ export default function Contact() {
       <div className="bg-[#f8fafc] dark:bg-[#0B0F17] text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-300 antialiased">
         
         {/* Header Hero Section */}
-        <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
+        <section className="relative pt-12 pb-12 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
+          <NeuralBackground />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
 
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto">
@@ -96,7 +98,7 @@ export default function Contact() {
         </section>
 
         {/* Main Form & Direct Channels */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Left Column: Quick Contact Options */}

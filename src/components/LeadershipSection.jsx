@@ -17,7 +17,7 @@ export default function LeadershipSection() {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-b from-[#f5f7fb] to-white dark:from-[#08111f] dark:to-[#0c1524] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
+    <section className="py-6 bg-gradient-to-b from-[#f5f7fb] to-white dark:from-[#08111f] dark:to-[#0c1524] transition-colors duration-300 relative overflow-hidden border-t border-neutral-200/60 dark:border-neutral-800/80">
       {/* Background Decorative Glow */}
       <div className="absolute top-1/2 left-0 -z-10 h-96 w-96 rounded-full bg-[#3167ff]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 rounded-full bg-[#20c9b5]/10 blur-3xl pointer-events-none" />
@@ -63,7 +63,7 @@ export default function LeadershipSection() {
                     {company.founderTitle || "Founder & CEO"}
                   </span>
                   <span className="text-[11px] text-neutral-500 dark:text-neutral-400">
-                    PMK Nexa Solutions Private Limited
+                    PMK Nexa Solutions Pvt Ltd
                   </span>
                 </div>
               </div>
@@ -109,7 +109,7 @@ export default function LeadershipSection() {
                 Registered Corporate Entity
               </h3>
               <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                Incorporated under the Companies Act, PMK Nexa Solutions Private Limited serves as a structured institutional partner for enterprises, scale-ups, and vendor ecosystems.
+                Incorporated under the Companies Act, PMK Nexa Solutions Pvt Ltd serves as a structured institutional partner for enterprises, scale-ups, and vendor ecosystems.
               </p>
             </div>
 

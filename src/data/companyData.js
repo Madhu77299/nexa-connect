@@ -4,11 +4,11 @@
  */
 
 export const companyConfig = {
-  name: "PMK NEXA SOLUTIONS PRIVATE LIMITED",
+  name: "PMK Nexa Solutions Pvt Ltd",
   shortName: "PMK NEXA SOLUTIONS",
   tagline: "Your Growth. Our Network.",
   supportingMessage: "One Network. Multiple Capabilities. Endless Opportunities.",
-  description: "PMK NEXA SOLUTIONS PRIVATE LIMITED connects businesses, professionals, vendors and opportunities through a strong and reliable network.",
+  description: "PMK NEXA SOLUTIONS PRIVATE LIMITED establishes a powerful, reliable ecosystem that bridges the gap between enterprise needs and elite service providers.",
   founder: "Prasanna Korikana",
   founderTitle: "Founder & CEO",
   founderBio: "Prasanna Korikana is an entrepreneur and operations strategist committed to building interconnected business ecosystems. Under her leadership, PMK Nexa Solutions provides integrated business development, enterprise vendor networks, high-stakes event operations, modern technical solutions, and digital marketing.",

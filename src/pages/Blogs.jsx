@@ -7,6 +7,7 @@ import {
   X, Flame, Mail, CheckCircle2
 } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
+import NeuralBackground from '../components/NeuralBackground';
 import { blogsData } from '../data/companyData';
 
 export default function Blogs() {
@@ -82,12 +83,13 @@ export default function Blogs() {
         {/* ========================================================================= */}
         {/* 1. HERO HEADER AREA WITH AMBIENT GLOW */}
         {/* ========================================================================= */}
-        <section className="relative pt-16 pb-20 overflow-hidden border-b border-neutral-200/80 dark:border-slate-800/80 bg-white dark:bg-[#0F141F]">
+        <section className="relative pt-16 pb-12 overflow-hidden border-b border-neutral-200/80 dark:border-slate-800/80 bg-white dark:bg-[#0F141F]">
+          <NeuralBackground />
           {/* Ambient light gradient orbs */}
           <div className="absolute top-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-blue-600/10 dark:bg-blue-600/15 blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-1/3 -z-10 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-cyan-500/10 blur-3xl pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
             
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-black tracking-wider text-blue-600 dark:text-cyan-400 uppercase shadow-xs mx-auto">
@@ -310,7 +312,7 @@ export default function Blogs() {
 
           {/* Empty State */}
           {displayArticles.length === 0 ? (
-            <div className="py-20 text-center space-y-4 bg-white dark:bg-slate-900/60 rounded-3xl border border-neutral-200 dark:border-slate-800">
+            <div className="py-8 text-center space-y-4 bg-white dark:bg-slate-900/60 rounded-3xl border border-neutral-200 dark:border-slate-800">
               <div className="h-16 w-16 mx-auto rounded-full bg-neutral-100 dark:bg-slate-800 flex items-center justify-center text-neutral-400">
                 <BookOpen className="h-8 w-8" />
               </div>

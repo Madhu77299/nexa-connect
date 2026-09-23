@@ -22,7 +22,7 @@ export default function ProjectsShowcase() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section className="py-12 bg-white dark:bg-[#0B0F17] transition-colors duration-300 relative border-t border-neutral-200/60 dark:border-slate-800/80">
+    <section className="py-6 bg-white dark:bg-[#0B0F17] transition-colors duration-300 relative border-t border-neutral-200/60 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

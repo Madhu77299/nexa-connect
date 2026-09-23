@@ -19,7 +19,7 @@ export default function PartnerTicker({
   // If noScroll is true, render a neat, beautiful static grid
   if (noScroll) {
     return (
-      <section className="relative w-full py-12 bg-white/60 dark:bg-[#090e18]/80 backdrop-blur-md border-y border-neutral-200/80 dark:border-neutral-800/80">
+      <section className="relative w-full py-6 bg-white/60 dark:bg-[#090e18]/80 backdrop-blur-md border-y border-neutral-200/80 dark:border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           {/* Header Badge */}

@@ -8,6 +8,8 @@ import SectionHeading from '../components/SectionHeading';
 import PageTransition from '../components/PageTransition';
 import PartnerTicker from '../components/PartnerTicker';
 import LeadershipSection from '../components/LeadershipSection';
+import NetworkAnimation from '../components/NetworkAnimation';
+import NeuralBackground from '../components/NeuralBackground';
 import { whyChoosePmkData, companyConfig } from '../data/companyData';
 
 export default function About() {
@@ -18,16 +20,16 @@ export default function About() {
         {/* ========================================================================= */}
         {/* 1. HERO VISION HEADER */}
         {/* ========================================================================= */}
-        <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <section className="relative pt-12 pb-8 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
+          <NeuralBackground />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
 
-
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight leading-snug max-w-3xl text-neutral-900 dark:text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight leading-snug text-neutral-900 dark:text-white mx-auto">
               Connecting Businesses, Professionals, Vendors and Opportunities.
             </h1>
 
-            <p className="text-base sm:text-lg text-neutral-600 dark:text-slate-300 max-w-3xl leading-relaxed">
-              PMK Nexa Solutions Pvt.Ltd is a connected business ecosystem focused on supporting growth through Business Growth, Network Solutions, Event Operations, Technical Solutions and Digital Marketing.
+            <p className="text-base sm:text-lg text-neutral-600 dark:text-slate-300 leading-relaxed mx-auto max-w-3xl">
+              PMK Nexa Solutions Pvt. Ltd. is an integrated ecosystem dedicated to driving scale through strategic vendor networks, event operations, technical platforms, and digital marketing.
             </p>
           </div>
         </section>
@@ -38,7 +40,7 @@ export default function About() {
         {/* ========================================================================= */}
         {/* 2. ABOUT US NARRATIVE */}
         {/* ========================================================================= */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 gap-12">
 
             <div className="max-w-4xl mx-auto text-center space-y-5">
@@ -47,7 +49,7 @@ export default function About() {
                 One Network. Multiple Capabilities. Endless Opportunities.
               </h2>
               <p className="text-sm sm:text-base text-neutral-600 dark:text-slate-300 leading-relaxed">
-                We bring together businesses, professionals, vendors and service providers to create meaningful connections, effective solutions and new opportunities.
+                We unite industry experts and strategic partners to build a cohesive ecosystem that drives operational excellence and sustainable success.
               </p>
               <p className="text-sm text-neutral-500 dark:text-slate-400 leading-relaxed">
                 Rather than treating services as disconnected silos, PMK NEXA SOLUTIONS PRIVATE LIMITED coordinates execution through five core capabilities backed by verified regional networks across India.
@@ -55,7 +57,10 @@ export default function About() {
 
             </div>
 
-
+            {/* Neural Network SVG Animation */}
+            <div className="w-full relative mt-4 overflow-hidden">
+              <NetworkAnimation />
+            </div>
 
           </div>
         </section>
@@ -68,7 +73,7 @@ export default function About() {
         {/* ========================================================================= */}
         {/* 4. WHY CHOOSE PMK? */}
         {/* ========================================================================= */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
           <div className="space-y-2 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">

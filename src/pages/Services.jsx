@@ -8,6 +8,7 @@ import { Link, useLocation } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
 import SuccessModal from '../components/SuccessModal';
+import NeuralBackground from '../components/NeuralBackground';
 import { servicesData, companyConfig } from '../data/companyData';
 import { useData } from '../context/DataContext';
 
@@ -91,8 +92,9 @@ export default function Services() {
         {/* ========================================================================= */}
         {/* 1. HERO HEADER: 5 CORE CAPABILITIES */}
         {/* ========================================================================= */}
-        <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
+        <section className="relative pt-12 pb-12 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
+          <NeuralBackground />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
 
 
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto">
@@ -104,7 +106,7 @@ export default function Services() {
         {/* ========================================================================= */}
         {/* 2. CORE CAPABILITIES INTERACTIVE SHOWCASE */}
         {/* ========================================================================= */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
           
           {/* Top Capability Selector Tabs */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
