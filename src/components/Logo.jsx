@@ -14,7 +14,7 @@ export default function Logo({
 
   return (
     <Link to="/" className="flex items-center gap-3.5 group select-none">
-      <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-1.5 sm:p-2 shadow-md border border-neutral-200/80 dark:border-white/20 transition-transform duration-300 group-hover:scale-105 shrink-0">
+      <div className="relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
         <img 
           src="/logo.png" 
           alt="PMK Nexa Solutions Logo" 
