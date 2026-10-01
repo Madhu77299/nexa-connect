@@ -165,14 +165,14 @@ export default function Opportunities() {
         {/* 1. HERO BANNER: BESPOKE EXECUTIVE DARK PALETTE */}
         {/* ========================================================================= */}
         <section className="relative pt-12 pb-20 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
-          <div className="absolute top-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-blue-600/10 dark:bg-blue-900/15 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-1/4 -z-10 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-amber-600/10 blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-[#0055FF]/10 dark:bg-[#0055FF]/15 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 -z-10 h-96 w-96 rounded-full bg-[#10B981]/10 dark:bg-[#10B981]/15 blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
 
 
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight leading-tight max-w-4xl text-neutral-900 dark:text-white">
-              Build your future across our <span className="text-blue-600 dark:text-amber-400">connected enterprise network.</span>
+              Build your future across our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055FF] via-[#00D2FF] to-[#10B981]">connected enterprise network.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-neutral-600 dark:text-slate-300 max-w-2xl leading-relaxed">
@@ -182,19 +182,19 @@ export default function Opportunities() {
             {/* Metrics Bar */}
             <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
               <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#151D2C] border border-neutral-200 dark:border-slate-800">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-blue-400 block">HIRING STATUS</span>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#0055FF] dark:text-[#00D2FF] block">HIRING STATUS</span>
                 <span className="text-xl font-black text-neutral-900 dark:text-white">Active 2026</span>
               </div>
               <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#151D2C] border border-neutral-200 dark:border-slate-800">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">PROGRAMS</span>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] block">PROGRAMS</span>
                 <span className="text-xl font-black text-neutral-900 dark:text-white">Full-Time &amp; Intern</span>
               </div>
               <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#151D2C] border border-neutral-200 dark:border-slate-800">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 block">LOCATIONS</span>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#00D2FF] block">LOCATIONS</span>
                 <span className="text-xl font-black text-neutral-900 dark:text-white">Hybrid / Hubs</span>
               </div>
               <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#151D2C] border border-neutral-200 dark:border-slate-800">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-600 dark:text-amber-400 block">INTERNSHIP PPO</span>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#22C55E] block">INTERNSHIP PPO</span>
                 <span className="text-xl font-black text-neutral-900 dark:text-white">Fast Absorption</span>
               </div>
             </div>
@@ -236,7 +236,7 @@ export default function Opportunities() {
                 onClick={() => setProgramType('Full-Time')}
                 className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                   programType === 'Full-Time'
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-[#0055FF] text-white shadow-md shadow-[#0055FF]/25'
                     : 'text-neutral-600 dark:text-slate-400 hover:text-neutral-900 dark:hover:text-white'
                 }`}
               >
@@ -249,7 +249,7 @@ export default function Opportunities() {
                 onClick={() => setProgramType('Internship')}
                 className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                   programType === 'Internship'
-                    ? 'bg-amber-600 dark:bg-amber-500 text-white dark:text-slate-950 font-black shadow-md'
+                    ? 'bg-[#10B981] text-white font-black shadow-md shadow-[#10B981]/25'
                     : 'text-neutral-600 dark:text-slate-400 hover:text-neutral-900 dark:hover:text-white'
                 }`}
               >
@@ -274,8 +274,8 @@ export default function Opportunities() {
                     onClick={() => setActiveTrack(track.id)}
                     className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer border ${
                       isSelected
-                        ? 'bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 border-neutral-900 dark:border-white shadow-md scale-105'
-                        : 'bg-white dark:bg-slate-900/80 border-neutral-200 dark:border-slate-800 text-neutral-700 dark:text-slate-300 hover:border-neutral-400 dark:hover:border-slate-600'
+                        ? 'bg-gradient-to-r from-[#0055FF] to-[#10B981] text-white border-transparent shadow-md shadow-[#0055FF]/20 scale-105'
+                        : 'bg-white dark:bg-slate-900/80 border-neutral-200 dark:border-slate-800 text-neutral-700 dark:text-slate-300 hover:border-[#0055FF]/40'
                     }`}
                   >
                     {track.label}
@@ -294,14 +294,14 @@ export default function Opportunities() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="p-6 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200/80 dark:border-slate-800 hover:border-neutral-400 dark:hover:border-slate-700 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between space-y-5 group"
+                className="p-6 rounded-3xl bg-white dark:bg-[#0A1224] border border-neutral-200/80 dark:border-slate-800/80 hover:border-[#0055FF]/40 dark:hover:border-[#10B981]/40 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between space-y-5 group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2">
                     <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full font-mono border ${
                       opp.programType === 'Internship'
-                        ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30'
-                        : 'bg-blue-600/10 text-blue-600 dark:text-blue-400 border-blue-600/30'
+                        ? 'bg-[#10B981]/10 text-[#10B981] border-[#10B981]/30'
+                        : 'bg-[#0055FF]/10 text-[#0055FF] dark:text-[#00D2FF] border-[#0055FF]/30'
                     }`}>
                       {opp.programType}
                     </span>
@@ -311,18 +311,18 @@ export default function Opportunities() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-black text-neutral-900 dark:text-white font-display group-hover:text-blue-600 dark:group-hover:text-amber-400 transition-colors">
+                  <h3 className="text-lg font-black text-neutral-900 dark:text-white font-display group-hover:text-[#0055FF] dark:group-hover:text-[#00D2FF] transition-colors">
                     {opp.title}
                   </h3>
 
                   <div className="flex items-center gap-3 text-xs text-neutral-500 dark:text-slate-400 font-medium">
                     <span className="flex items-center gap-1">
-                      <MapPin className="h-3.5 w-3.5 text-blue-600 dark:text-slate-400" />
+                      <MapPin className="h-3.5 w-3.5 text-[#0055FF] dark:text-[#00D2FF]" />
                       {opp.location}
                     </span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
-                      <Clock className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                      <Clock className="h-3.5 w-3.5 text-[#10B981]" />
                       {opp.experience}
                     </span>
                   </div>
@@ -343,7 +343,7 @@ export default function Opportunities() {
                 <div className="pt-4 border-t border-neutral-100 dark:border-slate-800 flex items-center justify-between">
                   <button
                     onClick={() => handleSelectRole(opp)}
-                    className="w-full py-3 rounded-2xl bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 hover:bg-neutral-800 dark:hover:bg-white text-xs font-black uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer group-hover:scale-102"
+                    className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] text-white hover:opacity-95 text-xs font-black uppercase tracking-wider transition-all shadow-md shadow-[#0055FF]/20 flex items-center justify-center gap-2 cursor-pointer group-hover:scale-102"
                   >
                     <span>Apply with Resume</span>
                     <ArrowRight className="h-4 w-4" />
@@ -360,9 +360,9 @@ export default function Opportunities() {
         {/* ========================================================================= */}
         <section id="resume-application-form" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
           
-          <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-8">
+          <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#0A1224] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-8">
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 text-xs font-black uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0055FF]/10 dark:bg-[#0055FF]/20 text-[#0055FF] dark:text-[#00D2FF] text-xs font-black uppercase tracking-wider">
                 <FileText className="h-3.5 w-3.5" />
                 <span>DIRECT TALENT SUBMISSION</span>
               </div>
@@ -370,7 +370,7 @@ export default function Opportunities() {
                 Submit Your Resume &amp; Profile
               </h2>
               <p className="text-xs text-neutral-500 dark:text-slate-400">
-                Your application will be directly logged into the PMK Nexa executive recruitment desk and routed to <span className="font-mono text-blue-600 dark:text-amber-400">pmknexasolutions@gmail.com</span>.
+                Your application will be directly logged into the PMK Nexa executive recruitment desk and routed to <span className="font-mono text-[#0055FF] dark:text-[#00D2FF] font-bold">pmknexasolutions@gmail.com</span>.
               </p>
             </div>
 
@@ -387,7 +387,7 @@ export default function Opportunities() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Vikram Sundaram"
-                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                   />
                   {errors.name && <span className="text-[11px] text-rose-500 mt-1 block">{errors.name}</span>}
                 </div>
@@ -402,7 +402,7 @@ export default function Opportunities() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="vikram@example.com"
-                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                   />
                   {errors.email && <span className="text-[11px] text-rose-500 mt-1 block">{errors.email}</span>}
                 </div>
@@ -419,7 +419,7 @@ export default function Opportunities() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+91 86880 07523"
-                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                   />
                   {errors.phone && <span className="text-[11px] text-rose-500 mt-1 block">{errors.phone}</span>}
                 </div>
@@ -431,7 +431,7 @@ export default function Opportunities() {
                   <select
                     value={formData.programType}
                     onChange={(e) => setFormData({ ...formData, programType: e.target.value })}
-                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                   >
                     <option value="Full-Time">Full-Time Role</option>
                     <option value="Internship">Internship Program (with PPO Conversion)</option>
@@ -447,7 +447,7 @@ export default function Opportunities() {
                   <select
                     value={formData.track}
                     onChange={(e) => setFormData({ ...formData, track: e.target.value })}
-                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                   >
                     <option value="Full-Stack Development">Full-Stack Development (React/Node/Cloud)</option>
                     <option value="Web Development">Web Development (Frontend UI/UX)</option>
@@ -467,7 +467,7 @@ export default function Opportunities() {
                     value={formData.portfolio}
                     onChange={(e) => setFormData({ ...formData, portfolio: e.target.value })}
                     placeholder="https://github.com/... or https://linkedin.com/in/..."
-                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                    className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                   />
                 </div>
               </div>
@@ -478,7 +478,7 @@ export default function Opportunities() {
                   Attach Your Resume (PDF, DOCX, up to 10MB) *
                 </label>
 
-                <div className="p-6 rounded-2xl border-2 border-dashed border-neutral-300 dark:border-slate-700 bg-neutral-50 dark:bg-[#0B0F17]/60 flex flex-col items-center justify-center text-center space-y-2 relative">
+                <div className="p-6 rounded-2xl border-2 border-dashed border-neutral-300 dark:border-slate-700 bg-neutral-50 dark:bg-[#060B16]/60 flex flex-col items-center justify-center text-center space-y-2 relative hover:border-[#0055FF]/60 transition-colors">
                   <input
                     type="file"
                     accept=".pdf,.doc,.docx"
@@ -486,12 +486,12 @@ export default function Opportunities() {
                     className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10"
                   />
                   
-                  <div className="h-10 w-10 rounded-xl bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center">
+                  <div className="h-10 w-10 rounded-xl bg-[#0055FF]/10 dark:bg-[#0055FF]/20 text-[#0055FF] dark:text-[#00D2FF] flex items-center justify-center">
                     <Upload className="h-5 w-5" />
                   </div>
 
                   {resumeFile ? (
-                    <div className="flex items-center gap-2 text-xs font-bold text-emerald-500">
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#10B981]">
                       <CheckCircle2 className="h-4 w-4" />
                       <span>{resumeFile.name} ({(resumeFile.size / 1024).toFixed(1)} KB)</span>
                     </div>
@@ -516,14 +516,14 @@ export default function Opportunities() {
                   value={formData.resumeSummary}
                   onChange={(e) => setFormData({ ...formData, resumeSummary: e.target.value })}
                   placeholder="Summarize your key achievements, tech stack proficiency, or past projects..."
-                  className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                  className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-2xl bg-neutral-900 dark:bg-white text-white dark:text-slate-950 hover:bg-neutral-800 dark:hover:bg-slate-100 text-xs font-black uppercase tracking-wider shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] hover:shadow-lg hover:shadow-[#0055FF]/25 text-white text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>

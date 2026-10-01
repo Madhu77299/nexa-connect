@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#101c2f] border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl relative"
+              className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#0A1224] border border-neutral-200/80 dark:border-slate-800/80 shadow-xl relative"
             >
               <Quote className="absolute top-8 right-8 h-16 w-16 text-neutral-100 dark:text-neutral-800/60 pointer-events-none" />
 
@@ -72,7 +72,7 @@ export default function TestimonialsSection() {
                       {current.author}
                     </h4>
                     <span className="text-xs text-neutral-500 dark:text-neutral-400 block">
-                      {current.position}, <strong className="text-[#3167ff] dark:text-[#20c9b5]">{current.company}</strong>
+                      {current.position}, <strong className="text-[#0055FF] dark:text-[#10B981]">{current.company}</strong>
                     </span>
                   </div>
                 </div>
@@ -81,14 +81,14 @@ export default function TestimonialsSection() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handlePrev}
-                    className="p-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-[#3167ff] hover:text-white transition-colors"
+                    className="p-2.5 rounded-full bg-neutral-100 dark:bg-slate-800 text-neutral-700 dark:text-neutral-300 hover:bg-[#0055FF] hover:text-white transition-colors"
                     aria-label="Previous testimonial"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </button>
                   <button
                     onClick={handleNext}
-                    className="p-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-[#3167ff] hover:text-white transition-colors"
+                    className="p-2.5 rounded-full bg-neutral-100 dark:bg-slate-800 text-neutral-700 dark:text-neutral-300 hover:bg-[#0055FF] hover:text-white transition-colors"
                     aria-label="Next testimonial"
                   >
                     <ChevronRight className="h-4 w-4" />

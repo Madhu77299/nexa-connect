@@ -45,7 +45,7 @@ export default function ProjectsShowcase() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 shadow-md'
+                    ? 'bg-gradient-to-r from-[#0055FF] to-[#10B981] text-white shadow-md shadow-[#0055FF]/20'
                     : 'bg-neutral-100 dark:bg-slate-900 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-slate-800'
                 }`}
               >
@@ -70,7 +70,7 @@ export default function ProjectsShowcase() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35, delay: idx * 0.05 }}
                 onClick={() => setSelectedProject(project)}
-                className="group relative rounded-3xl bg-neutral-50 dark:bg-[#121824] border border-neutral-200/80 dark:border-slate-800 overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                className="group relative rounded-3xl bg-neutral-50 dark:bg-[#0A1224] border border-neutral-200/80 dark:border-slate-800/80 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0055FF]/40 dark:hover:border-[#10B981]/40 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   {/* Project Image */}
@@ -83,12 +83,12 @@ export default function ProjectsShowcase() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     
                     {/* Category badge */}
-                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[10px] font-extrabold uppercase tracking-widest text-amber-400">
+                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[10px] font-extrabold uppercase tracking-widest text-[#00D2FF]">
                       {project.category}
                     </span>
 
                     <div className="absolute top-4 right-4 h-9 w-9 rounded-full bg-white/90 dark:bg-black/60 backdrop-blur-md flex items-center justify-center text-neutral-900 dark:text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#0055FF] dark:text-[#10B981]" />
                     </div>
                   </div>
 
@@ -99,7 +99,7 @@ export default function ProjectsShowcase() {
                       <span className="font-mono">{project.year || "2026"}</span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-amber-400 transition-colors leading-snug">
+                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white group-hover:text-[#0055FF] dark:group-hover:text-[#00D2FF] transition-colors leading-snug">
                       {project.name}
                     </h3>
 
@@ -110,8 +110,8 @@ export default function ProjectsShowcase() {
                     {/* Metrics badge */}
                     {project.metrics && (
                       <div className="pt-2">
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">
-                          <CheckCircle2 className="h-3.5 w-3.5" />
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/20 px-2.5 py-1 rounded-md">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-[#10B981]" />
                           {project.metrics}
                         </span>
                       </div>
@@ -142,10 +142,10 @@ export default function ProjectsShowcase() {
       {/* Project Detail Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="relative w-full max-w-2xl bg-white dark:bg-[#121824] rounded-3xl p-8 shadow-2xl border border-neutral-200 dark:border-slate-800 space-y-6 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-2xl bg-white dark:bg-[#0A1224] rounded-3xl p-8 shadow-2xl border border-neutral-200 dark:border-slate-800 space-y-6 max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-[10px] font-bold text-blue-600 dark:text-amber-400 uppercase tracking-widest block font-mono">
+                <span className="text-[10px] font-bold text-[#0055FF] dark:text-[#10B981] uppercase tracking-widest block font-mono">
                   {selectedProject.category}
                 </span>
                 <h2 className="text-2xl font-black text-neutral-900 dark:text-white font-display">
@@ -172,7 +172,7 @@ export default function ProjectsShowcase() {
               <div className="flex justify-between text-xs text-neutral-500 font-bold border-b border-neutral-100 dark:border-slate-800 pb-3">
                 <span>Client: <strong className="text-neutral-900 dark:text-white">{selectedProject.client}</strong></span>
                 <span>Year: <strong className="text-neutral-900 dark:text-white">{selectedProject.year}</strong></span>
-                <span>Metric: <strong className="text-emerald-500">{selectedProject.metrics}</strong></span>
+                <span>Metric: <strong className="text-[#10B981]">{selectedProject.metrics}</strong></span>
               </div>
 
               <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
@@ -184,7 +184,7 @@ export default function ProjectsShowcase() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {(Array.isArray(selectedProject.deliverables) ? selectedProject.deliverables : []).map((d, i) => (
                     <div key={i} className="flex items-center gap-2 text-xs text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-slate-800/60 p-2.5 rounded-xl font-mono">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 dark:text-amber-400 shrink-0" />
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#0055FF] dark:text-[#10B981] shrink-0" />
                       <span>{d}</span>
                     </div>
                   ))}
@@ -195,9 +195,9 @@ export default function ProjectsShowcase() {
             <div className="flex justify-end pt-4 border-t border-neutral-100 dark:border-slate-800">
               <button
                 onClick={() => setSelectedProject(null)}
-                className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider cursor-pointer"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#0055FF] to-[#10B981] text-white text-xs font-bold uppercase tracking-wider cursor-pointer hover:shadow-md"
               >
-                Close Case Study
+                Close Project
               </button>
             </div>
           </div>

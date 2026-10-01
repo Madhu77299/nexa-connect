@@ -86,7 +86,7 @@ export default function Contact() {
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto">
               Tell Us What You Need.<br />
-              <span className="text-blue-600 dark:text-amber-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055FF] via-[#00D2FF] to-[#10B981]">
                 We'll Help You Connect.
               </span>
             </h1>
@@ -103,7 +103,7 @@ export default function Contact() {
             
             {/* Left Column: Quick Contact Options */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="p-8 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-xl space-y-6">
+              <div className="p-8 rounded-3xl bg-white dark:bg-[#0A1224] border border-neutral-200 dark:border-slate-800 shadow-xl space-y-6">
                 <div>
 
                   <h3 className="text-xl font-black font-display text-neutral-900 dark:text-white">
@@ -123,7 +123,7 @@ export default function Contact() {
                     className="flex items-center justify-between p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md">
+                      <div className="h-10 w-10 rounded-xl bg-[#10B981] text-white flex items-center justify-center shadow-md shadow-[#10B981]/25">
                         <MessageSquare className="h-5 w-5" />
                       </div>
                       <div>
@@ -137,10 +137,10 @@ export default function Contact() {
                   {/* Call Us */}
                   <a
                     href="tel:+918688007523"
-                    className="flex items-center justify-between p-4 rounded-2xl bg-blue-600/10 border border-blue-600/30 hover:bg-blue-600/20 text-blue-600 dark:text-blue-400 transition-all group"
+                    className="flex items-center justify-between p-4 rounded-2xl bg-[#0055FF]/10 border border-[#0055FF]/30 hover:bg-[#0055FF]/20 text-[#0055FF] dark:text-[#00D2FF] transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md">
+                      <div className="h-10 w-10 rounded-xl bg-[#0055FF] text-white flex items-center justify-center shadow-md shadow-[#0055FF]/25">
                         <Phone className="h-5 w-5" />
                       </div>
                       <div>
@@ -154,7 +154,7 @@ export default function Contact() {
                   {/* Corporate Email */}
                   <a
                     href="mailto:pmknexasolutions@gmail.com"
-                    className="flex items-center justify-between p-4 rounded-2xl bg-neutral-100 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-800 text-neutral-700 dark:text-slate-300 transition-all group"
+                    className="flex items-center justify-between p-4 rounded-2xl bg-neutral-100 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-800 text-neutral-700 dark:text-slate-300 transition-all group hover:border-[#0055FF]/40"
                   >
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 rounded-xl bg-slate-700 text-white flex items-center justify-center shadow-md">
@@ -179,9 +179,9 @@ export default function Contact() {
                   </div>
 
                   {/* Head Office Card */}
-                  <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200/80 dark:border-slate-800 space-y-1.5">
+                  <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200/80 dark:border-slate-800 space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-600/10 text-blue-600 dark:bg-amber-400/10 dark:text-amber-400">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#0055FF]/10 text-[#0055FF] dark:text-[#00D2FF]">
                         <Building2 className="h-3 w-3" />
                         Head Office
                       </span>
@@ -196,9 +196,9 @@ export default function Contact() {
                   </div>
 
                   {/* Branch Office Card */}
-                  <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200/80 dark:border-slate-800 space-y-1.5">
+                  <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200/80 dark:border-slate-800 space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-600/10 text-emerald-600 dark:bg-emerald-400/10 dark:text-emerald-400">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-600/10 text-emerald-600 dark:bg-[#10B981]/15 dark:text-[#10B981]">
                         <MapPin className="h-3 w-3" />
                         Branch Office
                       </span>
@@ -225,7 +225,7 @@ export default function Contact() {
 
             {/* Right Column: Form */}
             <div className="lg:col-span-7">
-              <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#0A1224] border border-neutral-200 dark:border-slate-800 shadow-2xl space-y-6">
                 <div>
 
                   <h3 className="text-2xl font-black font-display text-neutral-900 dark:text-white">
@@ -248,7 +248,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Your full name"
-                        className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                        className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                       />
                       {errors.name && <span className="text-[11px] text-rose-500 mt-1 block">{errors.name}</span>}
                     </div>
@@ -263,7 +263,7 @@ export default function Contact() {
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         placeholder="Organization or business name"
-                        className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                        className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                       />
                       {errors.companyName && <span className="text-[11px] text-rose-500 mt-1 block">{errors.companyName}</span>}
                     </div>
@@ -280,7 +280,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 86880 07523"
-                        className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                        className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                       />
                       {errors.phone && <span className="text-[11px] text-rose-500 mt-1 block">{errors.phone}</span>}
                     </div>
@@ -295,7 +295,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="you@company.com"
-                        className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                        className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                       />
                       {errors.email && <span className="text-[11px] text-rose-500 mt-1 block">{errors.email}</span>}
                     </div>
@@ -308,7 +308,7 @@ export default function Contact() {
                     <select
                       value={formData.selectedCapability}
                       onChange={(e) => setFormData({ ...formData, selectedCapability: e.target.value })}
-                      className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                      className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                     >
                       {capabilityOptions.map((opt) => (
                         <option key={opt} value={opt}>{opt}</option>
@@ -326,7 +326,7 @@ export default function Contact() {
                       value={formData.requirementDescription}
                       onChange={(e) => setFormData({ ...formData, requirementDescription: e.target.value })}
                       placeholder="Please specify timeline, scale, deliverables, and service expectations..."
-                      className="w-full rounded-xl bg-neutral-50 dark:bg-[#0B0F17] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-amber-400"
+                      className="w-full rounded-xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700 py-3 px-4 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                     />
                     {errors.requirementDescription && (
                       <span className="text-[11px] text-rose-500 mt-1 block">{errors.requirementDescription}</span>
@@ -336,7 +336,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full py-4 rounded-2xl bg-neutral-900 dark:bg-slate-100 text-white dark:text-slate-950 hover:bg-neutral-800 dark:hover:bg-white text-xs font-black uppercase tracking-wider shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] hover:shadow-lg hover:shadow-[#0055FF]/25 text-white text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     {isLoading ? (
                       <>

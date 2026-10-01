@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 // Layout & Core
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './hooks/useTheme.jsx';
 import { DataProvider } from './context/DataContext';
 
@@ -41,6 +42,8 @@ function AppContent() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/our-work" element={<OurWork />} />
+            <Route path="/solutions" element={<OurWork />} />
+            <Route path="/impact" element={<About />} />
             <Route path="/how-we-work" element={<OurWork />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/:slug" element={<BlogArticle />} />
@@ -61,10 +64,12 @@ function AppContent() {
 
 export default function App() {
   return (
-    <DataProvider>
-      <ThemeProvider>
-        <AppContent />
-      </ThemeProvider>
-    </DataProvider>
+    <ErrorBoundary>
+      <DataProvider>
+        <ThemeProvider>
+          <AppContent />
+        </ThemeProvider>
+      </DataProvider>
+    </ErrorBoundary>
   );
 }

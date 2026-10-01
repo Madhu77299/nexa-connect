@@ -70,10 +70,10 @@ export default function SuccessModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ type: "spring", stiffness: 350, damping: 25 }}
-            className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white dark:bg-[#101c2f] border border-neutral-200/80 dark:border-neutral-700/80 shadow-2xl z-10 text-neutral-900 dark:text-white"
+            className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white dark:bg-[#0A1224] border border-neutral-200/80 dark:border-slate-800/80 shadow-2xl z-10 text-neutral-900 dark:text-white"
           >
             {/* Top decorative gradient bar */}
-            <div className="h-2 w-full bg-gradient-to-r from-[#3167ff] via-[#20c9b5] to-[#ff715b]" />
+            <div className="h-2 w-full bg-gradient-to-r from-[#0055FF] via-[#00D2FF] to-[#10B981]" />
 
             {/* Close Button */}
             <button
@@ -89,16 +89,16 @@ export default function SuccessModal({
               {/* Animated Icon & Heading */}
               <div className="flex items-start gap-4">
                 <div className="relative shrink-0">
-                  <div className="h-14 w-14 rounded-2xl bg-[#20c9b5]/15 border border-[#20c9b5]/30 flex items-center justify-center text-[#20c9b5] shadow-inner">
+                  <div className="h-14 w-14 rounded-2xl bg-[#10B981]/15 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] shadow-inner">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#3167ff] text-white">
+                  <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#0055FF] text-white">
                     <Sparkles className="h-2.5 w-2.5" />
                   </span>
                 </div>
 
                 <div className="space-y-1 pr-6">
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#20c9b5]">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#10B981]">
                     <ShieldCheck className="h-3 w-3" />
                     Verified Transmission
                   </span>
@@ -112,12 +112,12 @@ export default function SuccessModal({
               </div>
 
               {/* Reference ID Ticket Box */}
-              <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-100 dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800">
+              <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-100 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-800">
                 <div className="space-y-0.5">
                   <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-400 dark:text-neutral-500">
                     Tracking Reference
                   </span>
-                  <div className="font-mono text-sm font-black text-[#3167ff] dark:text-[#20c9b5] tracking-wider">
+                  <div className="font-mono text-sm font-black text-[#0055FF] dark:text-[#10B981] tracking-wider">
                     {refCode}
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export default function SuccessModal({
               <div className="space-y-3 pt-2">
                 <button
                   onClick={onClose}
-                  className="w-full flex items-center justify-center gap-2 rounded-full bg-[#3167ff] hover:bg-[#2552d4] text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
+                  className="w-full flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] hover:shadow-lg hover:shadow-[#0055FF]/25 text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-md transition-all cursor-pointer"
                 >
                   <span>Done &amp; Dismiss ({timeLeft}s)</span>
                   <ArrowRight className="h-4 w-4" />
@@ -184,7 +184,7 @@ export default function SuccessModal({
                     initial={{ width: "100%" }}
                     animate={{ width: "0%" }}
                     transition={{ duration: autoCloseSeconds, ease: "linear" }}
-                    className="h-full bg-gradient-to-r from-[#3167ff] to-[#20c9b5]"
+                    className="h-full bg-gradient-to-r from-[#0055FF] via-[#00D2FF] to-[#10B981]"
                   />
                 </div>
               </div>

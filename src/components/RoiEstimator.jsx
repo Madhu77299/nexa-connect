@@ -41,22 +41,22 @@ export default function RoiEstimator() {
 
             <div className="space-y-3 pt-2">
               <div className="flex items-center gap-2.5 text-xs text-neutral-700 dark:text-neutral-300">
-                <ShieldCheck className="h-4 w-4 text-[#3167ff] dark:text-[#20c9b5]" />
+                <ShieldCheck className="h-4 w-4 text-[#0055FF] dark:text-[#10B981]" />
                 <span>Single Point of Contact (SPOC) Governance</span>
               </div>
               <div className="flex items-center gap-2.5 text-xs text-neutral-700 dark:text-neutral-300">
-                <Zap className="h-4 w-4 text-[#3167ff] dark:text-[#20c9b5]" />
+                <Zap className="h-4 w-4 text-[#0055FF] dark:text-[#10B981]" />
                 <span>On-Demand Resource &amp; Supply Chain Scaling</span>
               </div>
               <div className="flex items-center gap-2.5 text-xs text-neutral-700 dark:text-neutral-300">
-                <Layers className="h-4 w-4 text-[#3167ff] dark:text-[#20c9b5]" />
+                <Layers className="h-4 w-4 text-[#0055FF] dark:text-[#10B981]" />
                 <span>Synchronized Multi-Vendor Invoicing &amp; Tracking</span>
               </div>
             </div>
           </div>
 
           {/* Right Column Interactive Estimator Box */}
-          <div className="lg:col-span-7 rounded-3xl bg-neutral-50 dark:bg-[#101c2f] border border-neutral-200/80 dark:border-neutral-800/80 p-6 sm:p-8 shadow-xl space-y-6">
+          <div className="lg:col-span-7 rounded-3xl bg-neutral-50 dark:bg-[#0A1224] border border-neutral-200/80 dark:border-slate-800/80 p-6 sm:p-8 shadow-xl space-y-6">
             
             {/* Step 1: Services selection */}
             <div>
@@ -73,8 +73,8 @@ export default function RoiEstimator() {
                       onClick={() => toggleService(svc.name)}
                       className={`p-3 rounded-xl border text-left flex items-start justify-between transition-all cursor-pointer ${
                         isChecked 
-                          ? 'border-[#3167ff] bg-[#3167ff]/10 dark:bg-[#3167ff]/15 dark:border-[#3167ff]' 
-                          : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#08111f] hover:border-neutral-300'
+                          ? 'border-[#0055FF] bg-[#0055FF]/10 dark:bg-[#0055FF]/15 dark:border-[#0055FF]' 
+                          : 'border-neutral-200 dark:border-slate-800 bg-white dark:bg-[#060B16] hover:border-[#0055FF]/30'
                       }`}
                     >
                       <div className="space-y-0.5">
@@ -86,7 +86,7 @@ export default function RoiEstimator() {
                         </span>
                       </div>
                       <div className={`h-4 w-4 rounded-full border flex items-center justify-center ${
-                        isChecked ? 'bg-[#3167ff] border-[#3167ff] text-white' : 'border-neutral-400'
+                        isChecked ? 'bg-[#0055FF] border-[#0055FF] text-white' : 'border-neutral-400'
                       }`}>
                         {isChecked && <CheckCircle2 className="h-3 w-3" />}
                       </div>
@@ -105,7 +105,7 @@ export default function RoiEstimator() {
                 <select
                   value={teamScale}
                   onChange={(e) => setTeamScale(e.target.value)}
-                  className="w-full rounded-xl bg-white dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
+                  className="w-full rounded-xl bg-white dark:bg-[#060B16] border border-neutral-200 dark:border-slate-800 py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                 >
                   <option>Early Growth / Startup (&lt; 20 Team)</option>
                   <option>Medium Enterprise (20-100 Team)</option>
@@ -120,7 +120,7 @@ export default function RoiEstimator() {
                 <select
                   value={timeline}
                   onChange={(e) => setTimeline(e.target.value)}
-                  className="w-full rounded-xl bg-white dark:bg-[#08111f] border border-neutral-200 dark:border-neutral-800 py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#3167ff]"
+                  className="w-full rounded-xl bg-white dark:bg-[#060B16] border border-neutral-200 dark:border-slate-800 py-2.5 px-3 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-[#0055FF] dark:focus:border-[#10B981]"
                 >
                   <option>Pilot / Single Milestone (1 Month)</option>
                   <option>Quarterly (3 Months)</option>
@@ -130,9 +130,9 @@ export default function RoiEstimator() {
             </div>
 
             {/* Estimated Output Box */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#08111f] border border-neutral-200/80 dark:border-neutral-800/80 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="p-5 rounded-2xl bg-white dark:bg-[#060B16] border border-neutral-200/80 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#20c9b5] block">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] block">
                   ESTIMATED OPERATIONAL BENEFIT
                 </span>
                 <div className="text-xl font-black text-neutral-900 dark:text-white font-display mt-0.5">
@@ -142,7 +142,7 @@ export default function RoiEstimator() {
 
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-[#3167ff] hover:bg-[#2552d4] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all shrink-0"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] hover:shadow-lg hover:shadow-[#0055FF]/25 text-white px-6 py-3 text-xs font-bold uppercase tracking-wider shadow-md transition-all shrink-0"
               >
                 <span>Request Proposal</span>
                 <ArrowRight className="h-3.5 w-3.5" />

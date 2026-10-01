@@ -356,15 +356,16 @@ export default function Admin() {
   if (!isAuthenticated) {
     return (
       <PageTransition>
-        <section className="min-h-screen flex items-center justify-center bg-[#080E1C] text-slate-100 px-4 py-8 relative overflow-hidden">
-          <div className="absolute top-1/4 left-1/3 -z-10 h-96 w-96 rounded-full bg-[#1D4ED8]/20 blur-3xl pointer-events-none" />
+        <section className="min-h-screen flex items-center justify-center bg-[#060B16] text-slate-100 px-4 py-8 relative overflow-hidden">
+          <div className="absolute top-1/4 left-1/3 -z-10 h-96 w-96 rounded-full bg-[#0055FF]/20 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/3 -z-10 h-80 w-80 rounded-full bg-[#10B981]/15 blur-3xl pointer-events-none" />
           
-          <div className="w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#101D38] border border-[#1E3A6C] shadow-2xl space-y-6">
+          <div className="w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#0A1224] border border-[#0055FF]/30 shadow-2xl space-y-6">
             <div className="text-center space-y-2">
-              <div className="h-14 w-14 rounded-2xl bg-[#2563EB]/20 border border-[#3B82F6]/50 text-[#38BDF8] flex items-center justify-center mx-auto mb-3 shadow-inner">
+              <div className="h-14 w-14 rounded-2xl bg-[#0055FF]/20 border border-[#0055FF]/50 text-[#00D2FF] flex items-center justify-center mx-auto mb-3 shadow-inner">
                 <Lock className="h-7 w-7" />
               </div>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#38BDF8]">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#00D2FF]">
                 ENTERPRISE CONTROL PLANE
               </span>
               <h1 className="text-2xl font-black font-display tracking-tight text-white">
@@ -385,7 +386,7 @@ export default function Admin() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="Enter admin username"
-                  className="w-full rounded-xl bg-[#0A1224] border border-[#1E3A6C] py-3 px-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#38BDF8]"
+                  className="w-full rounded-xl bg-[#060B16] border border-[#0055FF]/30 py-3 px-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#0055FF] focus:ring-1 focus:ring-[#0055FF]"
                 />
               </div>
 
@@ -398,7 +399,7 @@ export default function Admin() {
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full rounded-xl bg-[#0A1224] border border-[#1E3A6C] py-3 px-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#38BDF8]"
+                  className="w-full rounded-xl bg-[#060B16] border border-[#0055FF]/30 py-3 px-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#0055FF] focus:ring-1 focus:ring-[#0055FF]"
                 />
               </div>
 
@@ -411,17 +412,17 @@ export default function Admin() {
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#2563EB] to-[#0284C7] hover:from-[#1D4ED8] hover:to-[#0369A1] text-white py-3.5 text-xs font-black uppercase tracking-wider shadow-lg hover:shadow-cyan-500/20 transition-all cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 rounded-full bg-pmk-gradient text-white py-3.5 text-xs font-black uppercase tracking-wider shadow-lg hover:shadow-[0_0_20px_rgba(0,85,255,0.4)] transition-all cursor-pointer"
               >
                 <Unlock className="h-4 w-4" />
                 <span>Authenticate &amp; Access</span>
               </button>
             </form>
 
-            <div className="pt-4 border-t border-[#1E3A6C] text-center">
+            <div className="pt-4 border-t border-slate-800 text-center">
               <button
                 onClick={handleQuickUnlock}
-                className="text-xs font-bold text-[#38BDF8] hover:underline cursor-pointer"
+                className="text-xs font-bold text-[#00D2FF] hover:text-[#10B981] transition-colors cursor-pointer"
               >
                 ✨ Quick 1-Click Demo Unlock
               </button>
@@ -435,7 +436,7 @@ export default function Admin() {
   // Navigation Items for Left-Side Admin Sidebar
   const sidebarItems = [
     { id: 'overview', label: 'Dashboard Overview', icon: Activity },
-    { id: 'applications', label: 'Candidate Resumes & Careers', icon: Briefcase, count: candidateApplications.length, badgeColor: 'bg-[#2563EB]' },
+    { id: 'applications', label: 'Candidate Resumes & Careers', icon: Briefcase, count: candidateApplications.length, badgeColor: 'bg-[#0055FF]' },
     { id: 'company', label: 'Company & Founder Profile', icon: Building2 },
     { id: 'media', label: 'Hero Video & Media Settings', icon: Video },
     { id: 'footer', label: 'Footer & Social Hubs', icon: Share2, count: socialProfiles.length, isHighlight: true },
@@ -446,10 +447,10 @@ export default function Admin() {
     { id: 'sessions', label: 'Session Security & Audit Logs', icon: Clock, count: sessions.length }
   ];
 
-  // 2. Authenticated Admin Dashboard Layout with Cobalt Slate Palette
+  // 2. Authenticated Admin Dashboard Layout with PMK Logo Palette
   return (
     <PageTransition>
-      <div className="min-h-screen bg-[#080E1C] text-slate-100 flex flex-col lg:flex-row antialiased overflow-x-hidden">
+      <div className="min-h-screen bg-[#060B16] text-slate-100 flex flex-col lg:flex-row antialiased overflow-x-hidden">
         
         {/* Hidden File Input for Image Upload / Gallery Pick */}
         <input
@@ -461,42 +462,42 @@ export default function Admin() {
         />
 
         {/* Mobile Top App Bar */}
-        <div className="lg:hidden bg-[#101D38] border-b border-[#1E3A6C] p-4 flex items-center justify-between sticky top-0 z-40">
+        <div className="lg:hidden bg-[#0A1224] border-b border-[#0055FF]/20 p-4 flex items-center justify-between sticky top-0 z-40">
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-lg bg-[#2563EB] text-white flex items-center justify-center font-black text-xs">
+            <div className="h-8 w-8 rounded-lg bg-pmk-gradient text-white flex items-center justify-center font-black text-xs">
               PMK
             </div>
             <div>
               <span className="text-xs font-bold block text-white">PMK NEXA CMS</span>
-              <span className="text-[10px] text-emerald-400 font-mono">LIVE CONTROL</span>
+              <span className="text-[10px] text-[#10B981] font-mono">LIVE CONTROL</span>
             </div>
           </div>
 
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="p-2 rounded-xl bg-[#182C5B] text-white cursor-pointer"
+            className="p-2 rounded-xl bg-[#0F1D38] border border-[#0055FF]/30 text-white cursor-pointer"
           >
             {isSidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
         {/* LEFT-SIDEBAR NAVIGATION PANEL */}
-        <aside className={`fixed inset-y-0 left-0 z-50 w-72 bg-[#0C152B] border-r border-[#1E3A6C]/80 p-5 flex flex-col justify-between transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen lg:sticky lg:top-0 ${
+        <aside className={`fixed inset-y-0 left-0 z-50 w-72 bg-[#0A1224] border-r border-[#0055FF]/20 p-5 flex flex-col justify-between transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen lg:sticky lg:top-0 ${
           isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'
         }`}>
           
           {/* Top Brand Block */}
           <div className="space-y-6">
-            <div className="flex items-center justify-between pb-5 border-b border-[#1E3A6C]">
+            <div className="flex items-center justify-between pb-5 border-b border-[#0055FF]/20">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#38BDF8] text-white flex items-center justify-center font-black shadow-lg">
+                <div className="h-10 w-10 rounded-xl bg-pmk-gradient text-white flex items-center justify-center font-black shadow-lg shadow-[#0055FF]/30">
                   PMK
                 </div>
                 <div>
                   <h2 className="text-sm font-black tracking-tight text-white font-display">
                     PMK NEXA CMS
                   </h2>
-                  <span className="text-[10px] text-[#38BDF8] font-mono block">
+                  <span className="text-[10px] text-[#00D2FF] font-mono block">
                     ENTERPRISE CONTROL
                   </span>
                 </div>
@@ -529,12 +530,12 @@ export default function Admin() {
                     }}
                     className={`w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer group ${
                       isActive
-                        ? 'bg-[#2563EB] text-white shadow-lg shadow-[#2563EB]/30'
-                        : 'text-slate-300 hover:bg-[#132347] hover:text-white'
+                        ? 'bg-pmk-gradient text-white shadow-lg shadow-[#0055FF]/30'
+                        : 'text-slate-300 hover:bg-[#0F1D38] hover:text-white'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <Icon className={`h-4 w-4 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-[#38BDF8]'}`} />
+                      <Icon className={`h-4 w-4 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-[#00D2FF]'}`} />
                       <span className="truncate">{item.label}</span>
                     </div>
 

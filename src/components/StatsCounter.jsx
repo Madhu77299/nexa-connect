@@ -13,7 +13,7 @@ export default function StatsCounter() {
       label: "Commercial Projects",
       detail: "Delivered across business, event ops & digital services",
       icon: TrendingUp,
-      accent: "#3167ff"
+      accent: "#0055FF"
     },
     {
       value: 99.4,
@@ -22,7 +22,7 @@ export default function StatsCounter() {
       label: "SLA Adherence Rate",
       detail: "Reliable execution benchmarks and operational governance",
       icon: ShieldCheck,
-      accent: "#20c9b5"
+      accent: "#10B981"
     },
     {
       value: 50,
@@ -30,7 +30,7 @@ export default function StatsCounter() {
       label: "Ecosystem Partners",
       detail: "Verified vendor & technology provider network",
       icon: Users,
-      accent: "#ff715b"
+      accent: "#00D2FF"
     },
     {
       value: 12,
@@ -38,12 +38,12 @@ export default function StatsCounter() {
       label: "Metro Operating Hubs",
       detail: "Pan-India presence with synchronized local teams",
       icon: MapPin,
-      accent: "#3167ff"
+      accent: "#22C55E"
     }
   ];
 
   return (
-    <section ref={ref} className="w-full py-10 bg-[#f5f7fb] dark:bg-[#08111f] transition-colors duration-300">
+    <section ref={ref} className="w-full py-10 bg-[#f8fafc] dark:bg-[#060B16] transition-colors duration-300 border-t border-neutral-200/60 dark:border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Tag */}
@@ -67,7 +67,7 @@ export default function StatsCounter() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: idx * 0.12 }}
-                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#101c2f] border border-neutral-200/80 dark:border-neutral-800/80 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1"
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#0A1224] border border-neutral-200/80 dark:border-white/[0.08] shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:border-blue-500/30 dark:hover:border-emerald-500/30"
               >
                 {/* Glow pill */}
                 <div 

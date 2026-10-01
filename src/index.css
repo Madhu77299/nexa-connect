@@ -9,12 +9,15 @@
 
 @layer base {
   :root {
-    --color-primary: #0B0E14;       /* Deep Obsidian Slate */
-    --color-surface-dark: #121722;  /* Executive Charcoal */
-    --color-brand: #2563EB;         /* Deep Royal Sapphire */
-    --color-accent-gold: #F59E0B;   /* Warm Champagne Gold */
-    --color-accent-amber: #D97706;  /* Executive Ochre Amber */
-    --color-bg-light: #F8FAFC;      /* Crisp Light Background */
+    --color-primary: #060B16;          /* Deep Midnight Obsidian */
+    --color-surface-dark: #0A1224;     /* Corporate Deep Space Navy */
+    --color-surface-card: #0E1830;     /* Tech Navy Card Base */
+    --color-brand-blue: #0055FF;       /* PMK Logo Royal Cobalt Blue */
+    --color-brand-blue-hover: #0047E0; /* Darker Royal Cobalt */
+    --color-brand-green: #10B981;      /* PMK Logo Vibrant Cyber Emerald */
+    --color-brand-lime: #22C55E;       /* PMK Logo Electric Lime Green */
+    --color-brand-cyan: #00D2FF;       /* PMK Logo Holographic Cyan */
+    --color-bg-light: #F8FAFC;         /* Crisp Light Background */
     --color-text-dark: #0F172A;
     --color-text-light: #F8FAFC;
   }
@@ -28,7 +31,7 @@
 
   body {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    @apply text-[#0F172A] bg-[#F8FAFC] dark:bg-[#0B0E14] dark:text-[#F8FAFC];
+    @apply text-[#0F172A] bg-[#F8FAFC] dark:bg-[#060B16] dark:text-[#F8FAFC];
     transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
   }
   
@@ -48,9 +51,38 @@
   }
 }
 
-/* Global MNC Glassmorphic card specifications */
+/* Global PMK Logo Theme Glassmorphic Card Specifications */
 .nexa-card {
-  @apply bg-white dark:bg-[#121722]/90 backdrop-blur-xl border border-neutral-200/80 dark:border-white/[0.08] rounded-3xl shadow-sm hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300;
+  @apply bg-white dark:bg-[#0A1224]/90 backdrop-blur-xl border border-neutral-200/80 dark:border-white/[0.08] rounded-3xl shadow-sm hover:shadow-2xl hover:border-[#0055FF]/40 dark:hover:border-[#10B981]/40 transition-all duration-300;
+}
+
+/* Brand Gradient Utilities matching PMK Logo P-M-K */
+.bg-pmk-gradient {
+  background: linear-gradient(135deg, #0055FF 0%, #00B4D8 50%, #10B981 100%);
+}
+
+.text-pmk-gradient {
+  background: linear-gradient(135deg, #0055FF 0%, #00D2FF 45%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-pmk-green-gradient {
+  background: linear-gradient(135deg, #00D2FF 0%, #10B981 50%, #22C55E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pmk-glow-blue {
+  box-shadow: 0 0 25px rgba(0, 85, 255, 0.35);
+}
+
+.pmk-glow-green {
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
+}
+
+.pmk-glow-dual {
+  box-shadow: 0 10px 30px rgba(0, 85, 255, 0.2), 0 0 20px rgba(16, 185, 129, 0.15);
 }
 
 .text-stroke-custom {

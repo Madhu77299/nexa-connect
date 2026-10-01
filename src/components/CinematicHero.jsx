@@ -124,8 +124,8 @@ export default function CinematicHero() {
 
         {/* Top Recognition Badge */}
         <div className="flex items-center justify-between gap-4 mb-4">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/75 border border-white/15 backdrop-blur-xl text-xs font-bold tracking-wider text-amber-400 shadow-xl">
-            <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#060B16]/85 border border-[#0055FF]/30 backdrop-blur-xl text-xs font-bold tracking-wider text-[#00D2FF] shadow-xl">
+            <span className="flex h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
             <span className="text-white uppercase">{company.name || "PMK NEXA SOLUTIONS PRIVATE LIMITED"}</span>
             <span className="text-white/40 font-normal">|</span>
             <span className="text-slate-300 font-medium hidden sm:inline">ENDLESS OPPORTUNITIES</span>
@@ -133,9 +133,9 @@ export default function CinematicHero() {
 
           <Link
             to="/opportunities"
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/20 backdrop-blur-xl text-xs font-bold text-white transition-all shadow-lg"
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0055FF]/10 hover:bg-[#0055FF]/20 border border-[#0055FF]/30 backdrop-blur-xl text-xs font-bold text-white transition-all shadow-lg hover:shadow-[0_0_15px_rgba(0,85,255,0.25)]"
           >
-            <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+            <Sparkles className="h-3.5 w-3.5 text-[#10B981]" />
             <span>We Are Hiring — Full-Time &amp; Internships →</span>
           </Link>
         </div>
@@ -151,13 +151,10 @@ export default function CinematicHero() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="space-y-4 sm:space-y-5"
             >
-              {/* Category Tag */}
-
-
               {/* Mega Headline */}
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] font-display text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
                 {currentSlide.title.replace(currentSlide.highlight, '')}
-                <span className="text-amber-400 block sm:inline font-black">
+                <span className="text-pmk-gradient block sm:inline font-black">
                   {currentSlide.highlight}
                 </span>
               </h1>
@@ -172,7 +169,7 @@ export default function CinematicHero() {
                 <Link
                   to={currentSlide.ctaLink}
                   state={currentSlide.ctaState}
-                  className="flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-xl transition-all duration-300 hover:scale-105"
+                  className="flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-pmk-gradient text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(0,85,255,0.4)]"
                 >
                   <span>{currentSlide.ctaText || "Explore Our Capabilities"}</span>
                   <ArrowRight className="h-4 w-4" />
@@ -180,12 +177,11 @@ export default function CinematicHero() {
 
                 <Link
                   to={currentSlide.secondaryCtaLink || "/contact"}
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/20 backdrop-blur-md text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all"
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-[#0055FF]/30 backdrop-blur-md text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all hover:border-[#10B981]/50"
                 >
                   <span>{currentSlide.secondaryCtaText || "Connect With Us"}</span>
                 </Link>
               </div>
-
 
             </motion.div>
           </AnimatePresence>
@@ -199,7 +195,7 @@ export default function CinematicHero() {
                 key={idx}
                 onClick={() => setActiveSlide(idx)}
                 className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${activeSlide === idx
-                    ? 'w-10 bg-amber-400'
+                    ? 'w-10 bg-pmk-gradient shadow-[0_0_10px_rgba(0,210,255,0.6)]'
                     : 'w-2.5 bg-white/30 hover:bg-white/60'
                   }`}
                 aria-label={`Go to slide ${idx + 1}`}

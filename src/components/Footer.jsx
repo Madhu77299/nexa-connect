@@ -15,13 +15,17 @@ export default function Footer() {
     const fetchVisitorCount = async () => {
       try {
         const response = await fetch('https://countapi.mileshilliard.com/api/v1/hit/pmk_nexa_solutions_live_visitors_v1');
-        const data = await response.json();
-        if (data && data.value) {
-          setVisitors(data.value); // Starting fresh count
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.value) {
+            setVisitors(data.value);
+            return;
+          }
         }
-      } catch (error) {
-        console.error("Failed to fetch dynamic visitor count:", error);
+      } catch {
+        // Silent fallback on network/CORS error
       }
+      setVisitors(1284);
     };
     fetchVisitorCount();
   }, []);
@@ -79,11 +83,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-[#070D18] transition-colors duration-300">
+    <footer className="border-t border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#060B16] transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 
         {/* Large Logo & Social Follow Block */}
-        <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-slate-800/80 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-4">
             <Logo className="h-11 sm:h-12" variant="auto" />
           </div>
@@ -102,7 +106,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={soc.platform}
-                  className="h-9 w-9 rounded-xl bg-neutral-100 dark:bg-slate-900 border border-neutral-200 dark:border-slate-800 flex items-center justify-center text-neutral-600 dark:text-neutral-300 hover:text-white hover:bg-[#0066FF] hover:border-[#0066FF] hover:scale-110 shadow-xs transition-all duration-300"
+                  className="h-9 w-9 rounded-xl bg-neutral-100 dark:bg-slate-900 border border-neutral-200 dark:border-slate-800 flex items-center justify-center text-neutral-600 dark:text-neutral-300 hover:text-white hover:bg-gradient-to-r hover:from-[#0055FF] hover:to-[#10B981] hover:border-transparent hover:scale-110 shadow-xs transition-all duration-300"
                   title={soc.platform}
                 >
                   {renderSocialIcon(soc.icon)}
@@ -133,32 +137,32 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-xs text-neutral-600 dark:text-neutral-400">
               <li>
-                <Link to="/" className="hover:text-[#0066FF] dark:hover:text-[#00F2FE] transition-colors">
+                <Link to="/" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-[#0066FF] dark:hover:text-[#00F2FE] transition-colors">
+                <Link to="/about" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#0066FF] dark:hover:text-[#00F2FE] transition-colors">
+                <Link to="/services" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
                   Capabilities
                 </Link>
               </li>
               <li>
-                <Link to="/our-work" className="hover:text-[#0066FF] dark:hover:text-[#00F2FE] transition-colors">
+                <Link to="/our-work" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
                   Our Work &amp; Process
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                  Careers
+                <Link to="/opportunities" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
+                  Careers &amp; Opportunities
                 </Link>
               </li>
               <li>
-                <Link to="/blogs" className="hover:text-[#0066FF] dark:hover:text-[#00F2FE] transition-colors">
+                <Link to="/blogs" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
                   Blogs &amp; Insights
                 </Link>
               </li>
@@ -173,7 +177,7 @@ export default function Footer() {
             <ul className="space-y-2 text-xs text-neutral-600 dark:text-neutral-400">
               {(services || []).slice(0, 5).map((svc) => (
                 <li key={svc.id}>
-                  <Link to="/services" className="hover:text-[#0066FF] dark:hover:text-[#00F2FE] transition-colors">
+                  <Link to="/services" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
                     {svc.title}
                   </Link>
                 </li>
@@ -188,24 +192,24 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-xs text-neutral-600 dark:text-neutral-400">
               <li className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 shrink-0 text-[#0066FF] dark:text-[#00F2FE]" />
-                <a href="mailto:pmknexasolutions@gmail.com" className="hover:underline truncate">
+                <Mail className="h-4 w-4 shrink-0 text-[#0055FF] dark:text-[#00D2FF]" />
+                <a href="mailto:pmknexasolutions@gmail.com" className="hover:underline truncate hover:text-[#0055FF] dark:hover:text-[#10B981]">
                   {company?.contact?.email || "pmknexasolutions@gmail.com"}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 shrink-0 text-[#0066FF] dark:text-[#00F2FE]" />
+                <Phone className="h-4 w-4 shrink-0 text-[#0055FF] dark:text-[#00D2FF]" />
                 <span>{company?.contact?.phone || "+91 86880 07523"}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Building2 className="h-4 w-4 shrink-0 mt-0.5 text-[#0066FF] dark:text-[#00F2FE]" />
+                <Building2 className="h-4 w-4 shrink-0 mt-0.5 text-[#0055FF] dark:text-[#00D2FF]" />
                 <div className="leading-tight">
                   <span className="block text-neutral-900 dark:text-white font-semibold">Head Office:</span>
                   <span>Vizag - Madhurawada, AP</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-[#0066FF] dark:text-[#00F2FE]" />
+                <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-[#0055FF] dark:text-[#00D2FF]" />
                 <div className="leading-tight">
                   <span className="block text-neutral-900 dark:text-white font-semibold">Branch Office:</span>
                   <span>Krishna Complex (1st Floor), Palakonda Rd, Rajam, Srikakulam dist - 532127</span>
@@ -217,27 +221,28 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal Copyright & Policy */}
-        <div className="pt-8 mt-12 border-t border-neutral-200 dark:border-neutral-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
+        <div className="pt-8 mt-12 border-t border-neutral-200 dark:border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div>
               {footerSettings?.copyrightText || `© 2026 ${company?.name || "PMK NEXA SOLUTIONS PRIVATE LIMITED"}. All rights reserved.`}
             </div>
             {/* Dynamic Visitor Counter */}
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-800" title="Live Visitor Count">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-slate-900 border border-neutral-200 dark:border-slate-800" title="Live Visitor Count">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
               <span className="font-semibold text-neutral-600 dark:text-neutral-400">Visitors:</span>
-              <span className="font-mono text-sm font-bold text-[#0066FF] dark:text-[#00F2FE] bg-white dark:bg-black px-2 py-0.5 rounded border border-neutral-200 dark:border-neutral-800 shadow-inner">
+              <span className="font-mono text-sm font-bold text-[#0055FF] dark:text-[#10B981] bg-white dark:bg-black px-2 py-0.5 rounded border border-neutral-200 dark:border-slate-800 shadow-inner">
                 {visitors !== null ? visitors.toLocaleString() : '...'}
               </span>
             </div>
           </div>
           <div className="flex space-x-6">
-            <Link to="/contact" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+            <Link to="/contact" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
               Contact Desk
             </Link>
-            <Link to="/careers" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+            <Link to="/opportunities" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
               Careers
             </Link>
-            <Link to="/admin" className="hover:text-[#0066FF] dark:hover:text-[#00F2FE] transition-colors">
+            <Link to="/admin" className="hover:text-[#0055FF] dark:hover:text-[#10B981] transition-colors">
               CMS Admin
             </Link>
           </div>

@@ -86,20 +86,20 @@ export default function Blogs() {
         <section className="relative pt-16 pb-12 overflow-hidden border-b border-neutral-200/80 dark:border-slate-800/80 bg-white dark:bg-[#0F141F]">
           <NeuralBackground />
           {/* Ambient light gradient orbs */}
-          <div className="absolute top-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-blue-600/10 dark:bg-blue-600/15 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-1/3 -z-10 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-cyan-500/10 blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-[#0055FF]/10 dark:bg-[#0055FF]/15 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-1/3 -z-10 h-96 w-96 rounded-full bg-[#10B981]/10 dark:bg-[#10B981]/15 blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
             
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-black tracking-wider text-blue-600 dark:text-cyan-400 uppercase shadow-xs mx-auto">
-              <span className="flex h-2 w-2 rounded-full bg-blue-600 dark:bg-cyan-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-100 dark:bg-slate-800/90 border border-neutral-200 dark:border-slate-700 text-xs font-black tracking-wider text-[#0055FF] dark:text-[#00D2FF] uppercase shadow-xs mx-auto">
+              <span className="flex h-2 w-2 rounded-full bg-[#0055FF] dark:bg-[#00D2FF] animate-pulse" />
               <span>THE NEXA JOURNAL &amp; INTELLIGENCE</span>
             </div>
 
             {/* Page Title */}
             <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-neutral-900 dark:text-white max-w-4xl mx-auto leading-[1.1]">
-              Perspectives on Scale, Operations &amp; Technology
+              Perspectives on Scale, Operations &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055FF] via-[#00D2FF] to-[#10B981]">Technology</span>
             </h1>
 
             {/* Subtitle */}
@@ -116,7 +116,7 @@ export default function Blogs() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search articles by title, topic, or keyword..."
-                  className="w-full pl-11 pr-10 py-3.5 rounded-2xl bg-neutral-50 dark:bg-slate-900 border border-neutral-200 dark:border-slate-700/80 text-sm text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:focus:ring-cyan-400/50 transition-all shadow-sm"
+                  className="w-full pl-11 pr-10 py-3.5 rounded-2xl bg-neutral-50 dark:bg-[#060B16] border border-neutral-200 dark:border-slate-700/80 text-sm text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#0055FF]/40 dark:focus:ring-[#10B981]/40 transition-all shadow-sm"
                 />
                 {searchQuery && (
                   <button
@@ -143,14 +143,14 @@ export default function Blogs() {
                     onClick={() => setSelectedCategory(cat)}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 shadow-xs ${
                       isSelected
-                        ? 'bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 shadow-md shadow-blue-500/25 dark:shadow-cyan-500/20 scale-102'
-                        : 'bg-white dark:bg-slate-800/80 hover:bg-neutral-100 dark:hover:bg-slate-700/80 text-neutral-600 dark:text-slate-300 border border-neutral-200/80 dark:border-slate-700/80'
+                        ? 'bg-gradient-to-r from-[#0055FF] to-[#10B981] text-white shadow-md shadow-[#0055FF]/20 scale-102'
+                        : 'bg-white dark:bg-[#0A1224] hover:bg-neutral-100 dark:hover:bg-slate-800 text-neutral-600 dark:text-slate-300 border border-neutral-200/80 dark:border-slate-800'
                     }`}
                   >
                     <span>{cat}</span>
                     <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                       isSelected 
-                        ? 'bg-white/20 text-white dark:text-slate-950 font-black' 
+                        ? 'bg-white/20 text-white font-black' 
                         : 'bg-neutral-100 dark:bg-slate-700 text-neutral-500 dark:text-slate-400'
                     }`}>
                       {count}
@@ -168,7 +168,7 @@ export default function Blogs() {
         {/* ========================================================================= */}
         {!searchQuery && selectedCategory === 'All' && featuredArticle && (
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 mb-16 relative z-10">
-            <div className="bg-white dark:bg-[#111726] border border-neutral-200/90 dark:border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div className="bg-white dark:bg-[#0A1224] border border-neutral-200/90 dark:border-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
               <div className="grid grid-cols-1 lg:grid-cols-12">
                 
                 {/* Left: Expansive Visual Media */}
@@ -182,7 +182,7 @@ export default function Blogs() {
 
                   {/* Top Floating Badges */}
                   <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-amber-500 text-slate-950 shadow-md">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-gradient-to-r from-[#0055FF] to-[#10B981] text-white shadow-md">
                       <Flame className="h-3.5 w-3.5" />
                       Featured Editorial
                     </span>
@@ -193,7 +193,7 @@ export default function Blogs() {
                       title="Share link"
                     >
                       {copiedId === featuredArticle.id ? (
-                        <Check className="h-4 w-4 text-emerald-400" />
+                        <Check className="h-4 w-4 text-[#10B981]" />
                       ) : (
                         <Share2 className="h-4 w-4" />
                       )}
@@ -202,7 +202,7 @@ export default function Blogs() {
 
                   {/* Bottom Image Overlay Details */}
                   <div className="absolute bottom-5 left-5 right-5 text-white space-y-1.5">
-                    <span className="text-[11px] font-mono uppercase tracking-widest text-amber-300 font-bold">
+                    <span className="text-[11px] font-mono uppercase tracking-widest text-[#00D2FF] font-bold">
                       {featuredArticle.category}
                     </span>
                     <p className="text-xs text-slate-200/90 hidden sm:block line-clamp-1 font-mono">
@@ -223,7 +223,7 @@ export default function Blogs() {
                     </div>
 
                     <Link to={`/blogs/${featuredArticle.id}`}>
-                      <h2 className="text-2xl sm:text-3xl font-black font-display text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors leading-tight">
+                      <h2 className="text-2xl sm:text-3xl font-black font-display text-neutral-900 dark:text-white group-hover:text-[#0055FF] dark:group-hover:text-[#00D2FF] transition-colors leading-tight">
                         {featuredArticle.title}
                       </h2>
                     </Link>
@@ -273,7 +273,7 @@ export default function Blogs() {
 
                     <Link
                       to={`/blogs/${featuredArticle.id}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider shadow-md shadow-blue-500/20 transition-all group/btn"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] hover:shadow-md hover:shadow-[#0055FF]/25 text-white text-xs font-bold uppercase tracking-wider transition-all group/btn"
                     >
                       <span>Read Story</span>
                       <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -322,7 +322,7 @@ export default function Blogs() {
               </p>
               <button
                 onClick={() => { setSearchQuery(''); setSelectedCategory('All'); }}
-                className="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider transition-all"
+                className="px-5 py-2 rounded-xl bg-gradient-to-r from-[#0055FF] to-[#10B981] text-white text-xs font-bold uppercase tracking-wider transition-all"
               >
                 Reset All Filters
               </button>
@@ -339,10 +339,10 @@ export default function Blogs() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="group bg-white dark:bg-[#111726] border border-neutral-200/80 dark:border-slate-800/90 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-500/40 dark:hover:border-blue-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative"
+                    className="group bg-white dark:bg-[#0A1224] border border-neutral-200/80 dark:border-slate-800/90 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#0055FF]/40 dark:hover:border-[#10B981]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative"
                   >
                     {/* Top Ambient Glow Line on Hover */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#0055FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     <div>
                       {/* Visual Image Thumbnail */}
@@ -357,7 +357,7 @@ export default function Blogs() {
 
                         {/* Floating Category Pill */}
                         <div className="absolute top-4 left-4">
-                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/95 dark:bg-slate-950/85 backdrop-blur-md text-blue-600 dark:text-cyan-400 shadow-sm border border-white/20">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/95 dark:bg-slate-950/85 backdrop-blur-md text-[#0055FF] dark:text-[#00D2FF] shadow-sm border border-white/20">
                             <Sparkles className="h-2.5 w-2.5" />
                             {post.category}
                           </span>
@@ -375,7 +375,7 @@ export default function Blogs() {
                             title="Share article link"
                           >
                             {copiedId === post.id ? (
-                              <Check className="h-3.5 w-3.5 text-emerald-400" />
+                              <Check className="h-3.5 w-3.5 text-[#10B981]" />
                             ) : (
                               <Share2 className="h-3.5 w-3.5" />
                             )}
@@ -394,7 +394,7 @@ export default function Blogs() {
                         
                         {/* Title */}
                         <Link to={`/blogs/${post.id}`}>
-                          <h3 className="text-lg sm:text-xl font-bold font-display text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-2 leading-snug">
+                          <h3 className="text-lg sm:text-xl font-bold font-display text-neutral-900 dark:text-white group-hover:text-[#0055FF] dark:group-hover:text-[#00D2FF] transition-colors line-clamp-2 leading-snug">
                             {post.title}
                           </h3>
                         </Link>
@@ -432,7 +432,7 @@ export default function Blogs() {
                               className="h-7 w-7 rounded-full object-cover ring-1 ring-neutral-300 dark:ring-slate-700"
                             />
                           ) : (
-                            <div className="h-7 w-7 rounded-full bg-blue-600/10 dark:bg-cyan-500/20 text-blue-600 dark:text-cyan-400 flex items-center justify-center font-bold text-xs">
+                            <div className="h-7 w-7 rounded-full bg-[#0055FF]/10 dark:bg-[#0055FF]/20 text-[#0055FF] dark:text-[#00D2FF] flex items-center justify-center font-bold text-xs">
                               {post.author?.charAt(0)}
                             </div>
                           )}
@@ -444,10 +444,10 @@ export default function Blogs() {
                         {/* Read Link with Animated Icon */}
                         <Link
                           to={`/blogs/${post.id}`}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-cyan-400 group-hover:text-blue-700 dark:group-hover:text-cyan-300"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0055FF] dark:text-[#00D2FF] group-hover:text-[#0047E0] dark:group-hover:text-[#10B981]"
                         >
                           <span>Read</span>
-                          <div className="h-6 w-6 rounded-full bg-blue-50 dark:bg-slate-800 group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center transition-all">
+                          <div className="h-6 w-6 rounded-full bg-blue-50 dark:bg-slate-800 group-hover:bg-[#0055FF] group-hover:text-white flex items-center justify-center transition-all">
                             <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                           </div>
                         </Link>
@@ -466,21 +466,21 @@ export default function Blogs() {
         {/* 4. NEWSLETTER SUBSCRIPTION CALLOUT CARD */}
         {/* ========================================================================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-700 to-slate-900 text-white p-8 sm:p-12 shadow-xl">
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#060B16] via-[#0A1224] to-[#060B16] border border-neutral-200/80 dark:border-slate-800/80 text-white p-8 sm:p-12 shadow-2xl">
             {/* Background pattern decor */}
-            <div className="absolute top-0 right-0 -mt-10 -mr-10 h-72 w-72 rounded-full bg-white/10 blur-2xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 -mb-10 -ml-10 h-72 w-72 rounded-full bg-cyan-400/10 blur-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 -mt-10 -mr-10 h-72 w-72 rounded-full bg-[#0055FF]/20 blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 -mb-10 -ml-10 h-72 w-72 rounded-full bg-[#10B981]/20 blur-3xl pointer-events-none" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-3">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-[11px] font-mono tracking-wider uppercase font-bold text-cyan-200">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[11px] font-mono tracking-wider uppercase font-bold text-[#00D2FF]">
                   <Mail className="h-3 w-3" />
                   <span>EXECUTIVE BRIEFING</span>
                 </div>
                 <h3 className="text-2xl sm:text-4xl font-black font-display tracking-tight leading-tight">
                   Stay Ahead of Enterprise Shifts
                 </h3>
-                <p className="text-sm sm:text-base text-blue-100/85 max-w-xl leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
                   Join 1,200+ industry executives, procurement directors, and engineering leaders receiving our monthly briefing on vendor networks, technical velocity, and commercial scale.
                 </p>
               </div>
@@ -488,11 +488,11 @@ export default function Blogs() {
               <div className="lg:col-span-5">
                 {subscribed ? (
                   <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center space-y-2">
-                    <div className="h-10 w-10 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center mx-auto">
+                    <div className="h-10 w-10 rounded-full bg-[#10B981]/20 text-[#10B981] flex items-center justify-center mx-auto">
                       <CheckCircle2 className="h-6 w-6" />
                     </div>
                     <h4 className="font-bold text-white text-base">You are subscribed!</h4>
-                    <p className="text-xs text-blue-100">Look out for our next monthly intelligence dispatch.</p>
+                    <p className="text-xs text-slate-300">Look out for our next monthly intelligence dispatch.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubscribe} className="space-y-3">
@@ -503,16 +503,16 @@ export default function Blogs() {
                         value={emailInput}
                         onChange={(e) => setEmailInput(e.target.value)}
                         placeholder="Enter your corporate email..."
-                        className="flex-1 px-4 py-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-blue-200/60 text-sm focus:outline-none focus:ring-2 focus:ring-white/50"
+                        className="flex-1 px-4 py-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#0055FF]/60"
                       />
                       <button
                         type="submit"
-                        className="px-6 py-3.5 rounded-xl bg-white text-slate-900 hover:bg-blue-50 font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer whitespace-nowrap"
+                        className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#0055FF] to-[#10B981] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer whitespace-nowrap hover:opacity-95"
                       >
                         Subscribe
                       </button>
                     </div>
-                    <p className="text-[11px] text-blue-200/60">
+                    <p className="text-[11px] text-slate-400">
                       No spam. Unsubscribe anytime with a single click.
                     </p>
                   </form>

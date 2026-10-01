@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, Mail, ArrowRight, Shield, Globe, ExternalLink, ChevronRight } from 'lucide-react';
+import { Menu, X, Search, ArrowRight, Shield, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 import Logo from './Logo';
+import SearchModal from './SearchModal';
 import { useData } from '../context/DataContext';
 
 export default function Navbar() {
-  const { company, services } = useData();
+  const { company } = useData();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [servicesDropdown, setServicesDropdown] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile drawer on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -36,7 +32,6 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -47,137 +42,95 @@ export default function Navbar() {
 
   useEffect(() => {
     setIsOpen(false);
-    setServicesDropdown(false);
   }, [location.pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Capabilities', path: '/services', hasDropdown: true },
-    { name: 'Our Work', path: '/our-work' },
-    { name: 'Blogs', path: '/blogs' },
-    { name: 'Contact Us', path: '/contact' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Solutions', path: '/solutions' },
+    { name: 'Impact', path: '/impact' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
     <>
-      {/* Main Sticky Header */}
-      <header className={`w-full sticky top-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#0B0F17]/95 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl py-2.5'
-          : 'bg-[#0B0F17]/85 backdrop-blur-xl border-b border-white/[0.05] py-3.5'
-      }`}>
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+
+      {/* Main Glassmorphic Sticky Header */}
+      <header
+        className={`w-full sticky top-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/90 dark:bg-[#060B16]/90 backdrop-blur-2xl border-b border-black/[0.06] dark:border-cyan-500/20 shadow-md dark:shadow-[0_10px_30px_rgba(0,0,0,0.6),0_0_20px_rgba(0,85,255,0.08)] py-3'
+            : 'bg-white/75 dark:bg-[#060B16]/75 backdrop-blur-xl border-b border-black/[0.04] dark:border-white/[0.06] py-4'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo Lockup */}
-          <div className="flex items-center gap-8">
-            <Logo className="h-10 sm:h-12" />
-
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-5">
-              {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-
-                if (link.hasDropdown) {
-                  return (
-                    <div
-                      key={link.name}
-                      className="relative"
-                      onMouseEnter={() => setServicesDropdown(true)}
-                      onMouseLeave={() => setServicesDropdown(false)}
-                    >
-                      <Link
-                        to={link.path}
-                        className={`flex items-center gap-1.5 text-sm font-bold tracking-tight py-2 transition-colors ${
-                          isActive || location.pathname.startsWith('/services')
-                            ? 'text-amber-400'
-                            : 'text-neutral-300 hover:text-white'
-                        }`}
-                      >
-                        <span>{link.name}</span>
-                        <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesDropdown ? 'rotate-180' : ''}`} />
-                      </Link>
-
-                      {/* Mega Dropdown Preview */}
-                      <AnimatePresence>
-                        {servicesDropdown && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 8 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute top-full left-0 w-[420px] rounded-2xl bg-[#121824] border border-white/15 p-5 shadow-2xl space-y-3 z-50"
-                          >
-                            <div className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 pb-2 border-b border-white/10 flex justify-between font-mono">
-                              <span>ENTERPRISE CAPABILITIES</span>
-                              <span>5 ACTIVE DOMAINS</span>
-                            </div>
-                            <div className="space-y-2">
-                              {services.slice(0, 5).map((svc) => (
-                                <Link
-                                  key={svc.id}
-                                  to="/services"
-                                  className="flex items-start justify-between p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors group"
-                                >
-                                  <div>
-                                    <h4 className="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">
-                                      {svc.title}
-                                    </h4>
-                                    <p className="text-[11px] text-neutral-400 line-clamp-1">
-                                      {svc.shortDescription || svc.description}
-                                    </p>
-                                  </div>
-                                  <ArrowRight className="h-3.5 w-3.5 text-neutral-500 group-hover:translate-x-1 group-hover:text-white transition-all shrink-0 mt-0.5" />
-                                </Link>
-                              ))}
-                            </div>
-                            <div className="pt-2 border-t border-white/10 flex justify-between items-center text-xs">
-                              <Link to="/services" className="text-amber-400 font-bold hover:underline">
-                                View Full Capability Matrix →
-                              </Link>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                }
-
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className={`relative text-sm font-bold tracking-tight py-2 transition-colors flex items-center gap-1.5 ${
-                      isActive ? 'text-amber-400' : 'text-neutral-300 hover:text-white'
-                    }`}
-                  >
-                    <span>{link.name}</span>
-                    {link.isHiring && (
-                      <span className="flex h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
-                    )}
-                  </Link>
-                );
-              })}
-            </nav>
+          {/* Left: Brand Logo */}
+          <div className="flex items-center">
+            <Logo className="h-9 sm:h-11" variant="auto" />
           </div>
 
-          {/* Right Action Items: CMS Admin, Theme Toggle & Mobile Menu */}
-          <div className="flex items-center gap-3">
-            <Link
-              to="/admin"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.16] border border-white/15 text-xs font-bold text-slate-200 hover:text-white transition-all shadow-xs group"
-              title="PMK Nexa CMS Admin Console"
+          {/* Center: Desktop Navigation Links matching Logo Theme */}
+          <nav className="hidden md:flex items-center gap-7 lg:gap-9">
+            {navLinks.map((link) => {
+              const isHome = link.path === '/';
+              const isActive = isHome 
+                ? location.pathname === '/' 
+                : location.pathname.startsWith(link.path);
+
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`relative text-sm tracking-tight py-2 font-medium transition-colors ${
+                    isActive
+                      ? 'text-[#0055FF] dark:text-[#00D2FF] font-bold'
+                      : 'text-neutral-700 dark:text-neutral-300 hover:text-[#0055FF] dark:hover:text-[#10B981]'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavIndicator"
+                      className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#0055FF] via-[#00D2FF] to-[#10B981] rounded-full shadow-[0_0_10px_rgba(0,85,255,0.7)] dark:shadow-[0_0_12px_rgba(0,210,255,0.9)]"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right: Search, Theme Toggle, CMS Admin & Let's Connect CTA */}
+          <div className="flex items-center gap-2.5 sm:gap-3.5">
+            {/* Search Icon Button */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="p-2 sm:p-2.5 rounded-full bg-neutral-100/80 dark:bg-white/[0.08] hover:bg-neutral-200 dark:hover:bg-white/[0.15] hover:border-[#0055FF]/40 dark:hover:border-[#10B981]/40 text-neutral-700 dark:text-neutral-200 transition-all border border-neutral-200/80 dark:border-white/10 cursor-pointer shadow-xs"
+              aria-label="Search"
+              title="Search Capabilities & Solutions (Ctrl+K)"
             >
-              <Shield className="h-3.5 w-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
-              <span>CMS Admin</span>
+              <Search className="h-4 w-4" />
+            </button>
+
+            {/* Theme Toggle Button */}
+            <ThemeToggle className="rounded-full shadow-xs" />
+
+            {/* Let's Connect Pill CTA with PMK Dual Gradient */}
+            <Link
+              to="/contact"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] hover:from-[#0047E0] hover:to-[#059669] text-white text-xs sm:text-sm font-bold tracking-wide shadow-md shadow-blue-500/25 hover:shadow-emerald-500/35 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+            >
+              <span>Let's Connect</span>
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
 
-            <ThemeToggle />
-
-            {/* Mobile Hamburger Toggle Button */}
+            {/* Mobile Hamburger Menu */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white transition-colors cursor-pointer"
+              className="md:hidden p-2 rounded-xl bg-neutral-100 dark:bg-white/[0.08] text-neutral-800 dark:text-white transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -187,16 +140,16 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Off-Canvas Full Drawer */}
+      {/* Mobile Off-Canvas Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="fixed inset-0 z-50 md:hidden">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+              className="fixed inset-0 bg-black/70 backdrop-blur-md"
             />
 
             <motion.div
@@ -204,74 +157,59 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="relative w-full max-w-sm h-full bg-[#0B0F17] border-l border-white/10 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto z-10 text-white"
+              className="relative w-full max-w-sm h-full bg-white dark:bg-[#060B16] border-l border-neutral-200 dark:border-cyan-500/20 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto z-10 text-neutral-900 dark:text-white"
             >
               <div>
-                <div className="flex items-center justify-between pb-5 border-b border-white/10">
-                  <Logo className="h-8" />
+                <div className="flex items-center justify-between pb-5 border-b border-neutral-200 dark:border-white/10">
+                  <Logo className="h-8" variant="auto" />
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 rounded-full text-neutral-400 hover:text-white"
+                    className="p-2 rounded-full text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
                   >
                     <X className="h-6 w-6" />
                   </button>
                 </div>
 
                 <nav className="py-6 space-y-2">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 px-3 block mb-2 font-mono">
-                    GLOBAL ENTERPRISE DIRECTORY
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#0055FF] dark:text-[#00D2FF] px-3 block mb-2 font-mono">
+                    NAVIGATION DIRECTORY
                   </span>
-                  {navLinks.map((link, idx) => (
+                  {navLinks.map((link) => (
                     <Link
                       key={link.name}
                       to={link.path}
                       onClick={() => setIsOpen(false)}
                       className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-bold transition-all ${
                         location.pathname === link.path
-                          ? 'bg-white/[0.08] text-amber-400 border border-amber-400/30'
-                          : 'text-neutral-300 hover:bg-white/[0.05]'
+                          ? 'bg-blue-50 dark:bg-white/[0.08] text-[#0055FF] dark:text-[#00D2FF] border border-[#0055FF]/30 dark:border-[#10B981]/40 shadow-xs'
+                          : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-white/[0.05]'
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <span>{link.name}</span>
-                      </div>
-                      <ChevronRight className="h-4 w-4 text-neutral-500" />
+                      <span>{link.name}</span>
+                      <ChevronRight className="h-4 w-4 text-neutral-400" />
                     </Link>
                   ))}
                 </nav>
               </div>
 
-              <div className="pt-6 border-t border-white/10 space-y-4">
-                <div className="space-y-2 text-xs text-neutral-400">
-                  <div className="flex items-center gap-2">
-                    <Mail className="h-3.5 w-3.5 text-amber-400" />
-                    <span>{company?.contact?.email || "pmknexasolutions@gmail.com"}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="h-3.5 w-3.5 text-emerald-400" />
-                    <span>{company?.contact?.phone || "+91 86880 07523"}</span>
-                  </div>
-                </div>
+              <div className="pt-6 border-t border-neutral-200 dark:border-white/10 space-y-3">
+                <Link
+                  to="/admin"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full rounded-2xl bg-neutral-100 dark:bg-white/[0.08] border border-neutral-200 dark:border-white/10 hover:border-[#0055FF]/40 py-3 text-xs font-bold text-neutral-700 dark:text-neutral-200 uppercase tracking-wider transition-colors"
+                >
+                  <Shield className="h-3.5 w-3.5 text-[#0055FF] dark:text-[#00D2FF]" />
+                  <span>CMS Admin Console</span>
+                </Link>
 
-                <div className="flex flex-col gap-2.5">
-                  <Link
-                    to="/admin"
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full rounded-2xl bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-white py-3 text-xs font-bold uppercase tracking-wider"
-                  >
-                    <Shield className="h-3.5 w-3.5 text-amber-400" />
-                    <span>CMS Admin Console</span>
-                  </Link>
-
-                  <Link
-                    to="/contact"
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full rounded-full bg-blue-600 text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg"
-                  >
-                    <span>Connect With Enterprise Desk</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full rounded-full bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] text-white py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/30"
+                >
+                  <span>Let's Connect</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </motion.div>
           </div>

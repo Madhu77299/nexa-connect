@@ -15,17 +15,24 @@ import { whyChoosePmkData, companyConfig } from '../data/companyData';
 export default function About() {
   return (
     <PageTransition>
-      <div className="bg-[#f8fafc] dark:bg-[#0B0F17] text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-300 antialiased">
+      <div className="bg-[#f8fafc] dark:bg-[#060B16] text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-300 antialiased">
 
         {/* ========================================================================= */}
         {/* 1. HERO VISION HEADER */}
         {/* ========================================================================= */}
-        <section className="relative pt-12 pb-8 overflow-hidden border-b border-neutral-200 dark:border-slate-800/80 bg-white dark:bg-[#0F141F] text-neutral-900 dark:text-white">
+        <section className="relative pt-16 pb-12 overflow-hidden border-b border-neutral-200 dark:border-white/[0.06] bg-white dark:bg-[#080E1B] text-neutral-900 dark:text-white">
           <NeuralBackground />
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-xs font-bold text-[#0055FF] dark:text-[#00D2FF] uppercase tracking-wider mx-auto">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>ENTERPRISE MISSION</span>
+            </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight leading-snug text-neutral-900 dark:text-white mx-auto">
-              Connecting Businesses, Professionals, Vendors and Opportunities.
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-black font-display tracking-tight leading-snug text-neutral-900 dark:text-white mx-auto">
+              Connecting Businesses, Professionals, Vendors and{' '}
+              <span className="bg-gradient-to-r from-[#0055FF] via-[#00D2FF] to-[#10B981] bg-clip-text text-transparent">
+                Opportunities.
+              </span>
             </h1>
 
             <p className="text-base sm:text-lg text-neutral-600 dark:text-slate-300 leading-relaxed mx-auto max-w-3xl">
@@ -40,10 +47,13 @@ export default function About() {
         {/* ========================================================================= */}
         {/* 2. ABOUT US NARRATIVE */}
         {/* ========================================================================= */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 gap-12">
 
             <div className="max-w-4xl mx-auto text-center space-y-5">
+              <span className="text-xs font-bold tracking-widest uppercase text-[#0055FF] dark:text-[#10B981]">
+                CORE PURPOSE
+              </span>
 
               <h2 className="text-3xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white leading-tight">
                 One Network. Multiple Capabilities. Endless Opportunities.
@@ -68,14 +78,15 @@ export default function About() {
         {/* Leadership Section */}
         <LeadershipSection />
 
-
-
         {/* ========================================================================= */}
         {/* 4. WHY CHOOSE PMK? */}
         {/* ========================================================================= */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-6">
 
           <div className="space-y-2 max-w-xl">
+            <span className="text-xs font-bold tracking-widest uppercase text-[#0055FF] dark:text-[#10B981]">
+              COMPETITIVE MOAT
+            </span>
             <h2 className="text-3xl sm:text-4xl font-black font-display text-neutral-900 dark:text-white">
               Why Choose PMK?
             </h2>
@@ -88,9 +99,9 @@ export default function About() {
             {whyChoosePmkData.map((str, idx) => (
               <div
                 key={idx}
-                className="p-7 rounded-3xl bg-white dark:bg-[#121824] border border-neutral-200 dark:border-slate-800 shadow-md hover:border-slate-700 transition-all flex items-start gap-4"
+                className="p-7 rounded-3xl bg-white dark:bg-[#0A1224] border border-neutral-200 dark:border-white/[0.08] shadow-md hover:border-[#0055FF]/40 dark:hover:border-[#10B981]/40 transition-all flex items-start gap-4 hover:-translate-y-1"
               >
-                <div className="h-10 w-10 rounded-2xl bg-blue-600/10 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center shrink-0 font-mono font-black text-xs">
+                <div className="h-10 w-10 rounded-2xl bg-gradient-to-tr from-[#0055FF]/15 to-[#10B981]/20 text-[#0055FF] dark:text-[#10B981] border border-blue-500/20 dark:border-emerald-500/30 flex items-center justify-center shrink-0 font-mono font-black text-xs shadow-xs">
                   0{idx + 1}
                 </div>
                 <div className="space-y-1">

@@ -18,7 +18,7 @@ export default function BlogArticle() {
     return (
       <PageTransition>
         <div className="mx-auto max-w-7xl px-4 py-6 text-center space-y-6">
-          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-500">
+          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#10B981]/10 text-[#10B981]">
             <BookOpen className="h-8 w-8" />
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-neutral-900 dark:text-white font-display">
@@ -30,7 +30,7 @@ export default function BlogArticle() {
           <div className="pt-4">
             <Link 
               to="/blogs" 
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/20 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#0055FF] to-[#10B981] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-[#0055FF]/20 transition-all"
             >
               <ArrowLeft className="h-4 w-4" />
               Return to Journal
@@ -55,10 +55,10 @@ export default function BlogArticle() {
 
   return (
     <PageTransition>
-      <div className="bg-[#f8fafc] dark:bg-[#0B0F17] text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-300">
+      <div className="bg-[#f8fafc] dark:bg-[#060B16] text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-300">
         
         {/* Progress bar accent */}
-        <div className="sticky top-0 z-30 h-1 bg-gradient-to-r from-blue-600 via-amber-500 to-emerald-500 w-full" />
+        <div className="sticky top-0 z-30 h-1 bg-gradient-to-r from-[#0055FF] via-[#00D2FF] to-[#10B981] w-full" />
 
         <article className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
           
@@ -66,7 +66,7 @@ export default function BlogArticle() {
           <div className="flex items-center justify-between pb-8">
             <Link 
               to="/blogs" 
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-amber-400 transition-colors group"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400 hover:text-[#0055FF] dark:hover:text-[#00D2FF] transition-colors group"
             >
               <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
               Back to Journal
@@ -195,7 +195,7 @@ export default function BlogArticle() {
                 return (
                   <div 
                     key={index} 
-                    className="pl-5 border-l-4 border-blue-600 dark:border-amber-400 py-2 text-sm sm:text-base bg-white dark:bg-slate-800/40 rounded-r-xl shadow-xs"
+                    className="pl-5 border-l-4 border-[#0055FF] dark:border-[#10B981] py-2 text-sm sm:text-base bg-white dark:bg-[#0A1224] rounded-r-xl shadow-xs"
                   >
                     <span className="font-semibold text-neutral-900 dark:text-white">{p}</span>
                   </div>
@@ -210,20 +210,20 @@ export default function BlogArticle() {
           </div>
 
           {/* Author Signoff Box */}
-          <div className="my-14 p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900/90 border border-neutral-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+          <div className="my-14 p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0A1224] border border-neutral-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
             {post.authorAvatar ? (
               <img 
                 src={post.authorAvatar} 
                 alt={post.author}
-                className="h-16 w-16 rounded-full object-cover ring-4 ring-blue-500/20"
+                className="h-16 w-16 rounded-full object-cover ring-4 ring-[#0055FF]/20"
               />
             ) : (
-              <div className="h-16 w-16 rounded-full bg-blue-600/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xl">
+              <div className="h-16 w-16 rounded-full bg-[#0055FF]/10 dark:bg-[#0055FF]/20 text-[#0055FF] dark:text-[#00D2FF] flex items-center justify-center font-bold text-xl">
                 {post.author?.charAt(0) || "P"}
               </div>
             )}
             <div className="space-y-1 flex-1">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#0055FF] dark:text-[#10B981]">
                 Published by
               </span>
               <h4 className="text-lg font-black text-neutral-900 dark:text-white">
@@ -247,7 +247,7 @@ export default function BlogArticle() {
                 </h3>
                 <Link 
                   to="/blogs" 
-                  className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-amber-400 hover:underline inline-flex items-center gap-1"
+                  className="text-xs font-bold uppercase tracking-wider text-[#0055FF] dark:text-[#00D2FF] hover:underline inline-flex items-center gap-1"
                 >
                   View All Journal <ArrowRight className="h-3 w-3" />
                 </Link>

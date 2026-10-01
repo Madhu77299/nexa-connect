@@ -54,15 +54,15 @@ export default function CustomCursor() {
     <>
       {/* Outer ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#3167ff] dark:border-[#20c9b5] pointer-events-none z-[9999] flex items-center justify-center font-bold text-[8px] tracking-widest text-[#3167ff] dark:text-[#20c9b5] overflow-hidden"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#0055FF] dark:border-[#10B981] pointer-events-none z-[9999] flex items-center justify-center font-bold text-[8px] tracking-widest text-[#0055FF] dark:text-[#10B981] overflow-hidden backdrop-blur-[1px]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
         }}
         animate={{
           scale: cursorText ? 2.2 : isInteractive ? 1.4 : 1,
-          backgroundColor: cursorText ? 'rgba(49, 103, 255, 0.12)' : 'rgba(0,0,0,0)',
-          borderColor: cursorText ? '#3167ff' : isInteractive ? '#20c9b5' : '',
+          backgroundColor: cursorText ? 'rgba(0, 85, 255, 0.15)' : 'rgba(0,0,0,0)',
+          borderColor: cursorText ? '#0055FF' : isInteractive ? '#10B981' : '',
         }}
         transition={{ type: 'spring', stiffness: 220, damping: 22 }}
       >
@@ -71,14 +71,14 @@ export default function CustomCursor() {
       
       {/* Inner dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-[#3167ff] dark:bg-[#20c9b5] rounded-full pointer-events-none z-[9999] ml-[12px] mt-[12px]"
+        className="fixed top-0 left-0 w-2 h-2 bg-[#0055FF] dark:bg-[#10B981] rounded-full pointer-events-none z-[9999] ml-[12px] mt-[12px]"
         style={{
           x: cursorX,
           y: cursorY,
         }}
         animate={{
           scale: cursorText || isInteractive ? 0.3 : 1,
-          backgroundColor: cursorText ? '#ff715b' : '',
+          backgroundColor: cursorText ? '#00D2FF' : '',
         }}
       />
     </>
