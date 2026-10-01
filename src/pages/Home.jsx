@@ -51,7 +51,7 @@ export default function Home() {
 
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] hover:from-[#0047E0] hover:to-[#059669] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/25 hover:shadow-emerald-500/35 hover:scale-[1.02] transition-all cursor-pointer shrink-0"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#0055FF] via-[#0062FF] to-[#10B981] hover:from-[#0047E0] hover:to-[#059669] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/25 hover:shadow-emerald-500/35 hover:scale-[1.02] transition-all cursor-pointer w-full sm:w-auto shrink-0 text-center"
             >
               <span>Explore All Capabilities</span>
               <ArrowRight className="h-4 w-4" />

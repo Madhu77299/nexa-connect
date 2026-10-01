@@ -59,36 +59,36 @@ export default function TestimonialsSection() {
                 "{current.quote}"
               </p>
 
-              {/* Author Lockup */}
-              <div className="flex items-center justify-between pt-6 border-t border-neutral-200 dark:border-neutral-800">
-                <div className="flex items-center gap-4">
+              {/* Author Lockup & Controls */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-neutral-200 dark:border-neutral-800">
+                <div className="flex items-center gap-3.5">
                   <img
                     src={current.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"}
                     alt={current.author}
-                    className="h-12 w-12 rounded-full object-cover border border-neutral-300 dark:border-neutral-700"
+                    className="h-11 w-11 sm:h-12 sm:w-12 rounded-full object-cover border border-neutral-300 dark:border-neutral-700 shrink-0"
                   />
                   <div>
-                    <h4 className="text-base font-bold text-neutral-900 dark:text-white">
+                    <h4 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white">
                       {current.author}
                     </h4>
-                    <span className="text-xs text-neutral-500 dark:text-neutral-400 block">
+                    <span className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 block">
                       {current.position}, <strong className="text-[#0055FF] dark:text-[#10B981]">{current.company}</strong>
                     </span>
                   </div>
                 </div>
 
                 {/* Controls */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 self-end sm:self-auto">
                   <button
                     onClick={handlePrev}
-                    className="p-2.5 rounded-full bg-neutral-100 dark:bg-slate-800 text-neutral-700 dark:text-neutral-300 hover:bg-[#0055FF] hover:text-white transition-colors"
+                    className="p-2 sm:p-2.5 rounded-full bg-neutral-100 dark:bg-slate-800 text-neutral-700 dark:text-neutral-300 hover:bg-[#0055FF] hover:text-white transition-colors cursor-pointer"
                     aria-label="Previous testimonial"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </button>
                   <button
                     onClick={handleNext}
-                    className="p-2.5 rounded-full bg-neutral-100 dark:bg-slate-800 text-neutral-700 dark:text-neutral-300 hover:bg-[#0055FF] hover:text-white transition-colors"
+                    className="p-2 sm:p-2.5 rounded-full bg-neutral-100 dark:bg-slate-800 text-neutral-700 dark:text-neutral-300 hover:bg-[#0055FF] hover:text-white transition-colors cursor-pointer"
                     aria-label="Next testimonial"
                   >
                     <ChevronRight className="h-4 w-4" />

@@ -160,9 +160,9 @@ export default function Contact() {
                       <div className="h-10 w-10 rounded-xl bg-slate-700 text-white flex items-center justify-center shadow-md">
                         <Mail className="h-5 w-5" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <span className="text-xs font-black uppercase tracking-wider block">Official Email</span>
-                        <strong className="text-xs text-neutral-900 dark:text-white">pmknexasolutions@gmail.com</strong>
+                        <strong className="text-xs text-neutral-900 dark:text-white break-all sm:break-normal block">pmknexasolutions@gmail.com</strong>
                       </div>
                     </div>
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

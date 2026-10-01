@@ -81,7 +81,7 @@ export default function LeadershipSection() {
               </div>
 
               {/* Direct CTA & Connect on LinkedIn */}
-              <div className="flex items-center justify-between pt-4 border-t border-neutral-200 dark:border-white/[0.08] gap-3">
+              <div className="flex flex-wrap items-center justify-between pt-4 border-t border-neutral-200 dark:border-white/[0.08] gap-3">
                 <a
                   href="https://www.linkedin.com/in/prasanna-korikana/"
                   target="_blank"
@@ -98,9 +98,10 @@ export default function LeadershipSection() {
 
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0055FF] dark:text-[#10B981] hover:underline whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0055FF] dark:text-[#10B981] hover:underline"
                 >
-                  Schedule Consultation <ArrowRight className="h-3.5 w-3.5" />
+                  <span>Schedule Consultation</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>

@@ -14,6 +14,7 @@ export default function ThreeHologramEffects() {
 
   useEffect(() => {
     if (!containerRef.current) return;
+    if (window.innerWidth < 1024) return;
 
     const container = containerRef.current;
     let width = container.clientWidth || window.innerWidth;
@@ -408,7 +409,7 @@ export default function ThreeHologramEffects() {
   return (
     <div 
       ref={containerRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-hidden transition-opacity duration-500"
+      className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-10 overflow-hidden transition-opacity duration-500"
       aria-hidden="true"
     />
   );

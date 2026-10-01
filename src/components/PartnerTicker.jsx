@@ -62,8 +62,8 @@ export default function PartnerTicker({
 
 
       {/* Gradient Fades on edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-36 bg-gradient-to-r from-[#f8fafc] dark:from-[#060B16] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-36 bg-gradient-to-l from-[#f8fafc] dark:from-[#060B16] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-20 md:w-36 bg-gradient-to-r from-[#f8fafc] dark:from-[#060B16] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-20 md:w-36 bg-gradient-to-l from-[#f8fafc] dark:from-[#060B16] to-transparent z-10 pointer-events-none" />
 
       {/* Marquee Track */}
       <div className="animate-marquee flex items-center gap-8 md:gap-12">
