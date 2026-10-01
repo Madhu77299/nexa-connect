@@ -73,7 +73,7 @@ export default function Navbar() {
           </div>
 
           {/* Center: Desktop Navigation Links matching Logo Theme */}
-          <nav className="hidden md:flex items-center gap-7 lg:gap-9">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-8">
             {navLinks.map((link) => {
               const isHome = link.path === '/';
               const isActive = isHome 
@@ -104,7 +104,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right: Search, Theme Toggle, CMS Admin & Let's Connect CTA */}
-          <div className="flex items-center gap-2.5 sm:gap-3.5">
+          <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3">
             {/* Search Icon Button */}
             <button
               onClick={() => setIsSearchOpen(true)}
@@ -117,6 +117,16 @@ export default function Navbar() {
 
             {/* Theme Toggle Button */}
             <ThemeToggle className="rounded-full shadow-xs" />
+
+            {/* CMS Admin Button */}
+            <Link
+              to="/admin"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-neutral-100/90 dark:bg-white/[0.08] hover:bg-neutral-200 dark:hover:bg-white/[0.15] text-neutral-800 dark:text-neutral-200 hover:text-[#0055FF] dark:hover:text-[#00D2FF] border border-neutral-300/80 dark:border-white/10 text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] shadow-xs cursor-pointer"
+              title="Access CMS Admin Console"
+            >
+              <Shield className="h-3.5 w-3.5 text-[#0055FF] dark:text-[#00D2FF]" />
+              <span>CMS Admin</span>
+            </Link>
 
             {/* Let's Connect Pill CTA with PMK Dual Gradient */}
             <Link
